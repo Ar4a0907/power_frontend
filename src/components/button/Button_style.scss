@@ -1,0 +1,67 @@
+.Button{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-family: Red Hat Display;
+  font-style: normal;
+  border-radius: 99px;
+  border: none;
+  transition: 0.3s;
+  margin: 10px;
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+}
+
+.Medium{
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.Small{
+  padding: 8px 16px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.XSmall{
+  padding: 4px 16px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.Gray{
+  background-color: #E1E1E3;
+  color: #19191D;
+}
+
+.Blue{
+  background-color: #2979FF;
+  color: white;
+  path {
+    stroke: #FFFFFF;
+  }
+}
+
+.White {
+  background-color: #FFFFFF;
+  color: #1B4EA3;
+  border: 1px solid #2979FF;
+  box-sizing: border-box;
+  path{
+    stroke: #1B4EA3;
+  }
+}
+
+.Pen {
+  padding: 5px;
+  padding-top: 6px;
+  border-radius: 50%;
+  transform: scale(0.85);
+}
+
