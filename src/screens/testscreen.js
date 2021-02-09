@@ -7,7 +7,7 @@ function TestScreen() {
         </header>
         <body>
             <Text text="H1 HEAD" Class="h1" />
-            <Text text="H2 Headline" Class="h2" />
+           <Text text="H2 Headline" Class="h2" />
             <Text text="H3 Headline" Class="h3" />
             <Text text="H4 Headline" Class="h4" />
             <Text text="H5 Headline" Class="h5" />

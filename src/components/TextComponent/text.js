@@ -1,10 +1,10 @@
 import React from 'react';
-import "./text.scss";
+import txt from "./text.module.scss";
 
 const text = (props) =>
 {
     return(
-            <div className={`${props.Class} text`}>
+            <div className={`${txt[props.Class]} ${txt.text}`}>
                 {props.text}
             </div>
     );
