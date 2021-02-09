@@ -2,36 +2,37 @@ import React from 'react';
 import ButtonMade from "../components/button/button";
 import './testscren_style.scss';
 
+
 function TestScreen() {
     return (
-      <div >
-        <header >
-        </header>
-        <body>
-            <div className="Button--Test">
-                <div className="Button--Test-Row">
-                    <ButtonMade Text='Button M' Class='Button Medium Gray'/>
-                    <ButtonMade Text='Button M' Class='Button Medium Blue'/>
-                    <ButtonMade Text='Button M' Class='Button Medium White'/>
+        <div>
+            <header >
+            </header>
+            <body>
+                <div className="Button--Test">
+                    <div className="Button--Test-Row">
+                        <ButtonMade Medium Gray><div>Button M</div></ButtonMade>
+                        <ButtonMade Medium Blue><div>Button M</div></ButtonMade>
+                        <ButtonMade Medium White><div>Button M</div></ButtonMade>
+                    </div>
+                    <div className="Button--Test-Row">
+                        <ButtonMade Small Gray><div>Button S</div></ButtonMade>
+                        <ButtonMade Small Blue><div>Button S</div></ButtonMade>
+                        <ButtonMade Small White><div>Button S</div></ButtonMade>
+                    </div>
+                    <div className="Button--Test-Row">
+                        <ButtonMade XSmall Gray><div>XSmall</div></ButtonMade>
+                        <ButtonMade XSmall Blue><div>XSmall</div></ButtonMade>
+                        <ButtonMade XSmall White><div>XSmall</div></ButtonMade>
+                    </div>
+                    <div className="Button--Test-Row">
+                        <ButtonMade Pen Gray/>
+                        <ButtonMade Pen Blue/>
+                        <ButtonMade Pen White/>
+                    </div>
                 </div>
-                <div className="Button--Test-Row">
-                    <ButtonMade Text='Button S' Class='Button Small Gray'/>
-                    <ButtonMade Text='Button S' Class='Button Small Blue'/>
-                    <ButtonMade Text='Button S' Class='Button Small White'/>
-                </div>
-                <div className="Button--Test-Row">
-                    <ButtonMade Text='XSmall' Class='Button XSmall Gray'/>
-                    <ButtonMade Text='XSmall' Class='Button XSmall Blue'/>
-                    <ButtonMade Text='XSmall' Class='Button XSmall White'/>
-                </div>
-                <div className="Button--Test-Row">
-                    <ButtonMade Text='' Class='Button Gray' Icon='Pen'/>
-                    <ButtonMade Text='' Class='Button Blue' Icon='Pen'/>
-                    <ButtonMade Text='' Class='Button White' Icon='Pen'/>
-                </div>
-            </div>
-        </body>
-      </div>
+            </body>
+        </div>
     );
   }
   

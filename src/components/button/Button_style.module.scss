@@ -42,10 +42,7 @@
 
 .Blue{
   background-color: #2979FF;
-  color: white;
-  path {
-    stroke: #FFFFFF;
-  }
+  color: #FFFFFF;
 }
 
 .White {
@@ -53,15 +50,22 @@
   color: #1B4EA3;
   border: 1px solid #2979FF;
   box-sizing: border-box;
-  path{
-    stroke: #1B4EA3;
-  }
 }
 
 .Pen {
-  padding: 5px;
-  padding-top: 6px;
   border-radius: 50%;
-  transform: scale(0.85);
+  padding: 18px;
+}
+
+.Pen.Blue {
+  background: url("WriteButtonWhite.svg") #2979FF center no-repeat;
+}
+
+.Pen.White {
+  background: url("WriteButtonBlue.svg") #FFFFFF center no-repeat;
+}
+
+.Pen.Gray {
+  background: url("WriteButtonBlack.svg") #E1E1E3 center no-repeat;
 }
 
