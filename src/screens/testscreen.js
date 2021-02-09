@@ -1,27 +1,30 @@
 import Text from "./../components/TextComponent/text.js"
 
 function TestScreen() {
-    return (
-       <div >
-        <header >
-        </header>
-        <body>
-            <Text h1><div>H1 HEAD</div></Text>
-            <Text h2><div>H2 Headline</div></Text>
-            <Text h3><div>H3 Headline</div></Text>
-            <Text h4><div>H4 Headline</div></Text>
-            <Text h5 justify><div>H5 Headline</div> <div>Ya proveraju justify</div></Text>
-            <Text h6 left><div>H6 Headline</div></Text>
-            <Text body_big right><div>Body Big</div></Text>
-            <Text body1><div>Body 1</div></Text>
-            <Text subtitle><div>Subtitle 2</div></Text>
-            <Text button><div>BUTTON</div></Text>
-            <Text body2><div>body 2</div></Text>
-            <Text caption><div>Caption</div></Text>
-            <Text overline><div>OVERLINE</div></Text>
-        </body>
-      </div>
-    );
-  }
-  
-  export default TestScreen;
+  return (
+    <div >
+      <header >
+      </header>
+      <body>
+        <Text h1><span>H1 HEAD</span></Text>
+        <Text h2><span>H2 Headline</span></Text>
+        <Text h3><span>H3 Headline</span></Text>
+        <Text h4><span>H4 Headline</span></Text>
+        <Text h5 justify>
+           <span>H5 Headline</span>
+           <span> I`m testing how justify property works i need more text to testing this span correctly</span>
+        </Text>
+        <Text h6 left><span>H6 Headline</span></Text>
+        <Text bodyBig right><span>Body Big</span></Text>
+        <Text bodyMedium><span>Body 1</span></Text>
+        <Text subtitle><span>Subtitle 2</span></Text>
+        <Text button><span>BUTTON</span></Text>
+        <Text bodySmall><span>body 2</span></Text>
+        <Text caption><span>Caption</span></Text>
+        <Text overline><span>OVERLINE</span></Text>
+      </body>
+    </div>
+  );
+}
+
+export default TestScreen;

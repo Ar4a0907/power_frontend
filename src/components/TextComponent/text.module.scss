@@ -5,7 +5,7 @@
     font-style: normal;
     color: #19191D;
     align-items: center;
-    display:inline-block;
+    display: inline-block;
 }
 
 @mixin txtmixin ($fw,$fz,$lh,$letspac){
@@ -40,11 +40,11 @@
     @include txtmixin(bold,20px,32px,0.15px);
 }
 
-.body_big{
+.bodyBig{
     @include txtmixin(normal,20px,32px,0.44px);
 }
 
-.body1{
+.bodyMain{
     @include txtmixin(normal,16px,24px,0.44px);
 }
 
@@ -56,7 +56,7 @@
     @include txtmixin(bold,14px,17px,0.75px);
 }
 
-.body2{
+.bodySmall{
     @include txtmixin(normal,14px,20px,0.25px);
 }
 
@@ -81,5 +81,5 @@
 
 .justify{
     display: block;
-    text-align: center;
+    text-align: justify;
 }
