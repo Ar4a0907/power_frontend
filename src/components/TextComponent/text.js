@@ -7,10 +7,11 @@ const text = (props) => {
         if (value === true) {
             return key
         }
+        return null;
     })
 
     let textClass = `${TextModuleStyle.text} `;
-    for (let index = 0; index < myClass.length - 1; index++) {
+    for (let index = 0; index < myClass.length; index++) {
         textClass += (TextModuleStyle[myClass[index]] + ' ');
     }
 
