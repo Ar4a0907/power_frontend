@@ -15,24 +15,29 @@
 }
 
 .Medium{
-  padding: 10px 20px;
+  height: 56px;
+  padding: 4px 20px;
   font-weight: bold;
   font-size: 24px;
   line-height: 36px;
 }
 
 .Small{
-  padding: 8px 16px;
+  letter-spacing: 0.44px;
+  height: 40px;
+  padding: 5px 16px;
   font-weight: bold;
   font-size: 16px;
   line-height: 24px;
 }
 
 .XSmall{
-  padding: 4px 16px;
+  height: 32px;
+  padding: 2px 16px;
   font-weight: bold;
   font-size: 14px;
   line-height: 22px;
+  letter-spacing: 0.1px;
 }
 
 .Gray{
@@ -72,3 +77,47 @@
   background-size: 19px 19px;
 }
 
+.Continue{
+  background-color: #E1E1E3;
+  color: #19191D;
+  &::after{
+    content: "";
+    width: 32px;
+    height: 32px;
+    background: url("RightArrow.svg") #E1E1E3 center no-repeat;
+    margin-left: 10px;
+  }
+}
+
+.Bookmark {
+  background-color: #D8E6FF;
+  color: #1B4EA3;
+  &::before {
+    content: "";
+    width: 28px;
+    height: 28px;
+    background: url("Bookmark.svg") #D8E6FF center no-repeat;
+    padding: 0;
+    margin-right: 8px;
+  }
+}
+
+.Delete {
+  background-color: #FFDC99;
+  color: #A37314;
+  &::before{
+    content: "";
+    width: 28px;
+    height: 28px;
+    background: url("TrashCan.svg") #FFDC99 center no-repeat;
+    margin-right: 8px;
+  }
+}
+
+.Hamburger {
+  padding: 18px;
+  border-radius: 50%;
+  background: url("Hamburger.svg") #787885 center no-repeat;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.24), 0px 0px 48px rgba(0, 0, 0, 0.12);
+  background-size: 24px 24px;
+}
