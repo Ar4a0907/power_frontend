@@ -10,9 +10,9 @@ function TestScreen() {
             <Text h2><div>H2 Headline</div></Text>
             <Text h3><div>H3 Headline</div></Text>
             <Text h4><div>H4 Headline</div></Text>
-            <Text h5><div>H5 Headline</div></Text>
-            <Text h6><div>H6 Headline</div></Text>
-            <Text body_big><div>Body Big</div></Text>
+            <Text h5 justify><div>H5 Headline</div> <div>Ya proveraju justify</div></Text>
+            <Text h6 left><div>H6 Headline</div></Text>
+            <Text body_big right><div>Body Big</div></Text>
             <Text body1><div>Body 1</div></Text>
             <Text subtitle><div>Subtitle 2</div></Text>
             <Text button><div>BUTTON</div></Text>

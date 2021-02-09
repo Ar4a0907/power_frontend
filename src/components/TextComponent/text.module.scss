@@ -5,7 +5,7 @@
     font-style: normal;
     color: #19191D;
     align-items: center;
-    display:flex;
+    display:inline-block;
 }
 
 @mixin txtmixin ($fw,$fz,$lh,$letspac){
@@ -69,3 +69,17 @@
     text-transform: uppercase;
 }
 
+.left{
+    display: block;
+    text-align: left;
+}
+
+.right{
+    display: block;
+    text-align: right;
+}
+
+.justify{
+    display: block;
+    text-align: center;
+}
