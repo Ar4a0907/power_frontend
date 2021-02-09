@@ -2,23 +2,23 @@ import Text from "./../components/TextComponent/text.js"
 
 function TestScreen() {
     return (
-      <div >
+       <div >
         <header >
         </header>
         <body>
-            <Text text="H1 HEAD" Class="h1" />
-           <Text text="H2 Headline" Class="h2" />
-            <Text text="H3 Headline" Class="h3" />
-            <Text text="H4 Headline" Class="h4" />
-            <Text text="H5 Headline" Class="h5" />
-            <Text text="H6 Headline" Class="h6" />
-            <Text text="Body Big" Class="body-big" />
-            <Text text="Body 1" Class="body1" />
-            <Text text="Subtitle 2" Class="subtitle" />
-            <Text text="BUTTON" Class="button" />
-            <Text text="body 2" Class="body2" />
-            <Text text="Caption" Class="caption" />
-            <Text text="OVERLINE" Class="overline" />
+            <Text h1><div>H1 HEAD</div></Text>
+            <Text h2><div>H2 Headline</div></Text>
+            <Text h3><div>H3 Headline</div></Text>
+            <Text h4><div>H4 Headline</div></Text>
+            <Text h5><div>H5 Headline</div></Text>
+            <Text h6><div>H6 Headline</div></Text>
+            <Text body_big><div>Body Big</div></Text>
+            <Text body1><div>Body 1</div></Text>
+            <Text subtitle><div>Subtitle 2</div></Text>
+            <Text button><div>BUTTON</div></Text>
+            <Text body2><div>body 2</div></Text>
+            <Text caption><div>Caption</div></Text>
+            <Text overline><div>OVERLINE</div></Text>
         </body>
       </div>
     );
