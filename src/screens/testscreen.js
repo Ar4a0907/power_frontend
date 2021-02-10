@@ -2,13 +2,18 @@ import React from 'react';
 import Block from '../components/Blocks/block';
 import testStyle from './testStyle.module.scss';
 
+function handleClick(event) {
+    event.preventDefault()
+    alert('Click!')
+}
+
 function TestScreen() {
     return (
       <div >
         <header >
         </header>
         <body>
-            <div className={testStyle.container}>
+            <div className={testStyle.container} onClick={handleClick}>
                 <Block big>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias
