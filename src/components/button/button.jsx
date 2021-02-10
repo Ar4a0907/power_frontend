@@ -2,15 +2,14 @@ import React from 'react';
 import buttonStyles from './buttonStyle.module.scss';
 
 
-const Button = (props) => {
+const Button = ({children, onClick, className, ...classes}) => {
 
-    const buttonClass = Object.entries(props).map(([key , value]) =>
-        buttonStyles[key] !== undefined ? buttonStyles[key] : '').join(' ') + ' ' + (props.className ? props.className : '')
-    console.log(buttonClass);
+    const buttonClass = Object.entries(classes).map(([key, value]) =>
+        buttonStyles[key] !== undefined ? buttonStyles[key] : '').join(' ') + ' ' + (className ? className : '')
 
     return (
-        <button className = {buttonClass}>
-            {props.children}
+        <button className = {buttonClass} onClick={onClick}>
+            {children}
         </button>
     );
 

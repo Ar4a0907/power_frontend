@@ -2,6 +2,16 @@ import React from 'react';
 import Button from '../components/button/button';
 import testStyle from './testScreenStyle.module.scss';
 
+function handleClick(event) {
+    event.preventDefault();
+    console.log('Click!');
+}
+
+function hamburger(event) {
+    event.preventDefault();
+    alert('Hamburger!');
+}
+
 function TestScreen() {
     return (
         <div>
@@ -10,7 +20,7 @@ function TestScreen() {
             <body>
                 <div className={testStyle.test}>
                     <div className={testStyle.testRow}>
-                        <Button medium gray className={testStyle['sampleClass']}><div>Button M</div></Button>
+                        <Button onClick={handleClick} medium gray className={testStyle['sampleClass']}><div>Button M</div></Button>
                         <Button medium blue><div>Button M</div></Button>
                         <Button medium white><div>Button M</div></Button>
                         <Button medium continue><div>Continue</div></Button>
@@ -31,7 +41,7 @@ function TestScreen() {
                         <Button pen gray/>
                         <Button pen blue/>
                         <Button pen white/>
-                        <Button hamburger/>
+                        <Button hamburger onClick={hamburger}/>
                     </div>
                 </div>
             </body>
