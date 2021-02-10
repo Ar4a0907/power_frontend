@@ -8,7 +8,7 @@ const Button = ({children, onClick, className, ...classes}) => {
         buttonStyles[key] !== undefined ? buttonStyles[key] : '').join(' ') + ' ' + (className ? className : '')
 
     return (
-        <button className = {buttonClass} onClick={onClick}>
+        <button className={buttonClass} onClick={onClick}>
             {children}
         </button>
     );
