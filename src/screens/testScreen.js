@@ -2,17 +2,17 @@ import React from 'react';
 import Button from '../components/button/button';
 import testStyle from './testScreenStyle.module.scss';
 
-function handleClick(event) {
+const handleClick = (event) => {
     event.preventDefault();
     console.log('Click!');
 }
 
-function hamburger(event) {
+const hamburger = (event) => {
     event.preventDefault();
     alert('Hamburger!');
 }
 
-function TestScreen() {
+const testScreen = () => {
     return (
         <div>
             <header >
@@ -49,4 +49,4 @@ function TestScreen() {
     );
   }
   
-  export default TestScreen;
+  export default testScreen;
