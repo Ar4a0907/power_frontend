@@ -1,4 +1,4 @@
-.Button{
+button {
   display: flex;
   align-items: center;
   text-align: center;
@@ -14,7 +14,7 @@
   }
 }
 
-.Medium{
+.Medium {
   height: 56px;
   padding: 4px 20px;
   font-weight: bold;
@@ -22,7 +22,7 @@
   line-height: 36px;
 }
 
-.Small{
+.Small {
   letter-spacing: 0.44px;
   height: 40px;
   padding: 5px 16px;
@@ -31,7 +31,7 @@
   line-height: 24px;
 }
 
-.XSmall{
+.XSmall {
   height: 32px;
   padding: 2px 16px;
   font-weight: bold;
@@ -40,12 +40,12 @@
   letter-spacing: 0.1px;
 }
 
-.Gray{
+.Gray {
   background-color: #E1E1E3;
   color: #19191D;
 }
 
-.Blue{
+.Blue {
   background-color: #2979FF;
   color: #FFFFFF;
 }
@@ -63,28 +63,28 @@
 }
 
 .Pen.Blue {
-  background: url("WriteButtonWhite.svg") #2979FF center no-repeat;
+  background: url("writeButtonWhite.svg") #2979FF center no-repeat;
   background-size: 19px 19px;
 }
 
 .Pen.White {
-  background: url("WriteButtonBlue.svg") #FFFFFF center no-repeat;
+  background: url("writeButtonBlue.svg") #FFFFFF center no-repeat;
   background-size: 19px 19px;
 }
 
 .Pen.Gray {
-  background: url("WriteButtonBlack.svg") #E1E1E3 center no-repeat;
+  background: url("writeButtonBlack.svg") #E1E1E3 center no-repeat;
   background-size: 19px 19px;
 }
 
-.Continue{
+.Continue {
   background-color: #E1E1E3;
   color: #19191D;
-  &::after{
+  &::after {
     content: "";
     width: 32px;
     height: 32px;
-    background: url("RightArrow.svg") #E1E1E3 center no-repeat;
+    background: url("rightArrow.svg") #E1E1E3 center no-repeat;
     margin-left: 10px;
   }
 }
@@ -96,7 +96,7 @@
     content: "";
     width: 28px;
     height: 28px;
-    background: url("Bookmark.svg") #D8E6FF center no-repeat;
+    background: url("bookmark.svg") #D8E6FF center no-repeat;
     padding: 0;
     margin-right: 8px;
   }
@@ -105,11 +105,11 @@
 .Delete {
   background-color: #FFDC99;
   color: #A37314;
-  &::before{
+  &::before {
     content: "";
     width: 28px;
     height: 28px;
-    background: url("TrashCan.svg") #FFDC99 center no-repeat;
+    background: url("trashCan.svg") #FFDC99 center no-repeat;
     margin-right: 8px;
   }
 }
@@ -117,7 +117,7 @@
 .Hamburger {
   padding: 18px;
   border-radius: 50%;
-  background: url("Hamburger.svg") #787885 center no-repeat;
+  background: url("hamburger.svg") #787885 center no-repeat;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.24), 0px 0px 48px rgba(0, 0, 0, 0.12);
   background-size: 24px 24px;
 }

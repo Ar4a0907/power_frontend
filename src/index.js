@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import TestScreen from './screens/testscreen';
+import TestScreen from './screens/testScreen';
 import reportWebVitals from './reportWebVitals';
 
 
