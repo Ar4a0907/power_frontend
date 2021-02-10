@@ -2,12 +2,12 @@ import React from 'react';
 import Block from '../components/Blocks/block';
 import testStyle from './testStyle.module.scss';
 
-function handleClick(event) {
+const handleClick = (event) => {
     event.preventDefault()
     alert('Click!')
 }
 
-function TestScreen() {
+const testScreen = () => {
     return (
       <div >
         <header >
@@ -39,4 +39,4 @@ function TestScreen() {
     );
   }
   
-  export default TestScreen;
+  export default testScreen;
