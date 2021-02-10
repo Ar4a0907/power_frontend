@@ -14,7 +14,7 @@ button {
   }
 }
 
-.Medium {
+.medium {
   height: 56px;
   padding: 4px 20px;
   font-weight: bold;
@@ -22,7 +22,7 @@ button {
   line-height: 36px;
 }
 
-.Small {
+.small {
   letter-spacing: 0.44px;
   height: 40px;
   padding: 5px 16px;
@@ -31,7 +31,7 @@ button {
   line-height: 24px;
 }
 
-.XSmall {
+.xSmall {
   height: 32px;
   padding: 2px 16px;
   font-weight: bold;
@@ -40,44 +40,44 @@ button {
   letter-spacing: 0.1px;
 }
 
-.Gray {
+.gray {
   background-color: #E1E1E3;
   color: #19191D;
 }
 
-.Blue {
+.blue {
   background-color: #2979FF;
   color: #FFFFFF;
 }
 
-.White {
+.white {
   background-color: #FFFFFF;
   color: #1B4EA3;
   border: 1px solid #2979FF;
   box-sizing: border-box;
 }
 
-.Pen {
+.pen {
   border-radius: 50%;
   padding: 18px;
 }
 
-.Pen.Blue {
+.pen.blue {
   background: url("writeButtonWhite.svg") #2979FF center no-repeat;
   background-size: 19px 19px;
 }
 
-.Pen.White {
+.pen.white {
   background: url("writeButtonBlue.svg") #FFFFFF center no-repeat;
   background-size: 19px 19px;
 }
 
-.Pen.Gray {
+.pen.gray {
   background: url("writeButtonBlack.svg") #E1E1E3 center no-repeat;
   background-size: 19px 19px;
 }
 
-.Continue {
+.continue {
   background-color: #E1E1E3;
   color: #19191D;
   &::after {
@@ -89,7 +89,7 @@ button {
   }
 }
 
-.Bookmark {
+.bookmark {
   background-color: #D8E6FF;
   color: #1B4EA3;
   &::before {
@@ -102,7 +102,7 @@ button {
   }
 }
 
-.Delete {
+.delete {
   background-color: #FFDC99;
   color: #A37314;
   &::before {
@@ -114,7 +114,7 @@ button {
   }
 }
 
-.Hamburger {
+.hamburger {
   padding: 18px;
   border-radius: 50%;
   background: url("hamburger.svg") #787885 center no-repeat;
