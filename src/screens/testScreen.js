@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../components/button/button';
 import testStyle from './testScreenStyle.module.scss';
+import Block from '../components/Blocks/block';
 
 const handleClick = (event) => {
     event.preventDefault();
@@ -44,6 +45,7 @@ const testScreen = () => {
                         <Button hamburger onClick={hamburger}/>
                     </div>
                 </div>
+            <Block big>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid aut corporis excepturi minima nihil, quibusdam reiciendis? In iusto placeat quidem. Adipisci assumenda autem eveniet fugiat molestias non, perspiciatis quo!</Block>
             </body>
         </div>
     );
