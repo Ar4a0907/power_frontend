@@ -1,0 +1,123 @@
+button {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-family: Red Hat Display;
+  font-style: normal;
+  border-radius: 99px;
+  border: none;
+  transition: 0.3s;
+  margin: 10px;
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+}
+
+.medium {
+  height: 56px;
+  padding: 4px 20px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.small {
+  letter-spacing: 0.44px;
+  height: 40px;
+  padding: 5px 16px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.xSmall {
+  height: 32px;
+  padding: 2px 16px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.1px;
+}
+
+.gray {
+  background-color: #E1E1E3;
+  color: #19191D;
+}
+
+.blue {
+  background-color: #2979FF;
+  color: #FFFFFF;
+}
+
+.white {
+  background-color: #FFFFFF;
+  color: #1B4EA3;
+  border: 1px solid #2979FF;
+  box-sizing: border-box;
+}
+
+.pen {
+  border-radius: 50%;
+  padding: 18px;
+}
+
+.pen.blue {
+  background: url("writeButtonWhite.svg") #2979FF center no-repeat;
+  background-size: 19px 19px;
+}
+
+.pen.white {
+  background: url("writeButtonBlue.svg") #FFFFFF center no-repeat;
+  background-size: 19px 19px;
+}
+
+.pen.gray {
+  background: url("writeButtonBlack.svg") #E1E1E3 center no-repeat;
+  background-size: 19px 19px;
+}
+
+.continue {
+  background-color: #E1E1E3;
+  color: #19191D;
+  &::after {
+    content: "";
+    width: 32px;
+    height: 32px;
+    background: url("rightArrow.svg") #E1E1E3 center no-repeat;
+    margin-left: 10px;
+  }
+}
+
+.bookmark {
+  background-color: #D8E6FF;
+  color: #1B4EA3;
+  &::before {
+    content: "";
+    width: 28px;
+    height: 28px;
+    background: url("bookmark.svg") #D8E6FF center no-repeat;
+    padding: 0;
+    margin-right: 8px;
+  }
+}
+
+.delete {
+  background-color: #FFDC99;
+  color: #A37314;
+  &::before {
+    content: "";
+    width: 28px;
+    height: 28px;
+    background: url("trashCan.svg") #FFDC99 center no-repeat;
+    margin-right: 8px;
+  }
+}
+
+.hamburger {
+  padding: 18px;
+  border-radius: 50%;
+  background: url("hamburger.svg") #787885 center no-repeat;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.24), 0px 0px 48px rgba(0, 0, 0, 0.12);
+  background-size: 24px 24px;
+}
