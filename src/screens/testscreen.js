@@ -1,4 +1,4 @@
-import Text from '../components/Text/text.js'
+import Text from '../components/Text/text.jsx'
 
 function TestScreen() {
   return (
