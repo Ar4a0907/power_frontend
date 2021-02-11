@@ -1,0 +1,22 @@
+.container {
+  max-width: 368px;
+  width: 100%;
+  height: 10px;
+  background: #F1F1F1;
+  border-radius: 13.617px;
+}
+
+.filled {
+  height: 100%;
+  background-color: #70A6E8;
+  border-radius: 13.617px;
+  transition: width 0.5s ease-in-out;
+}
+
+.danger {
+  background: linear-gradient(270deg, #FCAE73 0%, #F79042 99.18%);
+}
+
+.success {
+  background: linear-gradient(90deg, #209D43 0%, #2BC255 100%);
+}

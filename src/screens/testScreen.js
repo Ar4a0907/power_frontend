@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../components/button/button';
 import testStyle from './testScreenStyle.module.scss';
+import ProgressBar from '../components/progressBar/progressBar';
 
 const handleClick = (event) => {
     event.preventDefault();
@@ -44,6 +45,9 @@ const testScreen = () => {
                         <Button hamburger onClick={hamburger}/>
                     </div>
                 </div>
+                <ProgressBar value={30} danger className={testStyle.progressBarTest}/>
+                <ProgressBar value={20} className={testStyle.progressBarTest}/>
+                <ProgressBar value={40} success className={testStyle.progressBarTest}/>
             </body>
         </div>
     );
