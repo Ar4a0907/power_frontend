@@ -48,6 +48,7 @@ const testScreen = () => {
                 <ProgressBar value={30} danger className={testStyle.progressBarTest}/>
                 <ProgressBar value={20} className={testStyle.progressBarTest}/>
                 <ProgressBar value={40} success className={testStyle.progressBarTest}/>
+                <ProgressBar value={55}/>
             </body>
         </div>
     );
