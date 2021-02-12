@@ -1,7 +1,7 @@
 import React from 'react';
 import blockStyles from './blockStyle.module.scss';
 
-const block = ({children, className, onClick, ...classes}) => {
+const Block = ({children, className, onClick, ...classes}) => {
 
     const blockClass = Object.entries(classes).map(([key, value]) =>
         blockStyles[key] !== undefined ? blockStyles[key] : '').join(' ') + ' ' + (className ? className : '')
@@ -14,4 +14,4 @@ const block = ({children, className, onClick, ...classes}) => {
     );
 }
 
-export default block;
+export default Block;
