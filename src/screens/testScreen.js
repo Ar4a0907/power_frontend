@@ -52,7 +52,7 @@ const testScreen = () => {
                 <ProgressBar value={20} className={testStyle.progressBarTest}/>
                 <ProgressBar value={40} success className={testStyle.progressBarTest}/>
                 <ProgressBar value={55}/>
-                <div className={testStyle.testRow}>
+                <div className={testStyle.testRow + ' ' + testStyle.notVisible}>
                     <Icon type="cardsSelected"/>
                     <Icon type="cards"/>
                     <Icon type="goalsSelected"/>
@@ -65,6 +65,19 @@ const testScreen = () => {
                     <Icon type="settings"/>
                     <Icon type="transactionsSelected"/>
                     <Icon type="transactions"/>
+                    <Icon type="bookmark"/>
+                    <Icon type="check"/>
+                    <Icon type="cross"/>
+                    <Icon type="disabled"/>
+                    <Icon type="downArrow"/>
+                    <Icon type="hamburger"/>
+                    <Icon type="lock"/>
+                    <Icon type="rightArrow"/>
+                    <Icon type="trashCan"/>
+                    <Icon type="upArrow"/>
+                    <Icon type="whitePen"/>
+                    <Icon type="blackPen"/>
+                    <Icon type="bluePen"/>
                 </div>
             </body>
         </div>
