@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../components/button/button';
 import testStyle from './testScreenStyle.module.scss';
 import Block from '../components/Blocks/block';
+import ProgressBar from '../components/progressBar/progressBar';
 
 const handleClick = (event) => {
     event.preventDefault();
@@ -45,7 +46,11 @@ const testScreen = () => {
                         <Button hamburger onClick={hamburger}/>
                     </div>
                 </div>
-            <Block big>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid aut corporis excepturi minima nihil, quibusdam reiciendis? In iusto placeat quidem. Adipisci assumenda autem eveniet fugiat molestias non, perspiciatis quo!</Block>
+                <Block big>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid aut corporis excepturi minima nihil, quibusdam reiciendis? In iusto placeat quidem. Adipisci assumenda autem eveniet fugiat molestias non, perspiciatis quo!</Block>
+                <ProgressBar value={30} danger className={testStyle.progressBarTest}/>
+                <ProgressBar value={20} className={testStyle.progressBarTest}/>
+                <ProgressBar value={40} success className={testStyle.progressBarTest}/>
+                <ProgressBar value={55}/>
             </body>
         </div>
     );
