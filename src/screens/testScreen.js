@@ -3,6 +3,7 @@ import Button from '../components/button/button';
 import testStyle from './testScreenStyle.module.scss';
 import Block from '../components/Blocks/block';
 import ProgressBar from '../components/progressBar/progressBar';
+import Icon from '../components/icons/icons';
 
 const handleClick = (event) => {
     event.preventDefault();
@@ -51,6 +52,20 @@ const testScreen = () => {
                 <ProgressBar value={20} className={testStyle.progressBarTest}/>
                 <ProgressBar value={40} success className={testStyle.progressBarTest}/>
                 <ProgressBar value={55}/>
+                <div className={testStyle.testRow}>
+                    <Icon type="cardsSelected"/>
+                    <Icon type="cards"/>
+                    <Icon type="goalsSelected"/>
+                    <Icon type="goals"/>
+                    <Icon type="inovicesSelected"/>
+                    <Icon type="inovices"/>
+                    <Icon type="overviewSelected"/>
+                    <Icon type="overview"/>
+                    <Icon type="settingsSelected"/>
+                    <Icon type="settings"/>
+                    <Icon type="transactionsSelected"/>
+                    <Icon type="transactions"/>
+                </div>
             </body>
         </div>
     );

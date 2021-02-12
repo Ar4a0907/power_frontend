@@ -1,0 +1,52 @@
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.cards {
+  background: url("unselected/cards.svg") no-repeat center;
+}
+
+.cardsSelected {
+  background: url("selected/cardsSelected.svg") no-repeat center;
+}
+
+.goals {
+  background: url("unselected/goals.svg") no-repeat center;
+}
+
+.goalsSelected {
+  background: url("selected/goalsSelected.svg") no-repeat center;
+}
+
+.inovices {
+  background: url("unselected/inovices.svg") no-repeat center;
+}
+
+.inovicesSelected {
+  background: url("selected/inovicesSelected.svg") no-repeat center;
+}
+
+.overview {
+  background: url("unselected/overview.svg") no-repeat center;
+}
+
+.overviewSelected {
+  background: url("selected/overviewSelected.svg") no-repeat center;
+}
+
+.settings {
+  background: url("unselected/settings.svg") no-repeat center;
+}
+
+.settingsSelected {
+  background: url("selected/settingsSelected.svg") no-repeat center;
+}
+
+.transactions {
+  background: url("unselected/transactions.svg") no-repeat center;
+}
+
+.transactionsSelected {
+  background: url("selected/transactionsSelected.svg") no-repeat center;
+}
