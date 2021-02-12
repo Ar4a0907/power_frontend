@@ -1,19 +1,19 @@
 import React from 'react';
 import textModuleStyle from './text.module.scss';
 
-const text = ({children, className, ...classes}) => {
+const Text = ({children, className, ...classes}) => {
 
     const textClass = Object.entries(classes).map(([key]) =>
     textModuleStyle[key] !== undefined ? textModuleStyle[key] : '').join(' ') + ' ' + (className ? className : '')
 
 
     return (
-        <div className = {textClass}>
+        <span className = {textClass}>
             {children}
-        </div>
+        </span>
     );
 }
 
 
 
-export default text;
+export default Text;
