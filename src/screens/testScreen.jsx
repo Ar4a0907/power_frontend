@@ -13,9 +13,9 @@ const testScreen = () => {
                 <Text h3>H3 Headline</Text>
                 <Text h4>H4 Headline</Text>
                 <Text h5>H5 Headline</Text>
-                <Text h6>H6 Headline</Text>
-                <Text bodyBig>Body big</Text>
-                <Text bodyMain>Body 1</Text>
+                <Text h6 right>H6 Headline</Text>
+                <Text bodyBig justify>Body big</Text>
+                <Text bodyMain left>Body 1</Text>
                 <Text subtitle>Subtitle</Text>
                 <Text button>BUTTON</Text>
                 <Text bodySmall>Body 2</Text>

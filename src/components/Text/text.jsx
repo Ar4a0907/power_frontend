@@ -1,16 +1,17 @@
 import React from 'react';
 import textModuleStyle from './text.module.scss';
 
-const Text = ({children, className, ...classes}) => {
+const Text = ({children, className,type, ...classes}) => {
 
     const textClass = Object.entries(classes).map(([key]) =>
-    textModuleStyle[key] !== undefined ? textModuleStyle[key] : '').join(' ') + ' ' + (className ? className : '')
+    textModuleStyle[key] !== undefined ? textModuleStyle[key] : '').join(' ') + ' ' + (className ? className : '');
 
+    const ComponentType = (['justify','right','left'].some(substring => textClass.includes(substring))) ? 'div' : 'span';
 
     return (
-        <span className = {textClass}>
+        <ComponentType className = {textClass}>
             {children}
-        </span>
+        </ComponentType>
     );
 }
 
