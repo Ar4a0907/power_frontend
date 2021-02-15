@@ -3,6 +3,7 @@ import Button from '../components/button/button';
 import testStyle from './testScreenStyle.module.scss';
 import Block from '../components/Blocks/block';
 import ProgressBar from '../components/progressBar/progressBar';
+import CheckBox from "../components/checkBox/checkBox";
 import Icon from '../components/icons/icons';
 
 const handleClick = (event) => {
@@ -52,6 +53,12 @@ const testScreen = () => {
                 <ProgressBar value={20} className={testStyle.progressBarTest}/>
                 <ProgressBar value={40} success className={testStyle.progressBarTest}/>
                 <ProgressBar value={55}/>
+                <div className={testStyle.test}>
+                    <div className={testStyle.testRow}>
+                        <CheckBox onChange={() => console.log('Checkbox changed')}/>
+                        <CheckBox checked={true} onChange={() => console.log('Checkbox changed')}/>
+                    </div>
+                </div>
                 <div className={testStyle.testRow + ' ' + testStyle.notVisible}>
                     <Icon type="cardsSelected"/>
                     <Icon type="cards"/>
