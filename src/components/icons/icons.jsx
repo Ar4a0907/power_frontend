@@ -1,11 +1,27 @@
-import React from 'react';
-import iconsStyle from './iconsStyle.module.scss';
+import React , { useState, useEffect } from 'react';
 
-const Icon = (props) => {
+const Icon = ({ type, ...rest }) => {
+    const [icon, setIcon] = useState('');
+    useEffect( () => {
+
+        async function importIcon() {
+            if (type) {
+                const importedIcon = await import(`./images/${type}.svg`);
+                setIcon(importedIcon.default);
+            } else {
+                const importedIcon = await import(`./images/questionMark.svg`);
+                setIcon(importedIcon.default);
+                console.log('Invalid icon type!')
+            }
+        }
+
+        importIcon();
+    }, [type]);
 
     return (
-        <div className={iconsStyle.icon + ' ' + iconsStyle[props.type]}/>
+        <img src={icon} alt={''}/>
     )
-}
+
+};
 
 export default Icon;

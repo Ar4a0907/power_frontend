@@ -60,17 +60,11 @@ const testScreen = () => {
                     </div>
                 </div>
                 <div className={testStyle.testRow + ' ' + testStyle.notVisible}>
-                    <Icon type="cardsSelected"/>
                     <Icon type="cards"/>
-                    <Icon type="goalsSelected"/>
                     <Icon type="goals"/>
-                    <Icon type="inovicesSelected"/>
                     <Icon type="inovices"/>
-                    <Icon type="overviewSelected"/>
                     <Icon type="overview"/>
-                    <Icon type="settingsSelected"/>
                     <Icon type="settings"/>
-                    <Icon type="transactionsSelected"/>
                     <Icon type="transactions"/>
                     <Icon type="bookmark"/>
                     <Icon type="check"/>
@@ -85,6 +79,7 @@ const testScreen = () => {
                     <Icon type="whitePen"/>
                     <Icon type="blackPen"/>
                     <Icon type="bluePen"/>
+                    <Icon />
                 </div>
             </body>
         </div>
