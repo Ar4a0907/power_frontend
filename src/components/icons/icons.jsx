@@ -4,7 +4,7 @@ const Icon = ({ type, ...rest }) => {
     const [icon, setIcon] = useState('');
     useEffect( () => {
 
-        async function importIcon() {
+        const importIcon = async () => {
             if (type) {
                 const importedIcon = await import(`./images/${type}.svg`);
                 setIcon(importedIcon.default);
