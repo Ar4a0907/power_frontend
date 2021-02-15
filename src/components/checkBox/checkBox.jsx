@@ -7,7 +7,9 @@ const CheckBox = (props) => {
 
     const handleChange = () => {
         setCheck(!check)
-        console.log('checkbox changed!')
+        if (props.onChange) {
+            props.onChange(!check);
+        }
     }
 
     return (

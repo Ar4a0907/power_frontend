@@ -54,8 +54,8 @@ const testScreen = () => {
                 <ProgressBar value={55}/>
                 <div className={testStyle.test}>
                     <div className={testStyle.testRow}>
-                        <CheckBox/>
-                        <CheckBox checked={true}/>
+                        <CheckBox onChange={() => console.log('Checkbox changed')}/>
+                        <CheckBox checked={true} onChange={() => console.log('Checkbox changed')}/>
                     </div>
                 </div>
             </body>
