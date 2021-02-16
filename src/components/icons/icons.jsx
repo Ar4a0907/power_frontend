@@ -1,27 +1,26 @@
-import React , { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Icon = ({ type, ...rest }) => {
+const Icon = ({ type, className }) => {
+
     const [icon, setIcon] = useState('');
-    useEffect( () => {
 
+    useEffect(() => {
         const importIcon = async () => {
             if (type) {
-                const importedIcon = await import(`./images/${type}.svg`);
+                const importedIcon = await import(`../../assets/icons/${type}.svg`);
                 setIcon(importedIcon.default);
             } else {
-                const importedIcon = await import(`./images/questionMark.svg`);
+                const importedIcon = await import(`../../assets/icons/questionMark.svg`);
                 setIcon(importedIcon.default);
-                console.log('Invalid icon type!')
+                console.error('Invalid icon type!')
             }
         }
-
         importIcon();
     }, [type]);
 
     return (
-        <img src={icon} alt={''}/>
+        <img src={icon} alt={''} className={className}/>
     )
-
 };
 
 export default Icon;

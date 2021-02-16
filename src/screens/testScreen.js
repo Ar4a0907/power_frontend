@@ -60,7 +60,7 @@ const testScreen = () => {
                     </div>
                 </div>
                 <div className={testStyle.testRow + ' ' + testStyle.notVisible}>
-                    <Icon type="cards"/>
+                    <Icon type="cards" className={testStyle.testIcon}/>
                     <Icon type="goals"/>
                     <Icon type="inovices"/>
                     <Icon type="overview"/>
