@@ -4,6 +4,7 @@ import testStyle from './testScreenStyle.module.scss';
 import Block from '../components/Blocks/block';
 import ProgressBar from '../components/progressBar/progressBar';
 import CheckBox from "../components/checkBox/checkBox";
+import RadioButton from "../components/radioButton/radioButton";
 
 const handleClick = (event) => {
     event.preventDefault();
@@ -58,6 +59,8 @@ const testScreen = () => {
                         <CheckBox checked={true} onChange={() => console.log('Checkbox changed')}/>
                     </div>
                 </div>
+                <RadioButton checked={1} items={['some.label.id', 'some.label.id2', 'some.label.id3', 'some.label.id4', 'some.label.id5']} />
+                <RadioButton checked={1} items={['1', '2', '3', '4', '5']} />
             </body>
         </div>
     );
