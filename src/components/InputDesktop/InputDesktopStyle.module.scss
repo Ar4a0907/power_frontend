@@ -50,6 +50,9 @@
     align-items: center;
     letter-spacing: 0.5px;
     color: #2264D1;
+    &.successful {
+        color: #37833B;
+    }
 }
 
 .clearButton {
@@ -62,6 +65,9 @@
     &:focus {
         outline: none;
     }
+    &.successful {
+        background: url('../../assets/images/icons/check.svg') center no-repeat;
+    }
 }
 
 .container:focus-within {
@@ -72,5 +78,10 @@
     border-radius: 10px; 
     }
 
+.container.successful {
+    border: 1px solid #43A047;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
 
 

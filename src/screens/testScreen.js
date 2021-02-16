@@ -53,7 +53,8 @@ const testScreen = () => {
                 <ProgressBar value={40} success className={testStyle.progressBarTest}/>
                 <ProgressBar value={55}/>
                 <div>
-                    <InputDesktop  placeholder = 'Empty Input' label = {'Cardholder Name'}/>
+                    <InputDesktop  placeholder = 'Empty Input' label = 'Cardholder Name' />
+                    <InputDesktop placeholder = 'Empty Input' label = 'Confirmed input' successful />
                 </div>
             </body>
         </div>

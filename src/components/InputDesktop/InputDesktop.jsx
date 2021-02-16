@@ -10,12 +10,11 @@ const InputDekstop = ({className,placeholder,label, ...classes}) => {
     const [elementsVisibility,setElementsVisibility] = useState(true);
     const [divDisplay,setDivDisplay] = useState(true);
     const [divPosition,setDivPosition] = useState(true);
+    const [showFocusElement,setShowFocusElement] = useState(false);
 
     const handleChange = (event) => {
       setText(event.target.value)
     };
-
-    const [showFocusElement,setShowFocusElement] = useState(false);
 
     const toggleLabel = () => {
             setShowFocusElement(!showFocusElement);
@@ -52,10 +51,15 @@ const InputDekstop = ({className,placeholder,label, ...classes}) => {
     }
 
     return (
-        <div className = {InputStyles['container']} style = {divStyle} >
-            { label && <label className = {InputStyles['label']} style={focusStyle} > { label } </label>}
-            <input className = {`${inputClass} ${InputStyles['input']}`} placeholder = {placeholder} value = {text} onChange = {handleChange} onFocus = {changeStyleState} onBlur = {changeStyleState}/>
-            <button onClick={clearButton} className = {InputStyles['clearButton']}  style = {focusStyle}/>
+        <div className = { `${InputStyles['container']} ${classes.successful && InputStyles['successful']}` } style = {divStyle} >
+            { label && <label className = { `${InputStyles['label']} ${classes.successful && InputStyles['successful']}` } style={focusStyle} > { label } </label>}
+            <input className = { `${inputClass} ${InputStyles['input']}` }
+                placeholder = {placeholder}
+                value = {text}
+                onChange = {handleChange}
+                onFocus = {changeStyleState} 
+                onBlur = {changeStyleState} />
+            <button onClick={clearButton} className = {`${InputStyles['clearButton']} ${classes.successful && InputStyles['successful']} `}  style = {focusStyle}/>
         </div>
     );
 }
