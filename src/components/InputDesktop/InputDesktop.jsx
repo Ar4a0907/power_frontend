@@ -13,11 +13,11 @@ const InputDekstop = ({className,placeholder,label, ...classes}) => {
     const [showFocusElement,setShowFocusElement] = useState(false);
 
     const handleChange = (event) => {
-      setText(event.target.value)
+        setText(event.target.value)
     };
 
     const toggleLabel = () => {
-            setShowFocusElement(!showFocusElement);
+        setShowFocusElement(!showFocusElement);
     };
 
     const focusStyle = {
@@ -27,7 +27,6 @@ const InputDekstop = ({className,placeholder,label, ...classes}) => {
 
     const divStyle = {
         display: divDisplay ? 'flex' : 'block',
-        position: divPosition ? 'relative' : 'relative'
     }
 
     const changeStyleState = (event) =>
