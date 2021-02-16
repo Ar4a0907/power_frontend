@@ -54,8 +54,11 @@
     }
 }
 
-.container button {
+.button {
     background: url('xClearButton.svg') center no-repeat;
     border: none;
     height: 12px;
+    &:focus {
+        outline: none;
+    }
 }

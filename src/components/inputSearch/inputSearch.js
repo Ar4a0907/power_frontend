@@ -1,18 +1,24 @@
-import React from 'react'
+import React,{useState} from 'react'
 import inputSearchStyle from './inputSearchStyle.module.scss'
 
 
-const inputSearch = ({type,className,...classes}) => {
+const InputSearch = ({type,className,...classes}) => {
 
     const inputSearchClass = Object.entries(classes).map(([key]) => 
     inputSearchStyle[key] !== undefined ? inputSearchStyle[key] : '').join(' ') + ' ' + (className ? className : '');
 
+    const [text,setText] = useState('');
+
+    const handleChange = (event) => {
+            setText(event.target.value)
+        };
+
     return (
         <div className = { `${inputSearchClass} ${inputSearchStyle['container']}` } >
-            <input type = "text" placeholder = 'Search for anything' className = {inputSearchStyle['search']} />
-            <button onClick={ () => {console.log('text clear')}} />
+            <input type = "text" placeholder = 'Search for anything' className = {inputSearchStyle['search']} value = {text} onChange = {handleChange} />
+            <button className = {inputSearchStyle['button']} onClick={ () => { setText('') } } />
         </div>
        );
     }
     
-    export default inputSearch;
+    export default InputSearch;

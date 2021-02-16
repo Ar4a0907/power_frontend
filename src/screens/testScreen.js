@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../components/button/button';
 import testStyle from './testScreenStyle.module.scss';
+import InputSearch from '../components/inputSearch/inputSearch';
 
 const handleClick = (event) => {
     event.preventDefault();
@@ -43,6 +44,11 @@ const testScreen = () => {
                         <Button pen white/>
                         <Button hamburger onClick={hamburger}/>
                     </div>
+                </div>
+                <div>
+                    <InputSearch small />
+                    <br/>
+                    <InputSearch big />
                 </div>
             </body>
         </div>
