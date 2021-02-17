@@ -24,5 +24,9 @@ body {
 
 .testIcon {
   cursor: pointer;
-  background: #1B4EA3;
+  &:hover {
+    path, text{
+      stroke: yellow;
+    }
+  }
 }

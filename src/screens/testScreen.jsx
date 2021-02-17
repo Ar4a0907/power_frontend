@@ -5,6 +5,7 @@ import Block from '../components/Blocks/block';
 import ProgressBar from '../components/progressBar/progressBar';
 import CheckBox from "../components/checkBox/checkBox";
 import Text from './../components/Text/text';
+import Icon from "../components/icons/icons";
 
 
 const handleClick = (event) => {
@@ -74,6 +75,28 @@ const testScreen = () => {
                 <Text bodySmall>Body 2</Text>
                 <Text caption>Caption</Text>
                 <Text overline>OVERLINE</Text>
+            </div>
+            <div className={testStyle.testRow + ' ' + testStyle.notVisible}>
+                <Icon type="cards" className={testStyle.testIcon}/>
+                <Icon type="goals"/>
+                <Icon type="inovices"/>
+                <Icon type="overview"/>
+                <Icon type="settings"/>
+                <Icon type="transactions"/>
+                <Icon type="bookmark"/>
+                <Icon type="check"/>
+                <Icon type="cross"/>
+                <Icon type="disabled"/>
+                <Icon type="downArrow"/>
+                <Icon type="hamburger"/>
+                <Icon type="lock"/>
+                <Icon type="rightArrow"/>
+                <Icon type="trashCan"/>
+                <Icon type="upArrow"/>
+                <Icon type="whitePen"/>
+                <Icon type="blackPen"/>
+                <Icon type="bluePen"/>
+                <Icon />
             </div>
             </body>
         </div>
