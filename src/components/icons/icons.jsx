@@ -62,6 +62,7 @@ const Icon = ({ type, className }) => {
         case 'whitePen':
             return <WhitePenIcon className={className}/>
         default :
+            console.error('Invalid icon type!')
             return <QuestionMarkIcon className={className}/>
     }
 };
