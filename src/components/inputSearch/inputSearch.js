@@ -11,13 +11,22 @@ const InputSearch = ({type,className,onChange,...classes}) => {
 
     const handleChange = (event) => {
             setText(event.target.value)
-            onChange(event.target.value)
+            if( onChange !== undefined ) {
+                onChange(event.target.value)
+            }
     };
+
+    const clearButton = () => {
+        setText('');
+        if( onChange !== undefined ) {
+            onChange('')
+        }
+    }
 
     return (
         <div className = { `${inputSearchClass} ${inputSearchStyle['container']}` } >
             <input type = "text" placeholder = 'Search for anything' className = {inputSearchStyle['search']} value = {text} onChange = {handleChange} />
-            <button className = {inputSearchStyle['button']} onClick={ () => { setText('') } } />
+            <button className = {inputSearchStyle['button']} onClick={ clearButton } />
         </div>
        );
     }
