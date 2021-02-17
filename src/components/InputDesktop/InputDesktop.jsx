@@ -7,7 +7,6 @@ const InputDekstop = ({className,placeholder,label,onChange, ...classes}) => {
     InputStyles[key] !== undefined ? InputStyles[key] : '').join(' ') + ' ' + (className ? className : '');
 
     const [text,setText] = useState('');
-    const [elementsVisibility,setElementsVisibility] = useState(false);
     const [divDisplay,setDivDisplay] = useState(false)
     const [showFocusElement,setShowFocusElement] = useState(false);
 
@@ -21,10 +20,7 @@ const InputDekstop = ({className,placeholder,label,onChange, ...classes}) => {
     };
 
     const changeStyleState = (event) => {
-        if(event.target.value !== '') {
-            setElementsVisibility(!elementsVisibility)  
-        } else {
-            setElementsVisibility(!elementsVisibility)  
+        if(event.target.value === '') {
             setDivDisplay(!divDisplay)
             toggleLabel();
         }
@@ -32,7 +28,6 @@ const InputDekstop = ({className,placeholder,label,onChange, ...classes}) => {
 
     const clearButton = (event) => {
         setText('')
-        setElementsVisibility(!elementsVisibility)  
         setDivDisplay(!divDisplay)
         toggleLabel();
         event.target.blur()
