@@ -1,22 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { ReactComponent as BlackPenIcon } from '../../assets/icons/blackPen.svg';
+import { ReactComponent as BluePenIcon } from '../../assets/icons/bluePen.svg';
+import { ReactComponent as BookmarkIcon } from '../../assets/icons/bookmark.svg';
+import { ReactComponent as CardsIcon} from '../../assets/icons/cards.svg';
 
 const Icon = ({ type, className }) => {
-
-    const [icon, setIcon] = useState('');
-
-    useEffect(() => {
-        const importIcon = async () => {
-            if (type) {
-                const importedIcon = await import(`../../assets/icons/${type}.svg`);
-                setIcon(importedIcon.default);
-            } else {
-                const importedIcon = await import(`../../assets/icons/questionMark.svg`);
-                setIcon(importedIcon.default);
-                console.error('Invalid icon type!')
-            }
-        }
-        importIcon();
-    }, [type]);
 
     return (
         <img src={icon} alt={''} className={className}/>
