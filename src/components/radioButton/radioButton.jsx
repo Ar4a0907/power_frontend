@@ -23,29 +23,29 @@ const RadioButton = ({ items, checked, onChange }) => {
     }
 
     useEffect(() => {
-        if (checked !== undefined) {
-            setSelected(items[checked])
+        if (checked !== undefined && checked < items.length) {
+            setSelected(checked.toString())
         }
     }, [checked, items])
 
     return (
-        <React.Fragment>
-            {items.map(value => (
-                <div>
-                    <label className={radioStyle.container} key={value.id}>
+        <>
+            {items.map((value, idx) => (
+                <div key = {idx}>
+                    <label className={radioStyle.container}>
                         {value}
                         <input
-                            type="radio"
-                            name={makeName(items.length)}
-                            value={value}
-                            checked={selected === value}
-                            onChange={handleSelected || onChange}
+                            type = "radio"
+                            name = {makeName(items.length)}
+                            value = {idx}
+                            checked = {selected === idx.toString()}
+                            onChange = {handleSelected}
                         />
                         <span className={radioStyle.checkmark}/>
                     </label>
                 </div>
             ))}
-        </React.Fragment>
+        </>
     )
 }
 
