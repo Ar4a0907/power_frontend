@@ -46,9 +46,9 @@ const testScreen = () => {
                     </div>
                 </div>
                 <div>
-                    <InputSearch small />
+                    <InputSearch small onChange = {(value) => {console.log(value)}} />
                     <br/>
-                    <InputSearch big />
+                    <InputSearch big onChange = {(value) => {console.log(value)}} />
                 </div>
             </body>
         </div>

@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import inputSearchStyle from './inputSearchStyle.module.scss'
 
 
-const InputSearch = ({type,className,...classes}) => {
+const InputSearch = ({type,className,onChange,...classes}) => {
 
     const inputSearchClass = Object.entries(classes).map(([key]) => 
     inputSearchStyle[key] !== undefined ? inputSearchStyle[key] : '').join(' ') + ' ' + (className ? className : '');
@@ -11,7 +11,8 @@ const InputSearch = ({type,className,...classes}) => {
 
     const handleChange = (event) => {
             setText(event.target.value)
-        };
+            onChange(event.target.value)
+    };
 
     return (
         <div className = { `${inputSearchClass} ${inputSearchStyle['container']}` } >
