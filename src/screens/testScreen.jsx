@@ -6,6 +6,7 @@ import ProgressBar from '../components/progressBar/progressBar';
 import CheckBox from "../components/checkBox/checkBox";
 import Text from './../components/Text/text';
 import RadioButton from "../components/radioButton/radioButton";
+import InputDesktop from '../components/InputDesktop/InputDesktop';
 import InputSearch from '../components/inputSearch/inputSearch';
 import Icon from "../components/icons/icons";
 
@@ -103,10 +104,14 @@ const testScreen = () => {
                 <Icon />
             </div>
             <div>
-                    <InputSearch small onChange = {(value) => {console.log(value)}} />
-                    <br/>
-                    <InputSearch big onChange = {(value) => {console.log(value)}} />
-                </div>
+                <InputDesktop  placeholder = 'Empty Input' label = 'Cardholder Name' onChange = {(value) => {console.log(value)}}/>
+                <InputDesktop placeholder = 'Empty Input' label = 'Confirmed input' successful onChange = {(value) => {console.log(value)}} />
+            </div>
+            <div>
+                <InputSearch small onChange = {(value) => {console.log(value)}} />
+                <br/>
+                <InputSearch big onChange = {(value) => {console.log(value)}} />
+            </div>
             </body>
         </div>
     );
