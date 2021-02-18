@@ -101,6 +101,10 @@ const testScreen = () => {
                 <Icon type="bluePen"/>
                 <Icon />
             </div>
+            <div>
+                    <InputDesktop  placeholder = 'Empty Input' label = 'Cardholder Name' onChange = {(value) => {console.log(value)}}/>
+                    <InputDesktop placeholder = 'Empty Input' label = 'Confirmed input' successful onChange = {(value) => {console.log(value)}} />
+                </div>
             </body>
         </div>
     );
