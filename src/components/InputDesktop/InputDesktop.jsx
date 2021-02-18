@@ -12,7 +12,7 @@ const InputDekstop = ({className,placeholder,label,onChange,successful, ...class
 
     const handleChange = (event) => {
         setText(event.target.value)
-        if ( onChange !== undefined ) {
+        if(onChange !== undefined) {
             onChange(event.target.value)
         }
     };
@@ -33,7 +33,7 @@ const InputDekstop = ({className,placeholder,label,onChange,successful, ...class
         setDivDisplay(!divDisplay)
         toggleLabel();
         event.target.blur()
-        if ( onChange !== undefined ) {
+        if(onChange !== undefined) {
             onChange('')
         }
         
@@ -41,15 +41,15 @@ const InputDekstop = ({className,placeholder,label,onChange,successful, ...class
     }
 
     return (
-        <div className = { `${InputStyles['container']} ${successful && InputStyles['successful']} ${divDisplay ? InputStyles['show'] : InputStyles['hide']}` } >
-            <label className = { `${InputStyles['label']} ${successful && InputStyles['successful']}` }  > { label } </label>
-            <input className = { `${inputClass} ${InputStyles['input']}` }
-                placeholder = {placeholder}
-                value = {text}
-                onChange = {handleChange}
-                onFocus = {changeStyleState} 
-                onBlur = {changeStyleState} />
-            <button onClick={clearButton} className = {`${InputStyles['clearButton']} ${successful && InputStyles['successful']}` } />
+        <div className={`${InputStyles['container']} ${successful && InputStyles['successful']} ${divDisplay ? InputStyles['show'] : InputStyles['hide']}`} >
+            <label className={`${InputStyles['label']} ${successful && InputStyles['successful']}`}  >{ label } </label>
+            <input className={ `${inputClass} ${InputStyles['input']}` }
+                placeholder={placeholder}
+                value={text}
+                onChange={handleChange}
+                onFocus={changeStyleState} 
+                onBlur={changeStyleState} />
+            <button onClick={clearButton} className={`${InputStyles['clearButton']} ${successful && InputStyles['successful']}`} />
         </div>
     );
 }

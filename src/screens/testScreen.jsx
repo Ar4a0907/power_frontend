@@ -78,6 +78,10 @@ const testScreen = () => {
             </div>
             <RadioButton checked={1} items={['some.label.id', 'some.label.id2', 'some.label.id3', 'some.label.id4', 'some.label.id5']} />
             <RadioButton checked={0} items={['1', '2', '3', '4', '5']} onChange={() => console.log('RadioButton changed')}/>
+            <div>
+                    <InputDesktop  placeholder = 'Empty Input' label = 'Cardholder Name' onChange = {(value) => {console.log(value)}}/>
+                    <InputDesktop placeholder = 'Empty Input' label = 'Confirmed input' successful onChange = {(value) => {console.log(value)}} />
+                </div>
             </body>
         </div>
     );
