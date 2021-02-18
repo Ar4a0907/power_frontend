@@ -3,6 +3,7 @@
 }
 .testRow{
   display: flex;
+  margin-bottom: 10px;
 }
 
 .sampleClass {
@@ -13,6 +14,19 @@ body {
   padding: 5px;
 }
 
-.progressBarTest{
+.progressBarTest {
   margin-bottom: 10px;
+}
+
+.notVisible {
+  background-color: #A0522D;
+}
+
+.testIcon {
+  cursor: pointer;
+  &:hover {
+    path, text{
+      stroke: yellow;
+    }
+  }
 }
