@@ -24,11 +24,11 @@ const InputSearch = ({type,className,onChange,...classes}) => {
     }
 
     return (
-        <div className = {`${inputSearchClass} ${inputSearchStyle['container']}`} >
+        <div className={`${inputSearchClass} ${inputSearchStyle['container']}`} >
             <input type="text" placeholder='Search for anything'
                 className={inputSearchStyle['search']} value={text}
                 onChange={handleChange} />
-            <button className = {inputSearchStyle['button']} onClick={ clearButton } />
+            <button className={inputSearchStyle['button']} onClick={ clearButton } />
         </div>
        );
     }
