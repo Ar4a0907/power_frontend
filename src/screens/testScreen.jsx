@@ -6,6 +6,7 @@ import ProgressBar from '../components/progressBar/progressBar';
 import CheckBox from "../components/checkBox/checkBox";
 import Text from './../components/Text/text';
 import RadioButton from "../components/radioButton/radioButton";
+import InputSearch from '../components/inputSearch/inputSearch';
 
 
 const handleClick = (event) => {
@@ -78,6 +79,11 @@ const testScreen = () => {
             </div>
             <RadioButton checked={1} items={['some.label.id', 'some.label.id2', 'some.label.id3', 'some.label.id4', 'some.label.id5']} />
             <RadioButton checked={0} items={['1', '2', '3', '4', '5']} onChange={() => console.log('RadioButton changed')}/>
+            <div>
+                    <InputSearch small onChange = {(value) => {console.log(value)}} />
+                    <br/>
+                    <InputSearch big onChange = {(value) => {console.log(value)}} />
+                </div>
             </body>
         </div>
     );
