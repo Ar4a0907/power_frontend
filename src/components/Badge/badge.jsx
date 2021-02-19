@@ -4,10 +4,8 @@ import {ReactComponent as DotIcon} from '../../assets/icons/dot.svg';
 
 const Badge = ({className,label,...classes}) => {
 
-    const badgeClass = Object.entries(classes).map(([key, value]) =>
+    const badgeClass = Object.entries(classes).map(([key]) =>
     badgeStyles[key] !== undefined ? badgeStyles[key] : '').join(' ') + ' ' + (className ? className : '')
-
-    console.log(badgeClass)
 
     return (
         <span className={`${badgeClass} ${badgeStyles['badge']}`}>
