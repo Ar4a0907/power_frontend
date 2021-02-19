@@ -6,6 +6,8 @@ import ProgressBar from '../components/progressBar/progressBar';
 import CheckBox from "../components/checkBox/checkBox";
 import Text from './../components/Text/text';
 import RadioButton from "../components/radioButton/radioButton";
+import InputDesktop from '../components/InputDesktop/InputDesktop';
+import InputSearch from '../components/inputSearch/inputSearch';
 import Icon from "../components/icons/icons";
 import SideNav from "../components/sideNav/sideNav";
 import { BrowserRouter } from "react-router-dom";
@@ -115,7 +117,21 @@ const testScreen = () => {
                     </div>
                 </body>
             </div>
+<<<<<<< HEAD
         </BrowserRouter>
+=======
+            <div>
+                <InputDesktop  placeholder = 'Empty Input' label = 'Cardholder Name' onChange = {(value) => {console.log(value)}}/>
+                <InputDesktop placeholder = 'Empty Input' label = 'Confirmed input' successful onChange = {(value) => {console.log(value)}} />
+            </div>
+            <div>
+                <InputSearch small onChange = {(value) => {console.log(value)}} />
+                <br/>
+                <InputSearch big onChange = {(value) => {console.log(value)}} />
+            </div>
+            </body>
+        </div>
+>>>>>>> cddbc91708b236ec5b85363b80b0c08515f2caeb
     );
 }
 
