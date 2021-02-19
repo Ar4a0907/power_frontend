@@ -7,6 +7,7 @@ import CheckBox from "../components/checkBox/checkBox";
 import Text from './../components/Text/text';
 import RadioButton from "../components/radioButton/radioButton";
 import Icon from "../components/icons/icons";
+import InputDesktop from '../components/InputDesktop/InputDesktop';
 
 
 const handleClick = (event) => {
