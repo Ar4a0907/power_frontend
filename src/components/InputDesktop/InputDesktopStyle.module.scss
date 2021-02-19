@@ -24,14 +24,14 @@
 
 .container {
     position: relative;
-    display: flex;
+    display: block;
     justify-content: flex-end;
     align-items: center;
     align-content: center;
     width: 224px;
     height: 64px;
     background: #ffffff;
-    border: 1px solid #B4B4BB;
+    border: 2px solid #B4B4BB;
     box-sizing: border-box;
     border-radius: 10px;
 }
@@ -90,12 +90,7 @@
     }
 }
 
-.show { 
-    display: block;
- }
-
 .hide { 
-    display: flex;
     & .clearButton{
         display: none;
         &.successful{

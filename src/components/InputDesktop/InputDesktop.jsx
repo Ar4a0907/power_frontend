@@ -8,7 +8,6 @@ const InputDekstop = ({className,placeholder,label,onChange,successful, ...class
 
     const [text,setText] = useState('');
     const [divDisplay,setDivDisplay] = useState(false)
-    const [showFocusElement,setShowFocusElement] = useState(false);
 
     const handleChange = (event) => {
         setText(event.target.value)
@@ -17,21 +16,16 @@ const InputDekstop = ({className,placeholder,label,onChange,successful, ...class
         }
     };
 
-    const toggleLabel = () => {
-        setShowFocusElement(!showFocusElement);
-    };
 
     const changeStyleState = (event) => {
         if(event.target.value === '') {
             setDivDisplay(!divDisplay)
-            toggleLabel();
         }
     }
 
     const clearButton = (event) => {
         setText('')
         setDivDisplay(!divDisplay)
-        toggleLabel();
         event.target.blur()
         if(onChange !== undefined) {
             onChange('')
