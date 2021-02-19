@@ -9,6 +9,7 @@ import RadioButton from "../components/radioButton/radioButton";
 import InputDesktop from '../components/InputDesktop/InputDesktop';
 import InputSearch from '../components/inputSearch/inputSearch';
 import Icon from "../components/icons/icons";
+import Badge from '../components/Badge/badge';
 
 
 const handleClick = (event) => {
@@ -111,6 +112,14 @@ const testScreen = () => {
                 <InputSearch small onChange = {(value) => {console.log(value)}} />
                 <br/>
                 <InputSearch big onChange = {(value) => {console.log(value)}} />
+                <br/>
+            </div>
+            <div>
+            <Badge label="testing" />
+            <Badge label="testing" success />
+            <Badge label="testing" error />
+            <Badge label="testing" warning />
+            <Badge label="testing" disabled />
             </div>
             </body>
         </div>

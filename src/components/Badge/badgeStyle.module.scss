@@ -1,0 +1,39 @@
+.badge {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #4A4AFF;
+    background: #E6E6F2;
+    border-radius: 10px;
+    padding: 2px 5px 2px;
+}
+
+.dotIcon {
+   margin-right: 5px;
+}
+
+@mixin statusMixin ($color, $background) {
+    & .dotIcon circle{
+        fill: $color;
+    }
+    color: $color;
+    background-color: $background;
+}
+
+.success{
+    @include statusMixin (#007F00,#CDFFCD)
+}
+
+.error {
+    @include statusMixin(#D30000,#FFE0E0 )
+}
+
+.warning {
+    @include statusMixin(#965E00,#FFECCC)
+}
+
+.disabled {
+    @include statusMixin(#6E6893, #F2F0F9)
+}
