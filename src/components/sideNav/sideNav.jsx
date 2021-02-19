@@ -3,8 +3,10 @@ import sideNavStyle from './sideNavStyles.module.scss';
 import cashImage from './cashImage.svg';
 import cloudImage from './cloudImage.svg';
 import cloudCashImage from './cloudCashImage.svg';
+import Icon from '../icons/icons.jsx';
+import { NavLink }  from 'react-router-dom';
 
-const SideNav = (props) => {
+const SideNav = ({ menuComponents }) => {
 
     const handleClick = (evt) => {
         evt.preventDefault()
@@ -23,14 +25,19 @@ const SideNav = (props) => {
                 </span>
             </div>
             <div className={sideNavStyle.sideNavMenu}>
-
+                {menuComponents.map( (element, idx) => (
+                    <NavLink key={idx} className={sideNavStyle.sideNavLink} to={element.link} activeClassName={sideNavStyle.sideNavLinkActive}>
+                        <Icon type={element.iconType} className={sideNavStyle.icon} />
+                        <span>{element.label}</span>
+                    </NavLink>
+                ))}
             </div>
             <div className={sideNavStyle.sideNavFooter}>
                 <img src={cloudCashImage} className={sideNavStyle.cloudCash} alt="Cloud Cash"/>
                 <p className={sideNavStyle.slogan}>
                     Give your money awesome space in cloud
                 </p>
-                <button className={sideNavStyle.premiumUpgrade} onClick={handleClick}>Upgrade to premium</button>
+                <button className={sideNavStyle.premiumUpgrade} onClick={handleClick}><span>Upgrade to premium</span></button>
             </div>
         </div>
     )
