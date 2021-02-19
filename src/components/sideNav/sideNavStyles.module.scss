@@ -6,13 +6,17 @@
   height: 100%;
   overflow: auto;
   border-right: 1px #EBEBEB solid;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .sideNavTitle {
   max-width: 136px;
   width: 100%;
   margin-top: 56px;
-  margin-left: 43px;
 }
 
 .title {
@@ -35,4 +39,50 @@
 .cash {
   top: -4px;
   left: 23px;
+}
+
+.sideNavFooter {
+  bottom: 1px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1px;
+  margin-top: auto;
+  padding-bottom: 33px;
+}
+
+.cloudCash {
+  margin: 0 auto;
+  margin-bottom: 9px;
+}
+
+.slogan {
+  line-height: 11px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 9px;
+  max-width: 104px;
+  width: 100%;
+  margin: 0 auto;
+  color: #404040;
+  margin-bottom: 15px;
+}
+
+.premiumUpgrade {
+  margin: 0 auto;
+  padding: 14px 18px;
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 14px;
+  color: #404040;
+  background-color: #FFC145;
+  border-radius: 14px;
+  &::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: url("upgradeArrow.svg") no-repeat center;
+    margin-left: 5px;
+  }
 }
