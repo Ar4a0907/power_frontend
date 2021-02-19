@@ -11,6 +11,8 @@ import InputSearch from '../components/inputSearch/inputSearch';
 import Icon from "../components/icons/icons";
 import SideNav from "../components/sideNav/sideNav";
 import { BrowserRouter } from "react-router-dom";
+import Badge from '../components/Badge/badge';
+
 
 const handleClick = (event) => {
     event.preventDefault();
@@ -122,6 +124,13 @@ const testScreen = () => {
                             <InputSearch small onChange = {(value) => {console.log(value)}} />
                             <br/>
                             <InputSearch big onChange = {(value) => {console.log(value)}} />
+                        </div>
+                        <div>
+                            <Badge label="testing" />
+                            <Badge label="testing" success />
+                            <Badge label="testing" error />
+                            <Badge label="testing" warning />
+                            <Badge label="testing" disabled />
                         </div>
                     </div>
                 </body>
