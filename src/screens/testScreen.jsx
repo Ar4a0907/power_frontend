@@ -114,25 +114,20 @@ const testScreen = () => {
                             <Icon type="bluePen"/>
                             <Icon />
                         </div>
+                        <div>
+                            <InputDesktop  placeholder = 'Empty Input' label = 'Cardholder Name' onChange = {(value) => {console.log(value)}}/>
+                            <InputDesktop placeholder = 'Empty Input' label = 'Confirmed input' successful onChange = {(value) => {console.log(value)}} />
+                        </div>
+                        <div>
+                            <InputSearch small onChange = {(value) => {console.log(value)}} />
+                            <br/>
+                            <InputSearch big onChange = {(value) => {console.log(value)}} />
+                        </div>
                     </div>
                 </body>
             </div>
-<<<<<<< HEAD
         </BrowserRouter>
-=======
-            <div>
-                <InputDesktop  placeholder = 'Empty Input' label = 'Cardholder Name' onChange = {(value) => {console.log(value)}}/>
-                <InputDesktop placeholder = 'Empty Input' label = 'Confirmed input' successful onChange = {(value) => {console.log(value)}} />
-            </div>
-            <div>
-                <InputSearch small onChange = {(value) => {console.log(value)}} />
-                <br/>
-                <InputSearch big onChange = {(value) => {console.log(value)}} />
-            </div>
-            </body>
-        </div>
->>>>>>> cddbc91708b236ec5b85363b80b0c08515f2caeb
-    );
+    )
 }
 
 export default testScreen;

@@ -11,6 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .sideNavTitle {
@@ -131,14 +132,21 @@
 
 @media screen and (max-width: 900px) {
   .sideBar {
-    max-width: 64px;
-    width: 100%;
+    width: 64px;
     & span {
       display: none;
     }
 
     & .titleImage {
-      margin-left: 10px;
+      margin-left: 9px;
+    }
+
+    & .sideNavLink {
+      margin: 0 auto;
+    }
+
+    & .icon {
+      margin: 0 auto;
     }
 
     & .premiumUpgrade {
