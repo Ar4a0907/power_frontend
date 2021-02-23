@@ -24,7 +24,6 @@ const Dropdown = ({label, items, className, ...classes}) => {
     }
 
     const handleClick = () => {
-        console.log(dropdownClass)
         if(dropdownClass === ' ') {
             setShown(!shown)
         }
