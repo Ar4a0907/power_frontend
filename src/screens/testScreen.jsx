@@ -133,8 +133,9 @@ const testScreen = () => {
                             <Badge label="testing" warning />
                             <Badge label="testing" disabled />
                         </div>
-                        <div className={testStyle.testRow}>
+                        <div>
                             <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
+                            <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
                     </div>
                 </body>

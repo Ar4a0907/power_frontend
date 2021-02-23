@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import dropdownStyle from './dropdownStyles.module.scss';
 import { useHistory } from 'react-router-dom';
+import Icon from "../icons/icons";
 
 const Dropdown = ({label, items, className, ...classes}) => {
 
@@ -23,7 +24,10 @@ const Dropdown = ({label, items, className, ...classes}) => {
     }
 
     const handleClick = () => {
-        setShown(!shown)
+        console.log(dropdownClass)
+        if(dropdownClass === ' ') {
+            setShown(!shown)
+        }
     }
 
     const dropdownClass = Object.entries(classes).map(([key, value]) =>
@@ -32,10 +36,17 @@ const Dropdown = ({label, items, className, ...classes}) => {
     return (
         <div className={dropdownClass + ' ' + dropdownStyle.customSelect} onClick={handleClick}>
             <div className={dropdownStyle.label}><span>{label}</span></div>
-            <div><span>{value}</span></div>
+            {dropdownClass !== ' ' ?
+                <Icon type='disabled' className={dropdownStyle.disabledIcon}/> :
+                shown ?
+                <Icon type='upArrow' className={dropdownStyle.arrow}/> :
+                <Icon type='downArrow' className={dropdownStyle.arrow}/>
+            }
+
+            <div className={dropdownStyle.firstSelect}><span>{value}</span></div>
             {shown ?
                 items.map( (element, idx) =>
-                    <div>
+                    <div className={dropdownStyle.select}>
                         <span key={idx} value={idx} onClick={() => handleChange(idx)}>{element.label}</span>
                     </div>
                 ) : null
