@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState, useRef } from 'react';
 import Button from '../components/button/button';
 import testStyle from './testScreenStyle.module.scss';
 import Block from '../components/Blocks/block';
@@ -12,19 +12,28 @@ import Icon from "../components/icons/icons";
 import SideNav from "../components/sideNav/sideNav";
 import { BrowserRouter } from "react-router-dom";
 import Badge from '../components/Badge/badge';
+import Modal from "../components/Modal/modal";
 
 
-const handleClick = (event) => {
-    event.preventDefault();
-    console.log('Click!');
-}
+const TestScreen = () => {
 
-const hamburger = (event) => {
-    event.preventDefault();
-    alert('Hamburger!');
-}
+    const handleClick = (event) => {
+        event.preventDefault();
+        console.log('Click!');
+    }
 
-const testScreen = () => {
+    const hamburger = (event) => {
+        event.preventDefault();
+        alert('Hamburger!');
+    }
+
+    const toggleModal = () => {
+        setModalIsOpen(!modalIsOpen);
+        console.log(modalIsOpen)
+    }
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+
     return (
         <BrowserRouter>
             <div>
@@ -132,6 +141,14 @@ const testScreen = () => {
                             <Badge label="testing" warning />
                             <Badge label="testing" disabled />
                         </div>
+                        <div>
+                            <Button onClick={toggleModal}>Modal</Button>
+                            <Modal toggleModal={toggleModal} modalIsOpen={modalIsOpen}>
+                                <div>
+                                    Hello, it's a me Mario!
+                                </div>
+                            </Modal>
+                        </div>
                     </div>
                 </body>
             </div>
@@ -139,4 +156,4 @@ const testScreen = () => {
     )
 }
 
-export default testScreen;
+export default TestScreen;
