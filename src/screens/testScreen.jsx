@@ -12,6 +12,7 @@ import Icon from "../components/icons/icons";
 import SideNav from "../components/sideNav/sideNav";
 import { BrowserRouter } from "react-router-dom";
 import Badge from '../components/Badge/badge';
+import Tab from '../components/tab/tab';
 
 
 const handleClick = (event) => {
@@ -131,6 +132,9 @@ const testScreen = () => {
                             <Badge label="testing" error />
                             <Badge label="testing" warning />
                             <Badge label="testing" disabled />
+                        </div>
+                        <div>
+                            <Tab className={testStyle['sampleClass']}  tabs={[{label:'Paid', content: <div filter='Paid'>it`s content</div>}, {label:'UnPaid', content: <span>i`m a String</span>}]} />
                         </div>
                     </div>
                 </body>
