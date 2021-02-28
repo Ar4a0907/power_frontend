@@ -1,18 +1,18 @@
-import React , { useState, useRef } from 'react';
+import React , { useState, useRef, useEffect } from 'react';
 import Button from '../components/button/button';
 import testStyle from './testScreenStyle.module.scss';
 import Block from '../components/Blocks/block';
 import ProgressBar from '../components/progressBar/progressBar';
-import CheckBox from "../components/checkBox/checkBox";
+import CheckBox from '../components/checkBox/checkBox';
 import Text from './../components/Text/text';
-import RadioButton from "../components/radioButton/radioButton";
+import RadioButton from '../components/radioButton/radioButton';
 import InputDesktop from '../components/InputDesktop/InputDesktop';
 import InputSearch from '../components/inputSearch/inputSearch';
-import Icon from "../components/icons/icons";
-import SideNav from "../components/sideNav/sideNav";
-import { BrowserRouter } from "react-router-dom";
+import Icon from '../components/icons/icons';
+import SideNav from '../components/sideNav/sideNav';
+import { BrowserRouter } from 'react-router-dom';
 import Badge from '../components/Badge/badge';
-import Modal from "../components/Modal/modal";
+import Modal from '../components/Modal/modal';
 
 
 const TestScreen = () => {
@@ -29,10 +29,23 @@ const TestScreen = () => {
 
     const toggleModal = () => {
         setModalIsOpen(!modalIsOpen);
-        console.log(modalIsOpen)
-    }
+        console.log(modalIsOpen);
+    };
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const ref = useRef(null);
 
+    const handleClickOutside = (event) => {
+        if (ref.current && !ref.current.contains(event.target) && !event.target.className.includes('modalContent')) {
+            setModalIsOpen(false);
+        };
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+            document.removeEventListener('click', handleClickOutside, true);
+        };
+    }, []);
 
     return (
         <BrowserRouter>
@@ -143,8 +156,8 @@ const TestScreen = () => {
                         </div>
                         <div>
                             <Button onClick={toggleModal}>Modal</Button>
-                            <Modal toggleModal={toggleModal} modalIsOpen={modalIsOpen}>
-                                <div>
+                            <Modal toggleModal={toggleModal} modalIsOpen={modalIsOpen} big>
+                                <div ref={ref}>
                                     Hello, it's a me Mario!
                                 </div>
                             </Modal>
@@ -153,7 +166,7 @@ const TestScreen = () => {
                 </body>
             </div>
         </BrowserRouter>
-    )
+    );
 }
 
 export default TestScreen;

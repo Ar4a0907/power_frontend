@@ -4,7 +4,7 @@ import modalStyle from './modalStyles.module.scss';
 const Modal = ({children, className, modalIsOpen, buttons,...classes}) => {
 
     const modalClass = Object.entries(classes).map(([key, value]) =>
-        modalStyle[key] !== undefined ? modalStyle[key] : '').join(' ') + ' ' + (className ? className : '')
+        modalStyle[key] !== undefined ? modalStyle[key] : '').join(' ') + ' ' + (className ? className : '');
 
     return (
         <>
@@ -15,7 +15,7 @@ const Modal = ({children, className, modalIsOpen, buttons,...classes}) => {
                     </div>
                 </div> : null}
         </>
-    )
-}
+    );
+};
 
 export default Modal
