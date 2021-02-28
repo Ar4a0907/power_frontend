@@ -134,7 +134,10 @@ const testScreen = () => {
                             <Badge label="testing" disabled />
                         </div>
                         <div>
-                            <Tab className={testStyle['sampleClass']}  tabs={[{label:'Paid', content: <div filter='Paid'>it`s content</div>}, {label:'UnPaid', content: <span>i`m a String</span>}]} />
+                            <Tab className={testStyle['sampleClass']}  tabs={[{label:'Paid', content: <div filter='Paid'>it`s content</div>},
+                              {label:'UnPaid', content: <span>i`m a String</span>},
+                              {label: 'Buttons', content : <Button xSmall gray><div>XSmall</div></Button>},
+                              {label: 'TestTab', content: <Block big><Icon type="trashCan"/></Block>}]} />
                         </div>
                     </div>
                 </body>

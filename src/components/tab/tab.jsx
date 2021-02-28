@@ -8,10 +8,10 @@ const Tab = ({tabs}) => {
 
     const onClick = (e) => {
         setActiveTab(e)
-    }
+    };
 
-    const labels = tabs.map( (e,idx) => {
-     return   <element key={idx} className={activeTab === tabs[idx] ? (tabStyles.label + ' ' + tabStyles.activeTab) : tabStyles.label} onClick={()=>{onClick(e)}} >{e.label}</element>
+    const labels = tabs.map((e,idx) => {
+     return <element key={idx} className={activeTab === tabs[idx] ? (tabStyles.label + ' ' + tabStyles.activeTab) : tabStyles.label} onClick={()=>{onClick(e)}} >{e.label}</element>
     })
 
     return (
