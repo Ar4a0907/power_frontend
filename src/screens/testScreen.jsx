@@ -1,4 +1,4 @@
-import React , { useState, useRef, useEffect } from 'react';
+import React , { useState } from 'react';
 import Button from '../components/button/button';
 import testStyle from './testScreenStyle.module.scss';
 import Block from '../components/Blocks/block';
@@ -27,25 +27,19 @@ const TestScreen = () => {
         alert('Hamburger!');
     }
 
-    const toggleModal = () => {
-        setModalIsOpen(!modalIsOpen);
-        console.log(modalIsOpen);
-    };
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const ref = useRef(null);
-
-    const handleClickOutside = (event) => {
-        if (ref.current && !ref.current.contains(event.target) && !event.target.className.includes('modalContent')) {
-            setModalIsOpen(false);
-        };
+    const toggleModalFirst = () => {
+        setModalIsOpenFirst(!modalIsOpenFirst);
+        console.log(modalIsOpenFirst);
     };
 
-    useEffect(() => {
-        document.addEventListener('click', handleClickOutside, true);
-        return () => {
-            document.removeEventListener('click', handleClickOutside, true);
-        };
-    }, []);
+    const [modalIsOpenFirst, setModalIsOpenFirst] = useState(false);
+
+    const toggleModalSecond = () => {
+        setModalIsOpenSecond(!modalIsOpenSecond);
+        console.log(modalIsOpenSecond);
+    };
+
+    const [modalIsOpenSecond, setModalIsOpenSecond] = useState(false);
 
     return (
         <BrowserRouter>
@@ -155,11 +149,13 @@ const TestScreen = () => {
                             <Badge label="testing" disabled />
                         </div>
                         <div>
-                            <Button onClick={toggleModal}>Modal</Button>
-                            <Modal toggleModal={toggleModal} modalIsOpen={modalIsOpen} big>
-                                <div ref={ref}>
+                            <Button onClick={toggleModalFirst}>Modal</Button>
+                            <Modal toggleModal={toggleModalFirst} modalIsOpen={modalIsOpenFirst} buttons={{yes: () => {console.log('yes clicked!')}, no: toggleModalFirst}} small buttonsInColumn={false}>
                                     Hello, it's a me Mario!
-                                </div>
+                            </Modal>
+                            <Button onClick={toggleModalSecond}>Modal</Button>
+                            <Modal toggleModal={toggleModalSecond} modalIsOpen={modalIsOpenSecond} buttons={{yes: () => {console.log('yes clicked!')}, no: toggleModalSecond}} medium buttonsInColumn={true}>
+                                Test!
                             </Modal>
                         </div>
                     </div>
