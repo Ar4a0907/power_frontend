@@ -13,6 +13,7 @@ import SideNav from '../components/sideNav/sideNav';
 import { BrowserRouter } from 'react-router-dom';
 import Badge from '../components/Badge/badge';
 import Modal from '../components/Modal/modal';
+import Dropdown from '../components/dropdown/dropdown';
 
 
 const TestScreen = () => {
@@ -157,6 +158,8 @@ const TestScreen = () => {
                             <Modal toggleModal={toggleModalSecond} modalIsOpen={modalIsOpenSecond} buttons={{yes: () => {console.log('yes clicked!')}, no: toggleModalSecond}} medium buttonsInColumn={true}>
                                 Test!
                             </Modal>
+                            <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
+                            <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
                     </div>
                 </body>
