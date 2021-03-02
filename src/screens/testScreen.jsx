@@ -12,6 +12,7 @@ import Icon from "../components/icons/icons";
 import SideNav from "../components/sideNav/sideNav";
 import { BrowserRouter } from "react-router-dom";
 import Badge from '../components/Badge/badge';
+import Dropdown from "../components/dropdown/dropdown";
 
 
 const handleClick = (event) => {
@@ -131,6 +132,10 @@ const testScreen = () => {
                             <Badge label="testing" error />
                             <Badge label="testing" warning />
                             <Badge label="testing" disabled />
+                        </div>
+                        <div>
+                            <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
+                            <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
                     </div>
                 </body>
