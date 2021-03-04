@@ -9,9 +9,29 @@
     position: absolute;
     top: 22px;
     right: 21px;
-    &:focus {
-      transform: rotate(180deg);
-      transition: 0.5s;
+  }
+  & .selectNotOpen {
+    display: none;
+  }
+  & .selectContainer {
+    background-color: white;
+    display: block;
+    position: absolute;
+    top: 85%;
+    left: -1px;
+    width: 101%;
+    z-index: 1;
+    border-right: 1px solid #B4B4BB;
+    border-left: 1px solid #B4B4BB;
+    border-bottom: 1px solid #B4B4BB;
+    border-radius: 0 0 10px 10px;
+    & .select {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 10px;
+      &:hover {
+        background: #EBF2FF;
+      }
     }
   }
   & .label {
@@ -29,14 +49,6 @@
     margin-top: 22px;
     padding: 0 16px 10px 16px;
   }
-  & .select {
-    width: 100%;
-    padding: 16px 20px;
-    border-radius: 10px;
-    &:hover {
-      background: #EBF2FF;
-    }
-  }
 }
 
 .disabled {
@@ -49,3 +61,4 @@
     right: 14px;
   }
 }
+
