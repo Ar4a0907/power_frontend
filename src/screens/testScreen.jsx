@@ -13,6 +13,7 @@ import SideNav from "../components/sideNav/sideNav";
 import { BrowserRouter } from "react-router-dom";
 import Badge from '../components/Badge/badge';
 import Dropdown from "../components/dropdown/dropdown";
+import Collapse from "../components/collapse/collapse";
 
 
 const handleClick = (event) => {
@@ -132,6 +133,38 @@ const testScreen = () => {
                             <Badge label="testing" error />
                             <Badge label="testing" warning />
                             <Badge label="testing" disabled />
+                        </div>
+                        <div>
+                            <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
+                            <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
+                        </div>
+                        <div>
+                            <Collapse
+                                label="Click on me to expand"
+                                content={
+                                <div>
+                                    Expandet content
+                                    <div className={testStyle.testRow}>
+                                        <Button onClick={handleClick} medium gray className={testStyle['sampleClass']}><div>Button M</div></Button>
+                                        <Button medium blue><div>Button M</div></Button>
+                                        <Button medium white><div>Button M</div></Button>
+                                        <Button medium continue><div>Continue</div></Button>
+                                    </div>
+                                    <div className={testStyle.testRow}>
+                                        <Button small gray><div>Button S</div></Button>
+                                        <Button small blue><div>Button S</div></Button>
+                                        <Button small white><div>Button S</div></Button>
+                                        <Button small bookmark><div>Bookmark</div></Button>
+                                    </div>
+                                    <div className={testStyle.testRow}>
+                                        <Button xSmall gray><div>XSmall</div></Button>
+                                        <Button xSmall blue><div>XSmall</div></Button>
+                                        <Button xSmall white><div>XSmall</div></Button>
+                                        <Button small delete><div>Delete</div></Button>
+                                    </div>
+                                </div>
+                            }/>
+
                         </div>
                         <div>
                             <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
