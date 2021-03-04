@@ -37,3 +37,13 @@
   opacity: 0;
   transition: max-height 1s ease-out, opacity 0s 1s ease;
 }
+
+.arrowOpen {
+  transform: rotate(0deg);
+  transition: 0.3s ease-in;
+}
+
+.arrowClose {
+  transform: rotate(180deg);
+  transition: 0.3s ease-in;
+}

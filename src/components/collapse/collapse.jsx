@@ -11,13 +11,10 @@ const Collapse = ({label, content, className}) => {
     };
 
     return (
-        <div onClick={handleClick} className={collapseStyle.collapseContainer}>
+        <div onClick={handleClick}>
             <div className={collapseStyle.collapseLabel + ' ' + className} onClick={handleClick}>
-                <div className={collapseStyle.label}><span>{label}</span></div>
-                {shown ?
-                    <Icon type='upArrow' className={collapseStyle.arrow}/> :
-                    <Icon type='downArrow' className={collapseStyle.arrow}/>
-                }
+                <div><span>{label}</span></div>
+                    <Icon type='upArrow' className={collapseStyle.arrow + ' ' + (shown ? collapseStyle.arrowOpen : collapseStyle.arrowClose)}/> 
             </div>
             <div className={(shown ? collapseStyle.opened : collapseStyle.closed) +
             ' ' + collapseStyle.contentContainer}>
