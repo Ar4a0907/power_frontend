@@ -13,7 +13,8 @@ import SideNav from "../components/sideNav/sideNav";
 import { BrowserRouter } from "react-router-dom";
 import Badge from '../components/Badge/badge';
 import Dropdown from "../components/dropdown/dropdown";
-
+import Datepicker from "../components/Datepicker/datepicker";
+import moment from 'moment';
 
 const handleClick = (event) => {
     event.preventDefault();
@@ -26,6 +27,13 @@ const hamburger = (event) => {
 }
 
 const testScreen = () => {
+
+    const startDate = moment();
+    const endDate = moment().add(1, 'days');
+    const datepickerOnChange = () => {
+        console.log('cheesy')
+    }
+
     return (
         <BrowserRouter>
             <div>
@@ -136,6 +144,13 @@ const testScreen = () => {
                         <div>
                             <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                             <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
+                        </div>
+                        <div>
+                            <Datepicker options={{pastDatesDisabled: true, range: true, numMonths: 3}} startDate={startDate}
+                                        endDate={endDate}
+                                        onChange={datepickerOnChange}/>
+                            <Datepicker options={{pastDatesDisabled: false, range: false}} date={startDate}
+                                        onChange={datepickerOnChange}/>
                         </div>
                     </div>
                 </body>
