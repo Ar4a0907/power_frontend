@@ -1,31 +1,47 @@
-import React from 'react';
+import React , { useState } from 'react';
 import Button from '../components/button/button';
 import testStyle from './testScreenStyle.module.scss';
 import Block from '../components/Blocks/block';
 import ProgressBar from '../components/progressBar/progressBar';
-import CheckBox from "../components/checkBox/checkBox";
+import CheckBox from '../components/checkBox/checkBox';
 import Text from './../components/Text/text';
-import RadioButton from "../components/radioButton/radioButton";
+import RadioButton from '../components/radioButton/radioButton';
 import InputDesktop from '../components/InputDesktop/InputDesktop';
 import InputSearch from '../components/inputSearch/inputSearch';
-import Icon from "../components/icons/icons";
-import SideNav from "../components/sideNav/sideNav";
-import { BrowserRouter } from "react-router-dom";
+import Icon from '../components/icons/icons';
+import SideNav from '../components/sideNav/sideNav';
+import { BrowserRouter } from 'react-router-dom';
 import Badge from '../components/Badge/badge';
-import Dropdown from "../components/dropdown/dropdown";
+import Modal from '../components/Modal/modal';
+import Dropdown from '../components/dropdown/dropdown';
 
 
-const handleClick = (event) => {
-    event.preventDefault();
-    console.log('Click!');
-}
+const TestScreen = () => {
 
-const hamburger = (event) => {
-    event.preventDefault();
-    alert('Hamburger!');
-}
+    const handleClick = (event) => {
+        event.preventDefault();
+        console.log('Click!');
+    }
 
-const testScreen = () => {
+    const hamburger = (event) => {
+        event.preventDefault();
+        alert('Hamburger!');
+    }
+
+    const toggleModalFirst = () => {
+        setModalIsOpenFirst(!modalIsOpenFirst);
+        console.log(modalIsOpenFirst);
+    };
+
+    const [modalIsOpenFirst, setModalIsOpenFirst] = useState(false);
+
+    const toggleModalSecond = () => {
+        setModalIsOpenSecond(!modalIsOpenSecond);
+        console.log(modalIsOpenSecond);
+    };
+
+    const [modalIsOpenSecond, setModalIsOpenSecond] = useState(false);
+
     return (
         <BrowserRouter>
             <div>
@@ -134,6 +150,14 @@ const testScreen = () => {
                             <Badge label="testing" disabled />
                         </div>
                         <div>
+                            <Button onClick={toggleModalFirst}>Modal</Button>
+                            <Modal toggleModal={toggleModalFirst} modalIsOpen={modalIsOpenFirst} buttons={{yes: () => {console.log('yes clicked!')}, no: toggleModalFirst}} small buttonsInColumn={false}>
+                                    Hello, it's a me Mario!
+                            </Modal>
+                            <Button onClick={toggleModalSecond}>Modal</Button>
+                            <Modal toggleModal={toggleModalSecond} modalIsOpen={modalIsOpenSecond} buttons={{yes: () => {console.log('yes clicked!')}, no: toggleModalSecond}} medium buttonsInColumn={true}>
+                                Test!
+                            </Modal>
                             <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                             <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
@@ -141,7 +165,7 @@ const testScreen = () => {
                 </body>
             </div>
         </BrowserRouter>
-    )
+    );
 }
 
-export default testScreen;
+export default TestScreen;
