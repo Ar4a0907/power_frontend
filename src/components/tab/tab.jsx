@@ -4,14 +4,15 @@ import tabStyles from './tabStyle.module.scss'
 
 const Tab = ({tabs}) => {
 
-    const [activeTab,setActiveTab] = useState(tabs[0]);
+    const [activeTab,setActiveTab] = useState(0);
 
-    const onClick = (e) => {
-        setActiveTab(e)
+    const onClick = (idx) => {
+        setActiveTab(idx);
     };
 
     const labels = tabs.map((e,idx) => {
-     return <element key={idx} className={activeTab === tabs[idx] ? (tabStyles.label + ' ' + tabStyles.activeTab) : tabStyles.label} onClick={()=>{onClick(e)}} >{e.label}</element>
+     return <element key={idx} className={activeTab === idx ? (tabStyles.label + ' ' + tabStyles.activeTab) : tabStyles.label} 
+                     onClick={()=>{onClick(idx)}} >{e.label}</element>
     })
 
     return (
@@ -20,7 +21,7 @@ const Tab = ({tabs}) => {
             {labels}
         </span>
         <div className={tabStyles.tabContent}>
-            {activeTab.content}
+            {tabs[activeTab].content}
         </div>
     </div>
     )
