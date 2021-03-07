@@ -34,19 +34,17 @@ const Dropdown = ({label, items, className, ...classes}) => {
             <div className={dropdownStyle.label}><span>{label}</span></div>
             {dropdownClass !== ' ' ?
                 <Icon type='disabled' className={dropdownStyle.disabledIcon}/> :
-                shown ?
-                <Icon type='upArrow' className={dropdownStyle.arrow}/> :
-                <Icon type='downArrow' className={dropdownStyle.arrow}/>
+                <Icon type='upArrow' className={dropdownStyle.arrow + ' ' + (shown ? dropdownStyle.arrowOpen : dropdownStyle.arrowClose)}/>
             }
-
             <div className={dropdownStyle.firstSelect}><span>{value}</span></div>
-            {shown ?
-                items.map( (element, idx) =>
-                    <div className={dropdownStyle.select} key={idx} value={idx} onClick={() => handleChange(idx)}>
-                        <span>{element.label}</span>
-                    </div>
-                ) : null
-            }
+            <div className={dropdownStyle.selectContainer + ' ' + (shown ? dropdownStyle.open : dropdownStyle.close)}>
+                {items.map( (element, idx) =>
+                        <div className={dropdownStyle.select} key={idx} value={idx} onClick={() => handleChange(idx)}>
+                            <span>{element.label}</span>
+                        </div>
+                    )
+                }
+            </div>
         </div>
     );
 };
