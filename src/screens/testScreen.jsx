@@ -13,6 +13,7 @@ import SideNav from "../components/sideNav/sideNav";
 import { BrowserRouter } from "react-router-dom";
 import Badge from '../components/Badge/badge';
 import Tab from '../components/tab/tab';
+import Dropdown from "../components/dropdown/dropdown";
 
 
 const handleClick = (event) => {
@@ -138,6 +139,10 @@ const testScreen = () => {
                               {label:'UnPaid', content: <span>i`m a String</span>},
                               {label: 'Buttons', content : <Button xSmall gray><div>XSmall</div></Button>},
                               {label: 'TestTab', content: <Block big><Icon type="trashCan"/></Block>}]} />
+                        </div>
+                        <div>
+                            <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
+                            <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
                     </div>
                 </body>
