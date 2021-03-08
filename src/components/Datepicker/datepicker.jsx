@@ -16,12 +16,13 @@ const Datepicker = (props) => {
     const handleDateChange = (startDate, endDate) => {
         setStartDate(startDate);
         setEndDate(endDate);
-        props.onChange();
+        console.log(startDate)
+        props.onChange(startDate, endDate);
     }
 
     const handleDateChangeSingle = (date) => {
         setDate(date);
-        props.onChange();
+        props.onChange(date);
     }
 
     const handleFocus = () => {

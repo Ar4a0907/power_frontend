@@ -30,8 +30,14 @@ const testScreen = () => {
 
     const startDate = moment();
     const endDate = moment().add(1, 'days');
-    const datepickerOnChange = () => {
-        console.log('cheesy')
+    const datepickerOnChange = (firstDate, secondDate) => {
+        console.log('picked dates = ' + moment(firstDate).format() + ' ' + moment(secondDate).format());
+        return {firstDate:moment(firstDate), secondDate:moment(secondDate)}
+    }
+
+    const datepickerSingleOnChange = (singleDate) => {
+        console.log('picked date = ' + moment(singleDate).format())
+        return moment(singleDate)
     }
 
     return (
@@ -150,7 +156,7 @@ const testScreen = () => {
                                         endDate={endDate}
                                         onChange={datepickerOnChange}/>
                             <Datepicker options={{pastDatesDisabled: false, range: false}} date={startDate}
-                                        onChange={datepickerOnChange}/>
+                                        onChange={datepickerSingleOnChange}/>
                         </div>
                     </div>
                 </body>
