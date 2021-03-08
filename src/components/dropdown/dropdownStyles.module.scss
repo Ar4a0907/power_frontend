@@ -9,9 +9,26 @@
     position: absolute;
     top: 22px;
     right: 21px;
-    &:focus {
-      transform: rotate(180deg);
-      transition: 0.5s;
+  }
+  & .selectContainer {
+    background-color: white;
+    position: absolute;
+    border-bottom: 1px solid #B4B4BB;
+    border-left: 1px solid #B4B4BB;
+    border-right: 1px solid #B4B4BB;
+    top: 85%;
+    left: -1px;
+    width: 100.9%;
+    z-index: 1;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    & .select {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 10px;
+      &:hover {
+        background: #EBF2FF;
+      }
     }
   }
   & .label {
@@ -29,14 +46,6 @@
     margin-top: 22px;
     padding: 0 16px 10px 16px;
   }
-  & .select {
-    width: 100%;
-    padding: 16px 20px;
-    border-radius: 10px;
-    &:hover {
-      background: #EBF2FF;
-    }
-  }
 }
 
 .disabled {
@@ -48,4 +57,26 @@
     top: 11px;
     right: 14px;
   }
+}
+
+.arrowOpen {
+  transform: rotate(0deg);
+  transition: 0.3s;
+}
+
+.arrowClose {
+  transform: rotate(180deg);
+  transition: 0.3s;
+}
+
+.open {
+  max-height: 300px;
+  opacity: 1;
+  transition: max-height 0.5s ease-out;
+}
+
+.close {
+  max-height: 16.9%;
+  opacity: 0;
+  transition: max-height 0.5s , opacity 0s 0.4s ease;
 }
