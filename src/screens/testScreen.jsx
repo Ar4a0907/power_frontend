@@ -1,32 +1,50 @@
-import React from 'react';
+import React , { useState } from 'react';
 import Button from '../components/button/button';
 import testStyle from './testScreenStyle.module.scss';
 import Block from '../components/Blocks/block';
 import ProgressBar from '../components/progressBar/progressBar';
-import CheckBox from "../components/checkBox/checkBox";
+import CheckBox from '../components/checkBox/checkBox';
 import Text from './../components/Text/text';
-import RadioButton from "../components/radioButton/radioButton";
+import RadioButton from '../components/radioButton/radioButton';
 import InputDesktop from '../components/InputDesktop/InputDesktop';
 import InputSearch from '../components/inputSearch/inputSearch';
-import Icon from "../components/icons/icons";
-import SideNav from "../components/sideNav/sideNav";
-import { BrowserRouter } from "react-router-dom";
+import Icon from '../components/icons/icons';
+import SideNav from '../components/sideNav/sideNav';
+import { BrowserRouter } from 'react-router-dom';
 import Badge from '../components/Badge/badge';
 import Tab from '../components/tab/tab';
 import Dropdown from "../components/dropdown/dropdown";
+import Collapse from '../components/collapse/collapse';
+import Modal from '../components/Modal/modal';
+import Dropdown from '../components/dropdown/dropdown';
 
 
-const handleClick = (event) => {
-    event.preventDefault();
-    console.log('Click!');
-}
+const TestScreen = () => {
 
-const hamburger = (event) => {
-    event.preventDefault();
-    alert('Hamburger!');
-}
+    const handleClick = (event) => {
+        event.preventDefault();
+        console.log('Click!');
+    }
 
-const testScreen = () => {
+    const hamburger = (event) => {
+        event.preventDefault();
+        alert('Hamburger!');
+    }
+
+    const toggleModalFirst = () => {
+        setModalIsOpenFirst(!modalIsOpenFirst);
+        console.log(modalIsOpenFirst);
+    };
+
+    const [modalIsOpenFirst, setModalIsOpenFirst] = useState(false);
+
+    const toggleModalSecond = () => {
+        setModalIsOpenSecond(!modalIsOpenSecond);
+        console.log(modalIsOpenSecond);
+    };
+
+    const [modalIsOpenSecond, setModalIsOpenSecond] = useState(false);
+
     return (
         <BrowserRouter>
             <div>
@@ -144,11 +162,51 @@ const testScreen = () => {
                             <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                             <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
+                        <div>
+                            <Collapse
+                                label="Click on me to expand"
+                                content={
+                                <div>
+                                    Expandet content
+                                    <div className={testStyle.testRow}>
+                                        <Button onClick={handleClick} medium gray className={testStyle['sampleClass']}><div>Button M</div></Button>
+                                        <Button medium blue><div>Button M</div></Button>
+                                        <Button medium white><div>Button M</div></Button>
+                                        <Button medium continue><div>Continue</div></Button>
+                                    </div>
+                                    <div className={testStyle.testRow}>
+                                        <Button small gray><div>Button S</div></Button>
+                                        <Button small blue><div>Button S</div></Button>
+                                        <Button small white><div>Button S</div></Button>
+                                        <Button small bookmark><div>Bookmark</div></Button>
+                                    </div>
+                                    <div className={testStyle.testRow}>
+                                        <Button xSmall gray><div>XSmall</div></Button>
+                                        <Button xSmall blue><div>XSmall</div></Button>
+                                        <Button xSmall white><div>XSmall</div></Button>
+                                        <Button small delete><div>Delete</div></Button>
+                                    </div>
+                                </div>
+                            }/>
+
+                        </div>
+                        <div>
+                            <Button onClick={toggleModalFirst}>Modal</Button>
+                            <Modal toggleModal={toggleModalFirst} modalIsOpen={modalIsOpenFirst} buttons={{yes: () => {console.log('yes clicked!')}, no: toggleModalFirst}} small buttonsInColumn={false}>
+                                    Hello, it's a me Mario!
+                            </Modal>
+                            <Button onClick={toggleModalSecond}>Modal</Button>
+                            <Modal toggleModal={toggleModalSecond} modalIsOpen={modalIsOpenSecond} buttons={{yes: () => {console.log('yes clicked!')}, no: toggleModalSecond}} medium buttonsInColumn={true}>
+                                Test!
+                            </Modal>
+                            <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
+                            <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
+                        </div>
                     </div>
                 </body>
             </div>
         </BrowserRouter>
-    )
+    );
 }
 
-export default testScreen;
+export default TestScreen;

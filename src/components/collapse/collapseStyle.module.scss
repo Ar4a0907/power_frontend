@@ -1,0 +1,49 @@
+.collapseLabel {
+  position: relative;
+  font-family: Red Hat Display;
+  font-style: normal;
+  border-radius: 99px;
+  background-color: #E1E1E3;
+  color: #19191D;
+  width: 95%;
+  padding: 15px 20px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.1px;
+  height: 56px;
+  & .arrow {
+    position: absolute;
+    right: 20px;
+    top: 24px;
+  }
+}
+.contentContainer {
+  display: block;
+  width: 95%;
+  top: 99%;
+  padding-left: 20px;
+  overflow: hidden;
+}
+
+.opened {
+  max-height: 600px;
+  opacity: 1;
+  transition: max-height 1s ease-in;
+}
+
+.closed {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 1s ease-out, opacity 0s 1s ease;
+}
+
+.arrowOpen {
+  transform: rotate(0deg);
+  transition: 0.3s ease-in;
+}
+
+.arrowClose {
+  transform: rotate(180deg);
+  transition: 0.3s ease-in;
+}
