@@ -4,26 +4,22 @@ import tabStyles from './tabStyle.module.scss'
 
 const Tab = ({tabs}) => {
 
-    const [activeTab,setActiveTab] = useState(0);
+    const [activeTab, setActiveTab] = useState(0);
 
-    const onClick = (idx) => {
-        setActiveTab(idx);
-    };
-
-    const labels = tabs.map((e,idx) => {
+    const labels = tabs.map((e, idx) => {
      return <element key={idx} className={activeTab === idx ? (tabStyles.label + ' ' + tabStyles.activeTab) : tabStyles.label} 
-                     onClick={()=>{onClick(idx)}} >{e.label}</element>
-    })
+                     onClick={() => setActiveTab(idx)} >{e.label}</element>
+    });
 
     return (
-    <div>
-        <span className={tabStyles.tabList}> 
-            {labels}
-        </span>
-        <div className={tabStyles.tabContent}>
-            {tabs[activeTab].content}
+        <div>
+            <span className={tabStyles.tabList}> 
+                {labels}
+            </span>
+            <div className={tabStyles.tabContent}>
+                {tabs[activeTab].content}
+            </div>
         </div>
-    </div>
     )
 }
 
