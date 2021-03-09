@@ -16,7 +16,6 @@ import Tab from '../components/tab/tab';
 import Dropdown from "../components/dropdown/dropdown";
 import Collapse from '../components/collapse/collapse';
 import Modal from '../components/Modal/modal';
-import Dropdown from '../components/dropdown/dropdown';
 
 
 const TestScreen = () => {
