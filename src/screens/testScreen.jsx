@@ -12,9 +12,10 @@ import Icon from '../components/icons/icons';
 import SideNav from '../components/sideNav/sideNav';
 import { BrowserRouter } from 'react-router-dom';
 import Badge from '../components/Badge/badge';
+import Tab from '../components/tab/tab';
+import Dropdown from "../components/dropdown/dropdown";
 import Collapse from '../components/collapse/collapse';
 import Modal from '../components/Modal/modal';
-import Dropdown from '../components/dropdown/dropdown';
 
 
 const TestScreen = () => {
@@ -149,6 +150,12 @@ const TestScreen = () => {
                             <Badge label="testing" error />
                             <Badge label="testing" warning />
                             <Badge label="testing" disabled />
+                        </div>
+                        <div>
+                            <Tab className={testStyle['sampleClass']}  tabs={[{label:'Paid', content: <div filter='Paid'>it`s content</div>},
+                              {label:'UnPaid', content: <span>i`m a String</span>},
+                              {label: 'Buttons', content : <Button xSmall gray><div>XSmall</div></Button>},
+                              {label: 'TestTab', content: <Block big><Icon type="trashCan"/></Block>}]} />
                         </div>
                         <div>
                             <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
