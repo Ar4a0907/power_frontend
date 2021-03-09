@@ -1,0 +1,90 @@
+.tableContainer {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.tableHeader {
+  position: relative;
+  display: flex;
+  padding: 15px 20px;
+  justify-content: flex-start;
+}
+
+.filter {
+  border: 1px solid #C6C2DE;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background: #FFFFFF;
+  margin-right: 20px;
+  &:hover {
+    border-color: #6D5BD0;
+    transform: none;
+  }
+  &::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background: url("filter.svg") no-repeat center;
+  }
+  & div {
+    color: #25213B;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+.filterButtonClicked {
+  border-color: #6D5BD0;
+  box-shadow: 0px 0px 3px #6D5BD0;
+}
+
+.filterContent {
+  position: absolute;
+  background: #FFFFFF;
+  border: 1px solid #C6C2DE;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  z-index: 1;
+  top: 90%;
+  overflow: hidden;
+  &:hover {
+    transform: none;
+  }
+  & *{
+    padding: 20px;
+    overflow: hidden;
+  }
+}
+
+.filterOpen {
+  max-height: 320px;
+  opacity: 1;
+  transition: max-height 0.3s ease-out;
+}
+
+.filterClose {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease-out, opacity 0s 0.3s ease;
+}
+
+.search {
+  background: #F4F2FF;
+  border-radius: 6px;
+}
+
+.payDues {
+  background: #6D5BD0;
+  border-radius: 6px;
+  margin-right: 0;
+  margin-left: auto;
+  & div {
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+  }
+}

@@ -16,6 +16,7 @@ import Tab from '../components/tab/tab';
 import Dropdown from "../components/dropdown/dropdown";
 import Collapse from '../components/collapse/collapse';
 import Modal from '../components/Modal/modal';
+import Table from "../components/table/table";
 
 
 const TestScreen = () => {
@@ -201,6 +202,7 @@ const TestScreen = () => {
                             <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                             <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
+                        <Table/>
                     </div>
                 </body>
             </div>
