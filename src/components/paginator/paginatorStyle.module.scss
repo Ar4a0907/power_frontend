@@ -1,0 +1,31 @@
+.prevPageButton {
+        display: inline-block;
+        padding-left: 50px;
+        background: url('prevPage.svg') center no-repeat;
+        border: none;
+        height: 12px;
+        &:focus {
+            outline: none;
+        }
+}
+
+.nextPageButton {
+    display: inline-block;
+    padding-left: 50px;
+    background: url('nextPage.svg') center no-repeat;
+    border: none;
+    height: 12px;
+    &:focus {
+        outline: none;
+    }
+}
+
+.pageStatus {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    color: #6E6893;
+}

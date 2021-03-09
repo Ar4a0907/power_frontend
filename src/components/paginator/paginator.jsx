@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import paginatorStyle from './paginatorStyle.module.scss';
 
 const Paginator = ({total,selected,onChange}) => {
 
@@ -16,16 +17,16 @@ const Paginator = ({total,selected,onChange}) => {
             setActivePage(++activePage);
             onChange(activePage);
         }
-    }
+    };
 
-    const minus = <element onClick={ () => {activePage > 1 ? pageChange(true) : console.log('minimal value')}}  >minus</element>;
-    const plus = <element onClick={ () => {activePage < lastPage ? pageChange(false) : console.log('maximal value')}}>plus</element>;
+    const prev = <button className={paginatorStyle.prevPageButton} onClick={ () => {activePage > 1 ? pageChange(true) : console.log('minimal value cant decrement')}} />;
+    const next = <button className={paginatorStyle.nextPageButton} onClick={ () => {activePage < lastPage ? pageChange(false) : console.log('maximal value cant increment')}} />;
     let rowsStart = (activePage-1)*itemsPerPage+1;
     let rowsEnd = activePage === lastPage ? rowsStart-1+lastItemsRange : activePage*itemsPerPage;
 
     return (
-        <span>
-           <span> {rowsStart} - {rowsEnd} of {total} </span> {minus} {plus}
+        <span className={paginatorStyle.paginatorContainer}>
+           <span className={paginatorStyle.pageStatus}> {rowsStart}-{rowsEnd} of {total} </span>{prev} {next}
         </span>
     );
 }
