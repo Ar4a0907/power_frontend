@@ -10,19 +10,19 @@ const Paginator = ({total,selected,onChange}) => {
     let [activePage,setActivePage] = useState(selected);
 
     const pageChange = (type) => {
-        if(type) {
+        if (type) {
             setActivePage(--activePage);
             onChange(activePage);
-        }else {
+        } else {
             setActivePage(++activePage);
             onChange(activePage);
         }
     };
 
-    const prev = <button className={paginatorStyle.prevPageButton} onClick={ () => {activePage > 1 ? pageChange(true) : console.log('minimal value cant decrement')}} />;
-    const next = <button className={paginatorStyle.nextPageButton} onClick={ () => {activePage < lastPage ? pageChange(false) : console.log('maximal value cant increment')}} />;
-    let rowsStart = (activePage-1)*itemsPerPage+1;
-    let rowsEnd = activePage === lastPage ? rowsStart-1+lastItemsRange : activePage*itemsPerPage;
+    const prev = <button className={paginatorStyle.prevPageButton} onClick={() => {activePage > 1 ? pageChange(true) : console.log('minimal value cant decrement')}} />;
+    const next = <button className={paginatorStyle.nextPageButton} onClick={() => {activePage < lastPage ? pageChange(false) : console.log('maximal value cant increment')}} />;
+    let rowsStart = (activePage - 1) * itemsPerPage + 1;
+    let rowsEnd = activePage === lastPage ? rowsStart - 1 + lastItemsRange : activePage * itemsPerPage;
 
     return (
         <span className={paginatorStyle.paginatorContainer}>
