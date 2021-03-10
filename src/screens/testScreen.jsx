@@ -202,7 +202,7 @@ const TestScreen = () => {
                             <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                             <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
-                        <Table/>
+                        <Table  filter search={'Custom Table search'} payDues options/>
                     </div>
                 </body>
             </div>
