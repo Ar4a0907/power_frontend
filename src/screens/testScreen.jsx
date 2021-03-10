@@ -19,6 +19,7 @@ import Modal from '../components/Modal/modal';
 import Table from "../components/table/table";
 
 
+
 const TestScreen = () => {
 
     const handleClick = (event) => {
@@ -44,6 +45,28 @@ const TestScreen = () => {
     };
 
     const [modalIsOpenSecond, setModalIsOpenSecond] = useState(false);
+
+    const optionsItems = [
+            {label: 'add', onClick: () => console.log('add')},
+            {label: 'delete', onClick: () => console.log('delete')}
+        ];
+    
+    const fetchData =  {'Dues': [
+            {
+               name: 'Ilya',
+               userStatus: 'active',
+               paymentStatus: 'success',
+               amount: '$20000'
+            },
+          {
+            name: 'Artem',
+            userStatus: 'active',
+            paymentStatus: 'error',
+            amount: '$50',
+          }
+          ]}
+
+    
 
     return (
         <BrowserRouter>
@@ -202,7 +225,7 @@ const TestScreen = () => {
                             <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                             <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
-                        <Table  filter search={'Custom Table search'} payDues options/>
+                        <Table  filter search={'Custom Table search'} payDues  options={optionsItems} Data={fetchData.Dues}/>
                     </div>
                 </body>
             </div>

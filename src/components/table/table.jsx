@@ -38,7 +38,9 @@ const Table = ({search,filter,payDues,options}) => {
                 {options ? <element className={tableStyles.options}>
                     <Options  className={tableStyles.optionsIcon} onClick={handleOptionsClick}></Options>
                     <div className={tableStyles.optionsContent + ' ' + (optionsOpen ? tableStyles.optionsOpened : tableStyles.optionsClosed)}>
-                        <div>o Hey</div>
+                        {options.map((e, idx) => {
+                          return  <div key={idx} onClick={e.onClick}> {e.label} </div>
+                        })}
                     </div> </element>: ''}
             </div>
         </div>
