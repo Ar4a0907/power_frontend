@@ -106,9 +106,9 @@
   letter-spacing: 0.05em;
   color: #6E6893;
   align-items: center;
-
+  text-transform: uppercase;
   & span:nth-child(1) {
-    flex-grow: 2;
+    flex-grow: 1;
   }
   & span:nth-child(2) {
     flex-grow: 3;
@@ -162,4 +162,25 @@
   max-height: 0;
   opacity: 0;
   transition: max-height 0.3s ease-out, opacity 0s 0.3s ease;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  & span:nth-child(1) {
+    flex-grow: 2;
+  }
+  & span:nth-child(2) {
+    flex-grow: 3;
+  }
+  & span:nth-child(3) {
+    flex-grow: 3;
+  }
+  & span:nth-child(4) {
+    flex-grow: 2;
+  }
+  & span:nth-child(5) {
+    flex-grow: 1;
+  }
 }

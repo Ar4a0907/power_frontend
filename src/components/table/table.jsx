@@ -4,8 +4,9 @@ import InputSearch from '../inputSearch/inputSearch';
 import Button from '../button/button';
 import CheckBox from '../checkBox/checkBox';
 import { ReactComponent as Options } from './options.svg';
+import Icon from '../icons/icons';
 
-const Table = ({search,filter,payDues,options}) => {
+const Table = ({search, filter, payDues, options, data, fields}) => {
 
     const [filterOpen, setFilterOpen] = useState(false);
     const [optionsOpen, setOptionsOpen] = useState(false);
@@ -31,10 +32,9 @@ const Table = ({search,filter,payDues,options}) => {
             </div>
             <div className={tableStyles.tableTopic}>
                 <span><CheckBox /> </span>
-                <span>NAME</span>
-                <span>USER STATUS</span>
-                <span>PAYMENT STATUS</span>
-                <span>AMOUNT</span>
+                {fields.map((element, idx) =>
+                    <span key={idx}>{element.label}</span>
+                )}
                 {options ? <element className={tableStyles.options}>
                     <Options  className={tableStyles.optionsIcon} onClick={handleOptionsClick}></Options>
                     <div className={tableStyles.optionsContent + ' ' + (optionsOpen ? tableStyles.optionsOpened : tableStyles.optionsClosed)}>
@@ -42,6 +42,15 @@ const Table = ({search,filter,payDues,options}) => {
                           return  <div key={idx} onClick={e.onClick}> {e.label} </div>
                         })}
                     </div> </element>: ''}
+            </div>
+            <div className={tableStyles.rows}>
+                {data.map((number, idx) =>
+                    <div className={tableStyles.row} key={idx}>
+                        <span><CheckBox /> </span>
+                        <Icon type='downArrow'></Icon>
+                        
+                    </div>
+                )}
             </div>
         </div>
     )

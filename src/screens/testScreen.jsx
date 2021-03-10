@@ -58,12 +58,12 @@ const TestScreen = () => {
                paymentStatus: 'success',
                amount: '$20000'
             },
-          {
-            name: 'Artem',
-            userStatus: 'active',
-            paymentStatus: 'error',
-            amount: '$50',
-          }
+            {
+                name: 'Artem',
+                userStatus: 'active',
+                paymentStatus: 'error',
+                amount: '$50',
+            }
           ]}
 
     
@@ -225,7 +225,17 @@ const TestScreen = () => {
                             <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                             <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
-                        <Table  filter search={'Custom Table search'} payDues  options={optionsItems} Data={fetchData.Dues}/>
+                        <Table  filter
+                                search={'Custom Table search'}
+                                payDues
+                                options={optionsItems}
+                                data={fetchData.Dues}
+                                fields={[
+                                    {label: 'Name', name: 'name'},
+                                    {label: 'User Status', name: 'user_status'},
+                                    {label: 'Payment Status', name: 'payment_status'},
+                                    {label: 'Amount', name: 'amount'}
+                                ]}/>
                     </div>
                 </body>
             </div>
