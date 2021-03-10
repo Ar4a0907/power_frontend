@@ -53,15 +53,15 @@ const TestScreen = () => {
     
     const fetchData =  {'Dues': [
             {
-               name: 'Ilya',
+               name: 'Ilya Cvetkov',
                userStatus: 'active',
-               paymentStatus: 'success',
+               paymentStatus: 'Paid',
                amount: '$20000'
             },
             {
-                name: 'Artem',
+                name: 'Artem Skurjat',
                 userStatus: 'active',
-                paymentStatus: 'error',
+                paymentStatus: 'Overdue',
                 amount: '$50',
             }
           ]}
@@ -232,8 +232,8 @@ const TestScreen = () => {
                                 data={fetchData.Dues}
                                 fields={[
                                     {label: 'Name', name: 'name'},
-                                    {label: 'User Status', name: 'user_status'},
-                                    {label: 'Payment Status', name: 'payment_status'},
+                                    {label: 'User Status', name: 'user_status', type: 'badge'},
+                                    {label: 'Payment Status', name: 'payment_status',type: 'badge'},
                                     {label: 'Amount', name: 'amount'}
                                 ]}/>
                     </div>
