@@ -8,7 +8,7 @@ import { ReactComponent as Options } from './options.svg';
 const Table = ({search,filter,payDues,options}) => {
 
     const [filterOpen, setFilterOpen] = useState(false);
-    const [optionsOpen, setOptionsOpen] = useState(true);
+    const [optionsOpen, setOptionsOpen] = useState(false);
 
     const handleFilterClick = () => {
       setFilterOpen(!filterOpen);

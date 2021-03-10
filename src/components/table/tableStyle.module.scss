@@ -75,6 +75,10 @@
 .search {
   background: #F4F2FF;
   border-radius: 6px;
+  border: transparent 1px solid;
+  &:hover {
+  border-color: #6D5BD0;
+  }
 }
 
 .payDues {
