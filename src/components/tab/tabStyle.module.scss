@@ -1,0 +1,37 @@
+.tabList {
+    padding-left: 100px;
+    padding-bottom: 10px;
+    &:after {
+        margin-left: 95px;
+        margin-right: 100px;
+        content: '';
+        height: 1px;
+        background: #C6C2DE; 
+        display:block;
+        margin-top: 10px;
+        min-width: 500px;
+    }
+}
+
+.tabContent {
+    margin-top: 20px;
+    padding-left: 100px;
+}
+
+.label {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #6E6893;
+    margin-right: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.activeTab {
+    color: #25213B;
+    padding-bottom: 11px;
+    border-bottom: 2px solid #25213B;
+}
