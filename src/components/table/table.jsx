@@ -4,19 +4,25 @@ import InputSearch from '../inputSearch/inputSearch';
 import Button from '../button/button';
 import CheckBox from '../checkBox/checkBox';
 import { ReactComponent as Options } from './options.svg';
-import Icon from '../icons/icons';
+// import Icon from '../icons/icons';
 import Badge from '../Badge/badge';
+import RadioButton from '../radioButton/radioButton';
 
 const Table = ({search, filter, payDues, options, data, fields}) => {
 
     const [filterOpen, setFilterOpen] = useState(false);
-    const [optionsOpen, setOptionsOpen] = useState(false);
+    const [optionsOpen, setOptionsOpen] = useState(null);
 
     const handleFilterClick = () => {
       setFilterOpen(!filterOpen);
     };
-    const handleOptionsClick = () => {
-        setOptionsOpen(!optionsOpen);
+    const handleOptionsClick = (index) => {
+        if (index === optionsOpen) {
+            setOptionsOpen(null);
+        } else {
+            setOptionsOpen(index);
+        }
+
     };
 
     return (
@@ -26,7 +32,14 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
                     <div>Filter</div>
                 </Button> : ''}
                 <div className={tableStyles.filterContent + ' ' + (filterOpen ? tableStyles.filterOpen : tableStyles.filterClose)}>
-                    <div>We will add filter later :)</div>
+                    <div className={tableStyles.filterSortBy}>
+                        <span>Sort By:</span>
+                        <RadioButton checked={0} items={['Default', 'First Name', 'Last Name', 'Due Date', 'Last Login']} onChange={(value) => console.log(value)} />
+                    </div>
+                    <div className={tableStyles.filterUsers}>
+                        <span>Users:</span>
+                        <RadioButton checked={0} items={['All', 'Active', 'Inactive']} />
+                    </div>
                 </div>
                 {search ? < InputSearch small className={tableStyles.search} placeholder={search}/> : ''}
                 {payDues ? <Button className={tableStyles.payDues}><div>pay dues</div></Button> : ''}
@@ -36,19 +49,19 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
                 {fields.map((element, idx) =>
                     <div key={idx}>{element.label}</div>
                 )}
-                {options ? <element className={tableStyles.options}>
-                    <Options  className={tableStyles.optionsIcon} onClick={handleOptionsClick}></Options>
-                    <div className={tableStyles.optionsContent + ' ' + (optionsOpen ? tableStyles.optionsOpened : tableStyles.optionsClosed)}>
+                {options ? <div className={tableStyles.options}>
+                    <Options  className={tableStyles.optionsIcon} onClick={() => handleOptionsClick(-1)}></Options>
+                    <span className={tableStyles.optionsContent + ' ' + (optionsOpen === -1 ? tableStyles.optionsOpened : tableStyles.optionsClosed)}>
                         {options.map((e, idx) => {
                           return  <div key={idx} onClick={e.onClick}> {e.label} </div>
                         })}
-                    </div> </element>: ''}
+                    </span> </div>: ''}
             </div>
             <div className={tableStyles.rows}>
                 {data.map((number, idx) =>
                     <div className={tableStyles.row} key={idx}>
                         <div>
-                            <CheckBox className={tableStyles.rowCheckBox}/>
+                            <CheckBox/>
 
                         </div>
                         {Object.values(number).map((element, idx) =>
@@ -62,14 +75,13 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
                                 />
                                 : element}</div>
                         )}
-                        <element className={tableStyles.options}>
-                            <Options  className={tableStyles.optionsIcon} onClick={handleOptionsClick}></Options>
-                            <div className={tableStyles.optionsContent + ' ' + (optionsOpen ? tableStyles.optionsOpened : tableStyles.optionsClosed)}>
-                                {options.map((e, idx) => {
-                                    return  <div key={idx} onClick={e.onClick}> {e.label} </div>
-                                })}
-                            </div>
-                        </element>
+                        {options ? <div className={tableStyles.options}>
+                            <Options  className={tableStyles.optionsIcon} onClick={() => handleOptionsClick(idx)}></Options>
+                            <span className={tableStyles.optionsContent + ' ' + (optionsOpen === idx ? tableStyles.optionsOpened : tableStyles.optionsClosed)}>
+                        {options.map((e, idx) => {
+                            return  <div key={idx} onClick={e.onClick}> {e.label} </div>
+                        })}
+                    </span> </div>: ''}
                     </div>
                 )}
             </div>
