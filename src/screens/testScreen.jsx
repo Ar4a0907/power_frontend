@@ -12,6 +12,9 @@ import Icon from '../components/icons/icons';
 import SideNav from '../components/sideNav/sideNav';
 import { BrowserRouter } from 'react-router-dom';
 import Badge from '../components/Badge/badge';
+import Datepicker from "../components/Datepicker/datepicker";
+import moment from 'moment';
+import Tab from '../components/tab/tab';
 import Dropdown from "../components/dropdown/dropdown";
 import Paginator from '../components/paginator/paginator';
 import Collapse from '../components/collapse/collapse';
@@ -43,6 +46,18 @@ const TestScreen = () => {
     };
 
     const [modalIsOpenSecond, setModalIsOpenSecond] = useState(false);
+
+    const startDate = moment();
+    const endDate = moment().add(1, 'days');
+    const datepickerOnChange = (firstDate, secondDate) => {
+        console.log('picked dates = ' + moment(firstDate).format() + ' ' + moment(secondDate).format());
+        return {firstDate:moment(firstDate), secondDate:moment(secondDate)}
+    }
+
+    const datepickerSingleOnChange = (singleDate) => {
+        console.log('picked date = ' + moment(singleDate).format())
+        return moment(singleDate)
+    }
 
     return (
         <BrowserRouter>
@@ -152,6 +167,12 @@ const TestScreen = () => {
                             <Badge label="testing" disabled />
                         </div>
                         <div>
+                            <Tab className={testStyle['sampleClass']}  tabs={[{label:'Paid', content: <div filter='Paid'>it`s content</div>},
+                              {label:'UnPaid', content: <span>i`m a String</span>},
+                              {label: 'Buttons', content : <Button xSmall gray><div>XSmall</div></Button>},
+                              {label: 'TestTab', content: <Block big><Icon type="trashCan"/></Block>}]} />
+                        </div>
+                        <div>
                             <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                             <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
@@ -159,6 +180,11 @@ const TestScreen = () => {
                         <Paginator total={276} selected={3} onChange={(val) => console.log(val)} />
                     </div>
                         <div>
+                            <Datepicker options={{pastDatesDisabled: true, range: true, numMonths: 3}} startDate={startDate}
+                                        endDate={endDate}
+                                        onChange={datepickerOnChange}/>
+                            <Datepicker options={{pastDatesDisabled: false, range: false}} date={startDate}
+                                        onChange={datepickerSingleOnChange}/>
                             <Collapse
                                 label="Click on me to expand"
                                 content={
