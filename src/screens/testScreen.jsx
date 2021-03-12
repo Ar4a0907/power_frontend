@@ -16,6 +16,7 @@ import Datepicker from "../components/Datepicker/datepicker";
 import moment from 'moment';
 import Tab from '../components/tab/tab';
 import Dropdown from "../components/dropdown/dropdown";
+import Paginator from '../components/paginator/paginator';
 import Collapse from '../components/collapse/collapse';
 import Modal from '../components/Modal/modal';
 
@@ -175,6 +176,9 @@ const TestScreen = () => {
                             <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                             <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
+                        <div>
+                        <Paginator total={276} selected={3} onChange={(val) => console.log(val)} />
+                    </div>
                         <div>
                             <Datepicker options={{pastDatesDisabled: true, range: true, numMonths: 3}} startDate={startDate}
                                         endDate={endDate}
