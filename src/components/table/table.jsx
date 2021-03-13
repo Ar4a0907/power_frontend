@@ -4,17 +4,17 @@ import InputSearch from '../inputSearch/inputSearch';
 import Button from '../button/button';
 import CheckBox from '../checkBox/checkBox';
 import { ReactComponent as Options } from './options.svg';
-// import Icon from '../icons/icons';
 import Badge from '../Badge/badge';
 import RadioButton from '../radioButton/radioButton';
+import Collapse from '../collapse/collapse';
 
-const Table = ({search, filter, payDues, options, data, fields}) => {
+const Table = ({ search, filter, payDues, options, data, fields}) => {
 
     const [filterOpen, setFilterOpen] = useState(false);
     const [optionsOpen, setOptionsOpen] = useState(null);
 
     const handleFilterClick = () => {
-      setFilterOpen(!filterOpen);
+        setFilterOpen(!filterOpen);
     };
     const handleOptionsClick = (index) => {
         if (index === optionsOpen) {
@@ -24,6 +24,35 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
         }
 
     };
+
+    let rows = [];
+
+    for (let dataIndex = 0; dataIndex < data.length; dataIndex++) {
+        let row = [];
+        row.push(<div><CheckBox /></div>)
+        row.push(<Collapse label='' content={<div>lorem ipsum kitchen go to far away</div>}/>);
+        for (let fieldsIndex = 0; fieldsIndex < fields.length; fieldsIndex++) {
+            let currentField = data[dataIndex][fields[fieldsIndex].name]
+            row.push(<div key={fieldsIndex} >
+                {fields[fieldsIndex].type === 'badge' ?
+                    <Badge label={currentField}
+                        {...(currentField === 'Paid' ? { success: true } : undefined)}
+                        {...(currentField === 'Overdue' ? { error: true } : undefined)}
+                        {...(currentField === 'Unpaid' ? { warning: true } : undefined)}
+                        {...(currentField === 'Inactive' ? { disabled: true } : undefined)} />
+                    : currentField}
+            </div>);
+        }
+        row.push(options ? <div className={tableStyles.options}>
+            <Options className={tableStyles.optionsIcon} onClick={() => handleOptionsClick(dataIndex)}></Options>
+            <span className={tableStyles.optionsContent + ' ' + (optionsOpen === dataIndex ? tableStyles.optionsOpened : tableStyles.optionsClosed)}>
+                {options.map((e, idx) => {
+                    return <div key={idx} onClick={e.onClick}> {e.label} </div>
+                })}
+            </span> </div> : '')
+        rows.push(row);
+    }
+
 
     return (
         <div className={tableStyles.tableContainer}>
@@ -41,7 +70,7 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
                         <RadioButton checked={0} items={['All', 'Active', 'Inactive']} />
                     </div>
                 </div>
-                {search ? < InputSearch small className={tableStyles.search} placeholder={search}/> : ''}
+                {search ? < InputSearch small className={tableStyles.search} placeholder={search} /> : ''}
                 {payDues ? <Button className={tableStyles.payDues}><div>pay dues</div></Button> : ''}
             </div>
             <div className={tableStyles.tableTopic}>
@@ -50,40 +79,15 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
                     <div key={idx}>{element.label}</div>
                 )}
                 {options ? <div className={tableStyles.options}>
-                    <Options  className={tableStyles.optionsIcon} onClick={() => handleOptionsClick(-1)}></Options>
+                    <Options className={tableStyles.optionsIcon} onClick={() => handleOptionsClick(-1)}></Options>
                     <span className={tableStyles.optionsContent + ' ' + (optionsOpen === -1 ? tableStyles.optionsOpened : tableStyles.optionsClosed)}>
                         {options.map((e, idx) => {
-                          return  <div key={idx} onClick={e.onClick}> {e.label} </div>
+                            return <div key={idx} onClick={e.onClick}> {e.label} </div>
                         })}
-                    </span> </div>: ''}
+                    </span> </div> : ''}
             </div>
             <div className={tableStyles.rows}>
-                {data.map((number, idx) =>
-                    <div className={tableStyles.row} key={idx}>
-                        <div>
-                            <CheckBox/>
-
-                        </div>
-                        {Object.values(number).map((element, idx) =>
-                            <div key={idx}>{fields[idx].type === 'badge' ?
-                                <Badge
-                                    {...(element === 'Paid' ? {success: true} : undefined)}
-                                    {...(element === 'Overdue' ? {error: true} : undefined)}
-                                    {...(element === 'Unpaid' ? {warning: true} : undefined)}
-                                    {...(element === 'Inactive' ? {disabled: true} : undefined)}
-                                    label={element}
-                                />
-                                : element}</div>
-                        )}
-                        {options ? <div className={tableStyles.options}>
-                            <Options  className={tableStyles.optionsIcon} onClick={() => handleOptionsClick(idx)}></Options>
-                            <span className={tableStyles.optionsContent + ' ' + (optionsOpen === idx ? tableStyles.optionsOpened : tableStyles.optionsClosed)}>
-                        {options.map((e, idx) => {
-                            return  <div key={idx} onClick={e.onClick}> {e.label} </div>
-                        })}
-                    </span> </div>: ''}
-                    </div>
-                )}
+                {rows.map((e, idx) => { return <div className={tableStyles.row} key={idx}>{e}</div> })}
             </div>
         </div>
     )
