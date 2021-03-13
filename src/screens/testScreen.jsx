@@ -57,6 +57,7 @@ const TestScreen = () => {
                userStatus: 'active',
                paymentStatus: 'Paid',
                amount: '$20000'
+              // ,fakeData: 'hey'
             },
             {
                 name: 'Artem Skurjat',
@@ -232,8 +233,8 @@ const TestScreen = () => {
                                 data={fetchData.Dues}
                                 fields={[
                                     {label: 'Name', name: 'name'},
-                                    {label: 'User Status', name: 'user_status', type: 'badge'},
-                                    {label: 'Payment Status', name: 'payment_status',type: 'badge'},
+                                    {label: 'User Status', name: 'userStatus', type: 'badge'},
+                                    {label: 'Payment Status', name: 'paymentStatus',type: 'badge'},
                                     {label: 'Amount', name: 'amount'}
                                 ]}/>
                     </div>

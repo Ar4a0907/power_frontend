@@ -7,15 +7,16 @@ import { ReactComponent as Options } from './options.svg';
 import Icon from '../icons/icons';
 import Badge from '../Badge/badge';
 import RadioButton from '../radioButton/radioButton';
+import Collapse from '../collapse/collapse';
 
-const Table = ({search, filter, payDues, options, data, fields}) => {
+const Table = ({ search, filter, payDues, options, data, fields}) => {
 
     const [filterOpen, setFilterOpen] = useState(false);
     const [optionsOpen, setOptionsOpen] = useState(null);
     const [collapseOpen, setCollaspeOpen] = useState(null);
 
     const handleFilterClick = () => {
-      setFilterOpen(!filterOpen);
+        setFilterOpen(!filterOpen);
     };
     const handleOptionsClick = (index) => {
         if (index === optionsOpen) {
@@ -33,7 +34,6 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
         }
     };
 
-
     return (
         <div className={tableStyles.tableContainer}>
             <div className={tableStyles.tableHeader}>
@@ -50,7 +50,7 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
                         <RadioButton checked={0} items={['All', 'Active', 'Inactive']} />
                     </div>
                 </div>
-                {search ? < InputSearch small className={tableStyles.search} placeholder={search}/> : ''}
+                {search ? < InputSearch small className={tableStyles.search} placeholder={search} /> : ''}
                 {payDues ? <Button className={tableStyles.payDues}><div>pay dues</div></Button> : ''}
             </div>
             <div className={tableStyles.tableTopic}>
@@ -59,12 +59,12 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
                     <div key={idx}>{element.label}</div>
                 )}
                 {options ? <div className={tableStyles.options}>
-                    <Options  className={tableStyles.optionsIcon} onClick={() => handleOptionsClick(-1)}></Options>
+                    <Options className={tableStyles.optionsIcon} onClick={() => handleOptionsClick(-1)}></Options>
                     <span className={tableStyles.optionsContent + ' ' + (optionsOpen === -1 ? tableStyles.optionsOpened : tableStyles.optionsClosed)}>
                         {options.map((e, idx) => {
-                          return  <div key={idx} onClick={e.onClick}> {e.label} </div>
+                            return <div key={idx} onClick={e.onClick}> {e.label} </div>
                         })}
-                    </span> </div>: ''}
+                    </span> </div> : ''}
             </div>
             <div className={tableStyles.rows}>
                 {data.map((number, idx) =>
