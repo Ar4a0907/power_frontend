@@ -142,6 +142,15 @@
   }
 }
 
+.tableFirstBlock {
+  position: relative;
+  & .arrowIcon {
+    position: absolute;
+    top: 25%;
+    left: 40px;
+  }
+}
+
 .options {
   position: relative;
 }
@@ -184,6 +193,7 @@
 
 .row {
   display: flex;
+  flex-wrap: wrap;
   padding: 20px 20px;
   font-family: Inter;
   font-style: normal;
@@ -206,7 +216,45 @@
     width: 27%;
   }
   & div:nth-child(5) {
-    width: 12%;
+    width: 11%;
   }
 }
 
+.tableCollapse {
+  background: #F4F2FF;
+  width:100%;
+ & table {
+   width:100%;
+   & tr {
+     & td {
+       padding-top: 10px;
+       padding-bottom: 10px;
+       padding-left: 10%;
+     }
+   }
+ }
+}
+
+.collapseOpened {
+  margin-top: 15px;
+  max-height: 320px;
+  opacity: 1;
+  transition: max-height 0.3s ease-out, margin-top 0.3s ease-out;
+}
+
+.collapseClosed {
+  margin-top: 0;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease-out, opacity 0s 0.1s ease, margin-top 0.3s ease-out;
+}
+
+.arrowOpened {
+  transform: rotate(0deg);
+  transition: 0.15s ease-out;
+}
+
+.arrowClosed {
+  transform: rotate(180deg);
+  transition: 0.15s ease-out;
+}

@@ -4,7 +4,7 @@ import InputSearch from '../inputSearch/inputSearch';
 import Button from '../button/button';
 import CheckBox from '../checkBox/checkBox';
 import { ReactComponent as Options } from './options.svg';
-// import Icon from '../icons/icons';
+import Icon from '../icons/icons';
 import Badge from '../Badge/badge';
 import RadioButton from '../radioButton/radioButton';
 
@@ -12,6 +12,7 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
 
     const [filterOpen, setFilterOpen] = useState(false);
     const [optionsOpen, setOptionsOpen] = useState(null);
+    const [collapseOpen, setCollaspeOpen] = useState(null);
 
     const handleFilterClick = () => {
       setFilterOpen(!filterOpen);
@@ -22,8 +23,16 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
         } else {
             setOptionsOpen(index);
         }
-
     };
+
+    const handleCollapseClick = (index) => {
+        if (index === collapseOpen) {
+            setCollaspeOpen(null);
+        } else {
+            setCollaspeOpen(index);
+        }
+    };
+
 
     return (
         <div className={tableStyles.tableContainer}>
@@ -36,7 +45,7 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
                         <span>Sort By:</span>
                         <RadioButton checked={0} items={['Default', 'First Name', 'Last Name', 'Due Date', 'Last Login']} onChange={(value) => console.log(value)} />
                     </div>
-                    <div className={tableStyles.filterUsers}>
+                    <div>
                         <span>Users:</span>
                         <RadioButton checked={0} items={['All', 'Active', 'Inactive']} />
                     </div>
@@ -60,9 +69,11 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
             <div className={tableStyles.rows}>
                 {data.map((number, idx) =>
                     <div className={tableStyles.row} key={idx}>
-                        <div>
+                        <div className={tableStyles.tableFirstBlock}>
                             <CheckBox/>
-
+                            <div onClick={() => handleCollapseClick(idx)}>
+                            <Icon className={tableStyles.arrowIcon + ' ' + (collapseOpen === idx ? tableStyles.arrowOpened : tableStyles.arrowClosed)} type='upArrow'/>
+                            </div>
                         </div>
                         {Object.values(number).map((element, idx) =>
                             <div key={idx}>{fields[idx].type === 'badge' ?
@@ -81,7 +92,16 @@ const Table = ({search, filter, payDues, options, data, fields}) => {
                         {options.map((e, idx) => {
                             return  <div key={idx} onClick={e.onClick}> {e.label} </div>
                         })}
-                    </span> </div>: ''}
+                        </span> </div>: ''}
+                        <div className={tableStyles.tableCollapse + ' ' + (collapseOpen === idx ? tableStyles.collapseOpened : tableStyles.collapseClosed)}>
+                            <table>
+                                <tr>
+                                    <td>11111</td>
+                                    <td>Test</td>
+                                    <td>hello</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 )}
             </div>
