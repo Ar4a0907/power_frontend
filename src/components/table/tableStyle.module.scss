@@ -193,6 +193,7 @@
 
 .row {
   display: flex;
+  flex-wrap: wrap;
   padding: 20px 20px;
   font-family: Inter;
   font-style: normal;
@@ -215,7 +216,7 @@
     width: 27%;
   }
   & div:nth-child(5) {
-    width: 12%;
+    width: 11%;
   }
 }
 

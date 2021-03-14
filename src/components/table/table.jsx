@@ -107,7 +107,7 @@ const Table = ({ search, filter, payDues, options, placeholder, data, fields }) 
                         <span>Sort By:</span>
                         <RadioButton checked={0} items={['Default', 'First Name', 'Last Name', 'Due Date', 'Last Login']} onChange={(value) => console.log(value)} />
                     </div>
-                    <div className={tableStyles.filterUsers}>
+                    <div>
                         <span>Users:</span>
                         <RadioButton checked={0} items={['All', 'Active', 'Inactive']} />
                     </div>
