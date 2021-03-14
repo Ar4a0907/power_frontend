@@ -125,6 +125,7 @@
   color: #6E6893;
   align-items: center;
   text-transform: uppercase;
+  border: 1px solid #D9D5EC;
   & div:nth-child(1) {
     width: 9%;
   }
@@ -235,6 +236,7 @@
     width:100%;
    & table {
      width:100%;
+     border: 1px solid #D9D5EC;
      & tr {
       margin-left: 8.64%;
       margin-right: 7.27%;
@@ -250,10 +252,14 @@
        }
      }
    }
+   & .colapseTopic{
+    grid-template-rows: 30px;
+    margin-bottom: 15px;
+
+   }
   }
   
   .collapseOpened {
-    margin-top: 15px;
     max-height: 320px;
     opacity: 1;
     transition: max-height 0.3s ease-out, margin-top 0.3s ease-out;
@@ -274,4 +280,19 @@
   .arrowClosed {
     transform: rotate(180deg);
     transition: 0.15s ease-out;
+  }
+
+  .expandLabel {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: #6E6893;
+    text-transform: uppercase;
+    height: 1px;
+  }
+
+  .expandedRow {
+    background-color: #F4F2FF;
   }

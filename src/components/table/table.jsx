@@ -8,7 +8,7 @@ import Badge from '../Badge/badge';
 import RadioButton from '../radioButton/radioButton';
 import Icon from '../icons/icons';
 
-const Table = ({ search, filter, payDues, options, placeholder, data, fields }) => {
+const Table = ({ search, filter, payDues, options, placeholder, data, fields,expand }) => {
 
     const [filterOpen, setFilterOpen] = useState(false);
     const [optionsOpen, setOptionsOpen] = useState(null);
@@ -17,6 +17,7 @@ const Table = ({ search, filter, payDues, options, placeholder, data, fields }) 
     const handleFilterClick = () => {
         setFilterOpen(!filterOpen);
     };
+
     const handleOptionsClick = (index) => {
         if (index === optionsOpen) {
             setOptionsOpen(null);
@@ -35,29 +36,36 @@ const Table = ({ search, filter, payDues, options, placeholder, data, fields }) 
 
     const expandRow = (obj) => {
         let result = [];
-        let check = fields.map(e => e.name);
-        for (var i in obj) {
-            if (check.some((element) => { return element === i })) { } else { result.push(obj[i]) }
+        for (let index = 0; index < obj.length; index++) {
+            result.push(obj[index]);
         }
         return splitExpandData(result);
     };
 
     const splitExpandData = (arr) => {
         let splitedExpand = [];
-        for (let index = 0; index < arr.length; index += 3) {
+            splitedExpand.push(<table>
+                <tr className={tableStyles.colapseTopic}>
+                    <td className={tableStyles.expandLabel + ' ' + tableStyles.itemA}>{expand[0].label}</td>
+                    <td className={tableStyles.expandLabel + ' ' + tableStyles.itemB}>{expand[1].label}</td>
+                    <td className={tableStyles.expandLabel + ' ' + tableStyles.itemC}>{expand[2].label}</td>
+                </tr>
+                </table>
+            );
+
+        for (let index = 0; index < arr.length; index++) {
             splitedExpand.push(<table>
                 <tr>
-                    {arr[index] ? <td className={tableStyles.itemA}>{arr[index]}</td> : ''}
-                    {arr[index + 1] ? <td className={tableStyles.itemB}>{arr[index + 1]}</td> : ''}
-                    {arr[index + 2] ? <td className={tableStyles.itemC}>{arr[index + 2]}</td> : ''}
+                    <td className={tableStyles.itemA}>{arr[index][expand[0].name]}</td>
+                    <td className={tableStyles.itemB}>{arr[index][expand[1].name]}</td>
+                    <td className={tableStyles.itemC}>{arr[index][expand[2].name]}</td>
                 </tr>
-            </table>)
+            </table>);
         }
         return splitedExpand;
     };
 
     let rows = [];
-
     for (let dataIndex = 0; dataIndex < data.length; dataIndex++) {
         let fieldrRow = [];
         fieldrRow.push(<div className={tableStyles.tableFirstBlock} >
@@ -67,9 +75,9 @@ const Table = ({ search, filter, payDues, options, placeholder, data, fields }) 
                 </div>
             </div>
         </div>);
-
+        
         for (let fieldsIndex = 0; fieldsIndex < fields.length; fieldsIndex++) {
-            let currentField = data[dataIndex][fields[fieldsIndex].name];
+            let currentField = data[dataIndex].dataFields[fields[fieldsIndex].name];
             fieldrRow.push(<div className={tableStyles.tableFirstBlock} key={fieldsIndex} >
                 {fields[fieldsIndex].type === 'badge' ?
                     <Badge label={currentField}
@@ -87,14 +95,14 @@ const Table = ({ search, filter, payDues, options, placeholder, data, fields }) 
                 {options.map((e, idx) => {
                     return <div key={idx} onClick={e.onClick}> {e.label} </div>
                 })}
-            </span> </div> : '')
+            </span> </div> : '');
 
-        rows.push(<div className={tableStyles.row} key={dataIndex}>{fieldrRow}</div>);
+        rows.push(<div key={dataIndex} className={tableStyles.row + ' ' + (collapseOpen === dataIndex ? tableStyles.expandedRow : '') } >{fieldrRow}</div>);
         rows.push(<div className={tableStyles.tableCollapse + ' ' + (collapseOpen === dataIndex ? tableStyles.collapseOpened : tableStyles.collapseClosed)}>
-            {expandRow(data[dataIndex])}
-        </div>)
-    };
+            {expandRow(data[dataIndex].expand)}
 
+        </div>);
+    };
 
     return (
         <div className={tableStyles.tableContainer}>

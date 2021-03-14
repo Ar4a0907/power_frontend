@@ -53,29 +53,35 @@ const TestScreen = () => {
     
     const fetchData =  {'Dues': [
             {
-               name: 'Ilya Cvetkov',
-               userStatus: 'active',
-               paymentStatus: 'Paid',
-               amount: '$20000',
-               fakeData: 'it`s not field data',
-               toSplit: 'it`s spilt 2 same keys',
-               fakeData: 'has the same key',
-               thirdData: 'to check position of lorem ipsum',
-               first: '2 item passed',
-               second: 'check how look'
-            },
+                dataFields: {
+                    name: 'Ilya Tsvetkov',
+                    userStatus: 'active',
+                    paymentStatus: 'Overdue',
+                    amount: '$50'
+                },
+                expand: [
+                    {date: '12/APR/2021',
+                    userActivity: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.'},
+                    {date: '08/APR/2022',
+                    userActivity: 'and it`s Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.'}
+            ]},
             {
-                name: 'Artem Skurjat',
-                userStatus: 'active',
-                paymentStatus: 'Overdue',
-                amount: '$50',
-                first: '12/APR/2020',
-                second: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
-                third: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
-                firth: '08/APR/2020',
-                five: 'and it`s Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
-                six: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
-                seven: 'only 1 item passed'
+                dataFields: {
+                    name: 'Artem Skurjat',
+                    userStatus: 'active',
+                    paymentStatus: 'Overdue',
+                    amount: '$50'
+                },
+                expand: [
+                    {date: '12/APR/2020',
+                    userActivity: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.'},
+                    {date: '08/APR/2020',
+                    userActivity: 'and it`s Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.'}
+                ]
             }
           ]}
 
@@ -248,6 +254,11 @@ const TestScreen = () => {
                                     {label: 'User Status', name: 'userStatus', type: 'badge'},
                                     {label: 'Payment Status', name: 'paymentStatus',type: 'badge'},
                                     {label: 'Amount', name: 'amount'}
+                                ]} 
+                                expand={[
+                                    {label: 'date', name: 'date'},
+                                    {label: 'user activity', name: 'userActivity'},
+                                    {label: 'detail', name: 'detail'}
                                 ]}/>
                     </div>
                 </body>
