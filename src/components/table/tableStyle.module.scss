@@ -220,12 +220,29 @@
   }
 }
 
+.itemA {
+  grid-area: A;
+}
+.itemB {
+  grid-area: B;
+}
+.itemC {
+  grid-area: C;
+}
+
 .tableCollapse {
     background: #F4F2FF;
     width:100%;
    & table {
      width:100%;
      & tr {
+      margin-left: 8.64%;
+      margin-right: 7.27%;
+      display: inline-grid;
+      grid-template-columns: 100px 250px 525px;
+      grid-template-rows: 34px;
+      margin-bottom: 60px;
+      grid-template-areas: 'A B C';
        & td {
          padding-top: 10px;
          padding-bottom: 10px;

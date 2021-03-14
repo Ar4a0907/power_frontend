@@ -37,7 +37,7 @@ const Table = ({ search, filter, payDues, options, placeholder, data, fields }) 
         let result = [];
         let check = fields.map(e => e.name);
         for (var i in obj) {
-            if (check.some((element) => { return element === i })) { } else { result.push(<td>{obj[i]}</td>) }
+            if (check.some((element) => { return element === i })) { } else { result.push(obj[i]) }
         }
         return splitExpandData(result);
     };
@@ -47,9 +47,9 @@ const Table = ({ search, filter, payDues, options, placeholder, data, fields }) 
         for (let index = 0; index < arr.length; index += 3) {
             splitedExpand.push(<table>
                 <tr>
-                    {arr[index] ? arr[index] : ''}
-                    {arr[index + 1] ? arr[index + 1] : ''}
-                    {arr[index + 2] ? arr[index + 2] : ''}
+                    {arr[index] ? <td className={tableStyles.itemA}>{arr[index]}</td> : ''}
+                    {arr[index + 1] ? <td className={tableStyles.itemB}>{arr[index + 1]}</td> : ''}
+                    {arr[index + 2] ? <td className={tableStyles.itemC}>{arr[index + 2]}</td> : ''}
                 </tr>
             </table>)
         }

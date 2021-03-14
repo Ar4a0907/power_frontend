@@ -57,18 +57,25 @@ const TestScreen = () => {
                userStatus: 'active',
                paymentStatus: 'Paid',
                amount: '$20000',
-               fakeData: 'it`s not field data'
+               fakeData: 'it`s not field data',
+               toSplit: 'it`s spilt 2 same keys',
+               fakeData: 'has the same key',
+               thirdData: 'to check position of lorem ipsum',
+               first: '2 item passed',
+               second: 'check how look'
             },
             {
                 name: 'Artem Skurjat',
                 userStatus: 'active',
                 paymentStatus: 'Overdue',
                 amount: '$50',
-                first: 'first',
-                second: 'second',
-                third: 'third',
-                firth: 'firth',
-                five: 'and it`s five'
+                first: '12/APR/2020',
+                second: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                third: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+                firth: '08/APR/2020',
+                five: 'and it`s Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                six: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+                seven: 'only 1 item passed'
             }
           ]}
 
