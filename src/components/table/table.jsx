@@ -6,12 +6,13 @@ import CheckBox from '../checkBox/checkBox';
 import { ReactComponent as Options } from './options.svg';
 import Badge from '../Badge/badge';
 import RadioButton from '../radioButton/radioButton';
-import Collapse from '../collapse/collapse';
+import Icon from '../icons/icons';
 
-const Table = ({ search, filter, payDues, options, data, fields}) => {
+const Table = ({ search, filter, payDues, options, placeholder, data, fields }) => {
 
     const [filterOpen, setFilterOpen] = useState(false);
     const [optionsOpen, setOptionsOpen] = useState(null);
+    const [collapseOpen, setCollaspeOpen] = useState(null);
 
     const handleFilterClick = () => {
         setFilterOpen(!filterOpen);
@@ -22,18 +23,54 @@ const Table = ({ search, filter, payDues, options, data, fields}) => {
         } else {
             setOptionsOpen(index);
         }
+    };
 
+    const handleCollapseClick = (index) => {
+        if (index === collapseOpen) {
+            setCollaspeOpen(null);
+        } else {
+            setCollaspeOpen(index);
+        }
+    };
+
+    const expandRow = (obj) => {
+        let result = [];
+        let check = fields.map(e => e.name);
+        for (var i in obj) {
+            if (check.some((element) => { return element === i })) { } else { result.push(<td>{obj[i]}</td>) }
+        }
+        return splitExpandData(result);
+    };
+
+    const splitExpandData = (arr) => {
+        let splitedExpand = [];
+        for (let index = 0; index < arr.length; index += 3) {
+            splitedExpand.push(<table>
+                <tr>
+                    {arr[index] ? arr[index] : ''}
+                    {arr[index + 1] ? arr[index + 1] : ''}
+                    {arr[index + 2] ? arr[index + 2] : ''}
+                </tr>
+            </table>)
+        }
+        return splitedExpand;
     };
 
     let rows = [];
 
     for (let dataIndex = 0; dataIndex < data.length; dataIndex++) {
-        let row = [];
-        row.push(<div><CheckBox /></div>)
-        row.push(<Collapse label='' content={<div>lorem ipsum kitchen go to far away</div>}/>);
+        let fieldrRow = [];
+        fieldrRow.push(<div className={tableStyles.tableFirstBlock} >
+            <div><CheckBox />
+                <div onClick={() => handleCollapseClick(dataIndex)}>
+                    <Icon className={tableStyles.arrowIcon + ' ' + (collapseOpen === dataIndex ? tableStyles.arrowOpened : tableStyles.arrowClosed)} type='upArrow' />
+                </div>
+            </div>
+        </div>);
+
         for (let fieldsIndex = 0; fieldsIndex < fields.length; fieldsIndex++) {
-            let currentField = data[dataIndex][fields[fieldsIndex].name]
-            row.push(<div key={fieldsIndex} >
+            let currentField = data[dataIndex][fields[fieldsIndex].name];
+            fieldrRow.push(<div className={tableStyles.tableFirstBlock} key={fieldsIndex} >
                 {fields[fieldsIndex].type === 'badge' ?
                     <Badge label={currentField}
                         {...(currentField === 'Paid' ? { success: true } : undefined)}
@@ -43,15 +80,20 @@ const Table = ({ search, filter, payDues, options, data, fields}) => {
                     : currentField}
             </div>);
         }
-        row.push(options ? <div className={tableStyles.options}>
+
+        fieldrRow.push(options ? <div className={tableStyles.options}>
             <Options className={tableStyles.optionsIcon} onClick={() => handleOptionsClick(dataIndex)}></Options>
             <span className={tableStyles.optionsContent + ' ' + (optionsOpen === dataIndex ? tableStyles.optionsOpened : tableStyles.optionsClosed)}>
                 {options.map((e, idx) => {
                     return <div key={idx} onClick={e.onClick}> {e.label} </div>
                 })}
             </span> </div> : '')
-        rows.push(row);
-    }
+
+        rows.push(<div className={tableStyles.row} key={dataIndex}>{fieldrRow}</div>);
+        rows.push(<div className={tableStyles.tableCollapse + ' ' + (collapseOpen === dataIndex ? tableStyles.collapseOpened : tableStyles.collapseClosed)}>
+            {expandRow(data[dataIndex])}
+        </div>)
+    };
 
 
     return (
@@ -70,7 +112,7 @@ const Table = ({ search, filter, payDues, options, data, fields}) => {
                         <RadioButton checked={0} items={['All', 'Active', 'Inactive']} />
                     </div>
                 </div>
-                {search ? < InputSearch small className={tableStyles.search} placeholder={search} /> : ''}
+                {search ? < InputSearch small className={tableStyles.search} placeholder={placeholder ? placeholder : 'Search for anything'} /> : ''}
                 {payDues ? <Button className={tableStyles.payDues}><div>pay dues</div></Button> : ''}
             </div>
             <div className={tableStyles.tableTopic}>
@@ -87,7 +129,7 @@ const Table = ({ search, filter, payDues, options, data, fields}) => {
                     </span> </div> : ''}
             </div>
             <div className={tableStyles.rows}>
-                {rows.map((e, idx) => { return <div className={tableStyles.row} key={idx}>{e}</div> })}
+                {rows}
             </div>
         </div>
     )

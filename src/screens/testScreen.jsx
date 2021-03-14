@@ -56,14 +56,19 @@ const TestScreen = () => {
                name: 'Ilya Cvetkov',
                userStatus: 'active',
                paymentStatus: 'Paid',
-               amount: '$20000'
-              // ,fakeData: 'hey'
+               amount: '$20000',
+               fakeData: 'it`s not field data'
             },
             {
                 name: 'Artem Skurjat',
                 userStatus: 'active',
                 paymentStatus: 'Overdue',
                 amount: '$50',
+                first: 'first',
+                second: 'second',
+                third: 'third',
+                firth: 'firth',
+                five: 'and it`s five'
             }
           ]}
 
