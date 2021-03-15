@@ -44,19 +44,20 @@ const Table = ({ search, filter, payDues, options, placeholder, data, fields,exp
                 </tr>
             </thead>
             <tbody>
-            {fields.map((field, idx) => (
-          <tr key={idx}>
-            {expand.map((expandField, expandFieldIdx) => (
-                <td key={idx.toString() + '_' + expandFieldIdx.toString()}>
-                  {field[expandField.name]}
-                </td>
-              )
-            )}
-          </tr>
-        )
-      )}
+                {fields.map((field, idx) => (
+                    <tr key={idx}>
+                    {expand.map((expandField, expandFieldIdx) => (
+                        <td key={idx.toString() + '_' + expandFieldIdx.toString()} className={tableStyles.expandTableBlock}>
+                          {field[expandField.name]}
+                        </td>
+                      )
+                    )}
+                    </tr>
+                )
+              )}
             </tbody>
-        </table>);
+        </table>
+        );
     }
 
     let rows = [];
