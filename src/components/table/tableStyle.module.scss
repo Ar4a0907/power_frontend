@@ -221,16 +221,6 @@
   }
 }
 
-.itemA {
-  grid-area: A;
-}
-.itemB {
-  grid-area: B;
-}
-.itemC {
-  grid-area: C;
-}
-
 .tableCollapse {
     background: #F4F2FF;
     width:100%;
@@ -238,29 +228,24 @@
      width:100%;
      border: 1px solid #D9D5EC;
      & tr {
+      display: flex;
+      flex-grow: 1;
       margin-left: 8.64%;
       margin-right: 7.27%;
-      display: inline-grid;
-      grid-template-columns: 100px 250px 525px;
-      grid-template-rows: 34px;
-      margin-bottom: 60px;
-      grid-template-areas: 'A B C';
+      margin-bottom: 15px;
        & td {
+         width: 100%;
+         word-break: break-all;
          padding-top: 10px;
-         padding-bottom: 10px;
-         padding-left: 10%;
+         padding-bottom: 20px;
+         padding-left: 5%;
        }
      }
-   }
-   & .colapseTopic{
-    grid-template-rows: 30px;
-    margin-bottom: 15px;
-
    }
   }
   
   .collapseOpened {
-    max-height: 320px;
+    max-height: 2000px;
     opacity: 1;
     transition: max-height 0.3s ease-out, margin-top 0.3s ease-out;
   }

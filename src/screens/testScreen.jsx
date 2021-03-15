@@ -62,10 +62,12 @@ const TestScreen = () => {
                 expand: [
                     {date: '12/APR/2021',
                     userActivity: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
-                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.'},
+                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+                    email: 'sabaka@sabaka.com'},
                     {date: '08/APR/2022',
                     userActivity: 'and it`s Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
-                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.'}
+                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+                    email: '123#11daw.cvetkov@gmail.com'}
             ]},
             {
                 dataFields: {
@@ -77,10 +79,12 @@ const TestScreen = () => {
                 expand: [
                     {date: '12/APR/2020',
                     userActivity: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
-                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.'},
+                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+                    email: 'artem.srutckovskij12351@inox.lv'},
                     {date: '08/APR/2020',
                     userActivity: 'and it`s Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
-                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.'}
+                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+                    email: ' email:@gmail.mail'}
                 ]
             }
           ]}
@@ -258,6 +262,7 @@ const TestScreen = () => {
                                 expand={[
                                     {label: 'date', name: 'date'},
                                     {label: 'user activity', name: 'userActivity'},
+                                    {label: 'email', name: 'email'},
                                     {label: 'detail', name: 'detail'}
                                 ]}/>
                     </div>

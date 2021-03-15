@@ -34,38 +34,33 @@ const Table = ({ search, filter, payDues, options, placeholder, data, fields,exp
         }
     };
 
-    const expandRow = (obj) => {
-        let result = [];
-        for (let index = 0; index < obj.length; index++) {
-            result.push(obj[index]);
-        }
-        return splitExpandData(result);
-    };
-
-    const splitExpandData = (arr) => {
-        let splitedExpand = [];
-            splitedExpand.push(<table>
-                <tr className={tableStyles.colapseTopic}>
-                    <td className={tableStyles.expandLabel + ' ' + tableStyles.itemA}>{expand[0].label}</td>
-                    <td className={tableStyles.expandLabel + ' ' + tableStyles.itemB}>{expand[1].label}</td>
-                    <td className={tableStyles.expandLabel + ' ' + tableStyles.itemC}>{expand[2].label}</td>
-                </tr>
-                </table>
-            );
-
-        for (let index = 0; index < arr.length; index++) {
-            splitedExpand.push(<table>
+    const expandRow = (fields,expanded) => {
+        return (
+        <table className={tableStyles.tableCollapse + ' ' + (expanded ? tableStyles.collapseOpened : tableStyles.collapseClosed)}>
+            <thead>
                 <tr>
-                    <td className={tableStyles.itemA}>{arr[index][expand[0].name]}</td>
-                    <td className={tableStyles.itemB}>{arr[index][expand[1].name]}</td>
-                    <td className={tableStyles.itemC}>{arr[index][expand[2].name]}</td>
+                    {expand.map((field, idx) => (
+                    <th className={tableStyles.expandLabel} scope="col" key={idx}>{field.label}</th> ))}
                 </tr>
-            </table>);
-        }
-        return splitedExpand;
-    };
+            </thead>
+            <tbody>
+            {fields.map((field, idx) => (
+          <tr key={idx}>
+            {expand.map((expandField, expandFieldIdx) => (
+                <td key={idx.toString() + '_' + expandFieldIdx.toString()}>
+                  {field[expandField.name]}
+                </td>
+              )
+            )}
+          </tr>
+        )
+      )}
+            </tbody>
+        </table>);
+    }
 
     let rows = [];
+
     for (let dataIndex = 0; dataIndex < data.length; dataIndex++) {
         let fieldrRow = [];
         fieldrRow.push(<div className={tableStyles.tableFirstBlock} >
@@ -98,10 +93,7 @@ const Table = ({ search, filter, payDues, options, placeholder, data, fields,exp
             </span> </div> : '');
 
         rows.push(<div key={dataIndex} className={tableStyles.row + ' ' + (collapseOpen === dataIndex ? tableStyles.expandedRow : '') } >{fieldrRow}</div>);
-        rows.push(<div className={tableStyles.tableCollapse + ' ' + (collapseOpen === dataIndex ? tableStyles.collapseOpened : tableStyles.collapseClosed)}>
-            {expandRow(data[dataIndex].expand)}
-
-        </div>);
+        rows.push(expandRow(data[dataIndex].expand, collapseOpen === dataIndex));
     };
 
     return (
