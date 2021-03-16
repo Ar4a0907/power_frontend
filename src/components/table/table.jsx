@@ -8,7 +8,7 @@ import Badge from '../Badge/badge';
 import RadioButton from '../radioButton/radioButton';
 import Icon from '../icons/icons';
 
-const Table = ({ search, filter, headerButton, options, placeholder, data, fields,expand }) => {
+const Table = ({ search, filter, headerButton, options, placeholder, data, fields, expand }) => {
 
     const [filterOpen, setFilterOpen] = useState(false);
     const [optionsOpen, setOptionsOpen] = useState(null);
@@ -34,7 +34,7 @@ const Table = ({ search, filter, headerButton, options, placeholder, data, field
         }
     };
 
-    const expandRow = (fields,expanded) => {
+    const expandRow = (fields, expanded) => {
         return (
         <table className={tableStyles.tableCollapse + ' ' + (expanded ? tableStyles.collapseOpened : tableStyles.collapseClosed)}>
             <thead>
@@ -65,7 +65,8 @@ const Table = ({ search, filter, headerButton, options, placeholder, data, field
     for (let dataIndex = 0; dataIndex < data.length; dataIndex++) {
         let fieldrRow = [];
         fieldrRow.push(<div className={tableStyles.tableFirstBlock} >
-            <div><CheckBox />
+            <div>
+                <CheckBox/>
                 <div onClick={() => handleCollapseClick(dataIndex)}>
                     <Icon className={tableStyles.arrowIcon + ' ' + (collapseOpen === dataIndex ? tableStyles.arrowOpened : tableStyles.arrowClosed)} type='upArrow' />
                 </div>
