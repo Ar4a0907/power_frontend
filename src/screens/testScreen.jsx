@@ -12,8 +12,11 @@ import Icon from '../components/icons/icons';
 import SideNav from '../components/sideNav/sideNav';
 import { BrowserRouter } from 'react-router-dom';
 import Badge from '../components/Badge/badge';
+import Datepicker from "../components/Datepicker/datepicker";
+import moment from 'moment';
 import Tab from '../components/tab/tab';
 import Dropdown from "../components/dropdown/dropdown";
+import Paginator from '../components/paginator/paginator';
 import Collapse from '../components/collapse/collapse';
 import Modal from '../components/Modal/modal';
 import Table from "../components/table/table";
@@ -46,11 +49,23 @@ const TestScreen = () => {
 
     const [modalIsOpenSecond, setModalIsOpenSecond] = useState(false);
 
+    const startDate = moment();
+    const endDate = moment().add(1, 'days');
+    const datepickerOnChange = (firstDate, secondDate) => {
+        console.log('picked dates = ' + moment(firstDate).format() + ' ' + moment(secondDate).format());
+        return {firstDate:moment(firstDate), secondDate:moment(secondDate)}
+    }
+
+    const datepickerSingleOnChange = (singleDate) => {
+        console.log('picked date = ' + moment(singleDate).format())
+        return moment(singleDate)
+    }
+
     const optionsItems = [
             {label: 'add', onClick: () => console.log('add')},
             {label: 'delete', onClick: () => console.log('delete')}
         ];
-    
+
     const fetchData =  {'Dues': [
             {
                 dataFields: {
@@ -89,7 +104,7 @@ const TestScreen = () => {
             }
           ]}
 
-    
+
 
     return (
         <BrowserRouter>
@@ -209,6 +224,14 @@ const TestScreen = () => {
                             <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
                         <div>
+                        <Paginator total={276} selected={3} onChange={(val) => console.log(val)} />
+                    </div>
+                        <div>
+                            <Datepicker options={{pastDatesDisabled: true, range: true, numMonths: 3}} startDate={startDate}
+                                        endDate={endDate}
+                                        onChange={datepickerOnChange}/>
+                            <Datepicker options={{pastDatesDisabled: false, range: false}} date={startDate}
+                                        onChange={datepickerSingleOnChange}/>
                             <Collapse
                                 label="Click on me to expand"
                                 content={
@@ -258,7 +281,7 @@ const TestScreen = () => {
                                     {label: 'User Status', name: 'userStatus', type: 'badge'},
                                     {label: 'Payment Status', name: 'paymentStatus',type: 'badge'},
                                     {label: 'Amount', name: 'amount'}
-                                ]} 
+                                ]}
                                 expand={[
                                     {label: 'date', name: 'date'},
                                     {label: 'user activity', name: 'userActivity'},
