@@ -250,7 +250,7 @@ const TestScreen = () => {
                         </div>
                         <Table  filter
                                 search={'Custom Table search'}
-                                payDues
+                                headerButton={'Pay Dues1'}
                                 options={optionsItems}
                                 data={fetchData.Dues}
                                 fields={[

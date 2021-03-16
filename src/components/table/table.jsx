@@ -8,7 +8,7 @@ import Badge from '../Badge/badge';
 import RadioButton from '../radioButton/radioButton';
 import Icon from '../icons/icons';
 
-const Table = ({ search, filter, payDues, options, placeholder, data, fields,expand }) => {
+const Table = ({ search, filter, headerButton, options, placeholder, data, fields,expand }) => {
 
     const [filterOpen, setFilterOpen] = useState(false);
     const [optionsOpen, setOptionsOpen] = useState(null);
@@ -114,7 +114,7 @@ const Table = ({ search, filter, payDues, options, placeholder, data, fields,exp
                     </div>
                 </div>
                 {search ? < InputSearch small className={tableStyles.search} placeholder={placeholder ? placeholder : 'Search for anything'} /> : ''}
-                {payDues ? <Button className={tableStyles.payDues}><div>pay dues</div></Button> : ''}
+                {headerButton ? <Button className={tableStyles.headerButton}><div>{headerButton}</div></Button> : ''}
             </div>
             <div className={tableStyles.tableTopic}>
                 <div><CheckBox /> </div>
