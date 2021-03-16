@@ -114,7 +114,7 @@ const Table = ({ search, filter, headerButton, options, placeholder, data, field
                     </div>
                 </div>
                 {search ? < InputSearch small className={tableStyles.search} placeholder={placeholder ? placeholder : 'Search for anything'} /> : ''}
-                {headerButton ? <Button className={tableStyles.headerButton}><div>{headerButton}</div></Button> : ''}
+                {headerButton ? <Button className={tableStyles.headerButton} onClick={headerButton.onClick}><div>{headerButton.label}</div></Button> : ''}
             </div>
             <div className={tableStyles.tableTopic}>
                 <div><CheckBox /> </div>
