@@ -19,6 +19,8 @@ import Dropdown from "../components/dropdown/dropdown";
 import Paginator from '../components/paginator/paginator';
 import Collapse from '../components/collapse/collapse';
 import Modal from '../components/Modal/modal';
+import Table from "../components/table/table";
+
 
 
 const TestScreen = () => {
@@ -58,6 +60,51 @@ const TestScreen = () => {
         console.log('picked date = ' + moment(singleDate).format())
         return moment(singleDate)
     }
+
+    const optionsItems = [
+            {label: 'add', onClick: () => console.log('add')},
+            {label: 'delete', onClick: () => console.log('delete')}
+        ];
+
+    const fetchData =  {'Dues': [
+            {
+                dataFields: {
+                    name: 'Ilya Tsvetkov',
+                    userStatus: 'active',
+                    paymentStatus: 'Overdue',
+                    amount: '$50'
+                },
+                expand: [
+                    {date: '12/APR/2021',
+                    userActivity: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+                    email: 'sabaka@sabaka.com'},
+                    {date: '08/APR/2022',
+                    userActivity: 'and it`s Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+                    email: '123#11daw.cvetkov@gmail.com'}
+            ]},
+            {
+                dataFields: {
+                    name: 'Artem Skurjat',
+                    userStatus: 'active',
+                    paymentStatus: 'Overdue',
+                    amount: '$50'
+                },
+                expand: [
+                    {date: '12/APR/2020',
+                    userActivity: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+                    email: 'artem.srutckovskij12351@inox.lv'},
+                    {date: '08/APR/2020',
+                    userActivity: 'and it`s Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+                    email: ' email:@gmail.mail'}
+                ]
+            }
+          ]}
+
+
 
     return (
         <BrowserRouter>
@@ -224,6 +271,23 @@ const TestScreen = () => {
                             <Dropdown label="click here" items={[{label: 'item 1', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                             <Dropdown disabled label="click here" items={[{label: 'item 12', link: '/dashboard'}, {label: 'item2', onClick: () => {console.log('chosen 2nd option!')}}]} />
                         </div>
+                        <Table  filter
+                                search={'Custom Table search'}
+                                headerButton={{label: 'Pay dues', onClick: () => {console.log('Pay dues clicked')}}}
+                                options={optionsItems}
+                                data={fetchData.Dues}
+                                fields={[
+                                    {label: 'Name', name: 'name'},
+                                    {label: 'User Status', name: 'userStatus', type: 'badge'},
+                                    {label: 'Payment Status', name: 'paymentStatus',type: 'badge'},
+                                    {label: 'Amount', name: 'amount'}
+                                ]}
+                                expand={[
+                                    {label: 'date', name: 'date'},
+                                    {label: 'user activity', name: 'userActivity'},
+                                    {label: 'email', name: 'email'},
+                                    {label: 'detail', name: 'detail'}
+                                ]}/>
                     </div>
                 </body>
             </div>

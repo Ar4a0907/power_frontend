@@ -1,0 +1,269 @@
+.tableContainer {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.tableHeader {
+  position: relative;
+  display: flex;
+  padding: 15px 20px;
+  justify-content: flex-start;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.filter {
+  border: 1px solid #C6C2DE;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background: #FFFFFF;
+  margin-right: 20px;
+  &:hover {
+    border-color: #6D5BD0;
+    transform: none;
+  }
+  &::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background: url("filter.svg") no-repeat center;
+  }
+  & div {
+    color: #25213B;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+.filterButtonClicked {
+  border-color: #6D5BD0;
+  box-shadow: 0px 0px 3px #6D5BD0;
+}
+
+.filterContent {
+  position: absolute;
+  padding: 20px;
+  background: #FFFFFF;
+  border: 1px solid #C6C2DE;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  z-index: 1;
+  top: 90%;
+  overflow: hidden;
+  max-width: 200px;
+  width: 100%;
+  & span {
+    text-transform: uppercase;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #6E6893;
+  }
+  & .filterSortBy {
+    border-bottom: 1px solid #F2F0F9;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  &:hover {
+    transform: none;
+  }
+  & *{
+    overflow: hidden;
+  }
+}
+
+.filterOpen {
+  max-height: 500px;
+  opacity: 1;
+  transition: max-height 0.3s ease-out;
+}
+
+.filterClose {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease-out, opacity 0s 0.3s ease;
+}
+
+.search {
+  background: #F4F2FF;
+  border-radius: 6px;
+  border: transparent 1px solid;
+  &:hover {
+  border-color: #6D5BD0;
+  }
+}
+
+.headerButton {
+  background: #6D5BD0;
+  border-radius: 6px;
+  margin-right: 0;
+  margin-left: auto;
+  & div {
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+  }
+}
+
+.tableTopic {
+  display: flex;
+  padding: 10px 20px;
+  background: #F4F2FF;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+  color: #6E6893;
+  align-items: center;
+  text-transform: uppercase;
+  border: 1px solid #D9D5EC;
+  & div:nth-child(1) {
+    width: 9%;
+  }
+  & div:nth-child(2) {
+    width: 23%;
+  }
+  & div:nth-child(3) {
+     width: 29%;
+  }
+  & div:nth-child(4) {
+    width: 27%;
+  }
+  & div:nth-child(5) {
+    width: 12%;
+  }
+}
+
+.tableFirstBlock {
+    position: relative;
+    & .arrowIcon {
+      position: absolute;
+      top: 25%;
+      left: 40px;
+    }
+  }
+
+.options {
+  position: relative;
+}
+
+.optionsIcon {
+  cursor: pointer;
+}
+
+.optionsContent {
+  position: absolute;
+  background: #FFFFFF;
+  border: 1px solid #C6C2DE;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  z-index: 1;
+  right: 0;
+  top: 100%;
+  overflow: hidden;
+
+  &:hover {
+    transform: none;
+  }
+  & *{
+    padding: 20px;
+  }
+}
+
+.optionsOpened {
+  max-height: 320px;
+  opacity: 1;
+  transition: max-height 0.3s ease-out;
+}
+
+.optionsClosed {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease-out, opacity 0s 0.3s ease;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 20px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #25213B;
+  align-items: center;
+  border-bottom: #D9D5EC 1px solid;
+  & div:nth-child(1) {
+    width: 9%;
+  }
+  & div:nth-child(2) {
+    width: 23%;
+  }
+  & div:nth-child(3) {
+    width: 29%;
+  }
+  & div:nth-child(4) {
+    width: 27%;
+  }
+  & div:nth-child(5) {
+    width: 11%;
+  }
+}
+
+.tableCollapse {
+  background: #F4F2FF;
+  width: 100%;
+}
+
+th {
+  padding: 10px;
+}
+
+.expandTableBlock {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.collapseOpened {
+  display: table;
+}
+  
+.collapseClosed {
+  display: none;
+}
+  
+.arrowOpened {
+  transform: rotate(0deg);
+  transition: 0.15s ease-out;
+}
+
+.arrowClosed {
+  transform: rotate(180deg);
+  transition: 0.15s ease-out;
+}
+
+.expandLabel {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: #6E6893;
+  text-transform: uppercase;
+  height: 1px;
+}
+
+.expandedRow {
+  background-color: #F4F2FF;
+}
