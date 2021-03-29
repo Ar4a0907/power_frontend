@@ -1,5 +1,5 @@
 import React from 'react';
-import progressBarStyle from './progressBarStyle.module.scss';
+import progressBarStyle from './ProgressBarStyle.module.scss';
 
 export const ProgressBar = ({className, value, ...classes}) => {
 

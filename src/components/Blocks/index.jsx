@@ -1,5 +1,5 @@
 import React from 'react';
-import blockStyles from './blockStyle.module.scss';
+import blockStyles from './BlockStyle.module.scss';
 
 
 export const Block = ({children, className, onClick, ...classes}) => {

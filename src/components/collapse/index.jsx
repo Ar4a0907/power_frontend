@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import collapseStyle from './collapseStyle.module.scss';
+import collapseStyle from './CollapseStyle.module.scss';
 import { Icon } from '../';
 
 export const Collapse = ({label, content, className}) => {

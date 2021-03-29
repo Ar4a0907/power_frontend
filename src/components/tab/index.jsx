@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import tabStyles from './tabStyle.module.scss'
+import tabStyles from './TabStyle.module.scss'
 
 export const Tab = ({tabs}) => {
 

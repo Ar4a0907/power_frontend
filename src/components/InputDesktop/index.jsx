@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import InputStyles from './InputDesktopStyle.module.scss';
 
 
-export const InputDesktop = ({className,placeholder,label,onChange,successful, ...classes}) => {
+export const InputDesktop = ({className,placeholder,label,onChange,successful,value,type,name, ...classes}) => {
 
     const inputClass = Object.entries(classes).map(([key]) =>
     InputStyles[key] !== undefined ? InputStyles[key] : '').join(' ') + ' ' + (className ? className : '');
 
-    const [text,setText] = useState('');
+    const [text,setText] = useState(value);
     const [divDisplay,setDivDisplay] = useState(false)
 
     const handleChange = (event) => {
@@ -17,7 +17,6 @@ export const InputDesktop = ({className,placeholder,label,onChange,successful, .
         }
     };
 
-
     const changeStyleState = (event) => {
         if(event.target.value === '') {
             setDivDisplay(!divDisplay)
@@ -25,8 +24,9 @@ export const InputDesktop = ({className,placeholder,label,onChange,successful, .
     }
 
     const clearButton = (event) => {
-        setText('')
-        setDivDisplay(!divDisplay)
+        event.preventDefault();
+        setText('');
+        setDivDisplay(!divDisplay);
         event.target.blur()
         if(onChange !== undefined) {
             onChange('')
@@ -41,8 +41,11 @@ export const InputDesktop = ({className,placeholder,label,onChange,successful, .
                 value={text}
                 onChange={handleChange}
                 onFocus={changeStyleState} 
-                onBlur={changeStyleState} />
-            <button onClick={clearButton} className={`${InputStyles['clearButton']} ${successful && InputStyles['successful']}`} />
+                onBlur={changeStyleState}
+                type={type}
+                name={name}
+                />
+            <button onClick={clearButton} className={`${InputStyles['clearButton']} ${successful && InputStyles['successful']}`} id='button'/>
         </div>
     );
 }

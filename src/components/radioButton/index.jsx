@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import radioStyle from './radioButtonStyle.module.scss';
+import radioStyle from './RadioButtonStyle.module.scss';
 
 export const RadioButton = ({ items, checked, onChange }) => {
     const [selected, setSelected] = useState(1);

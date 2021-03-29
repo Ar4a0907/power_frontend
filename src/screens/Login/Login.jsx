@@ -3,6 +3,8 @@ import { authActions, i18nActions } from '../../_actions'
 import { connect } from 'react-redux';
 import config from '../../config';
 import { FormattedMessage } from 'react-intl';
+import { Form } from '../../components/';
+import * as Yup from "yup";
 
 
 const Login = props => {
@@ -12,6 +14,16 @@ const Login = props => {
             {lang === props.lang ? <h4>{lang}</h4> : <>{lang}</>}
         </span>
     );
+    
+    const validationSchema = Yup.object().shape({
+        password: Yup.string()
+          .min(2, 'Too Short!')
+          .max(70, 'Too Long!')
+          .required('Required'),
+        email: Yup.string()
+          .email('Invalid email')
+          .required('Required'),
+      });
 
     return(
         <div>
@@ -23,8 +35,14 @@ const Login = props => {
                               )
                 }
             </div>
-            <FormattedMessage id="pba.login.title" />
+            <FormattedMessage id="pba.login.title" /> 
+            <Form initialValues={{email: '', password: ''}}
+                  inputFields={[ {name:'email', type:'email', label: 'E-mail'},{name:'password', type:'password', label: 'password'}]} 
+                  onSubmit={(value) => console.log(value)}
+                  validationSchema={validationSchema}/>
         </div>
+
+       
     );
 };
 
