@@ -149,6 +149,9 @@
       position: absolute;
       top: 25%;
       left: 40px;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
