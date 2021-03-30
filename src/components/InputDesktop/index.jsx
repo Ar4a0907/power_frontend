@@ -45,7 +45,7 @@ export const InputDesktop = ({className,placeholder,label,onChange,successful,va
                 type={type}
                 name={name}
                 />
-            <button onClick={clearButton} className={`${InputStyles['clearButton']} ${successful && InputStyles['successful']}`} id='button'/>
+            <button onClick={clearButton} className={`${InputStyles['clearButton']} ${successful && InputStyles['successful']}`} />
         </div>
     );
 }

@@ -24,7 +24,7 @@ export const Tab = ({tabs}) => {
 }
 
 Tab.propTypes = {
-    tabs: PropTypes.arrayOf(PropTypes.shape({
+    tabs: PropTypes.arrayOf( PropTypes.shape( {
             label: PropTypes.string.isRequired,
             content: PropTypes.element.isRequired
         }

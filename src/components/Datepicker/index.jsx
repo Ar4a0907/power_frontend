@@ -3,7 +3,7 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker, SingleDatePicker, isInclusivelyBeforeDay } from 'react-dates';
 import moment from 'moment';
-import './datepickerStyle.scss'
+import './DatepickerStyle.scss'
 
 
 export const Datepicker = (props) => {

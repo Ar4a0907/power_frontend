@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useFormik, ErrorMessage } from 'formik';
 import { Button,InputDesktop} from '../';
 
@@ -17,11 +18,21 @@ export const Form = (props) => {
             value={formik.values.email} 
             name={key.name} 
             type={key.type} /> 
-           { formik.touched[key.name] && formik.errors[key.name] && <div >{formik.errors[key.name]}</div>}
+           { formik.touched[key.name] && formik.errors[key.name] && <div>{formik.errors[key.name]}</div>}
             </>))
     }
-
             <Button small blue type='submit' ><div>Submit</div></Button>
         </form>
     );
+}
+
+Form.propTypes = {
+    onSubmit: PropTypes.func,
+    inputFields: PropTypes.arrayOf( PropTypes.exact({
+        name: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+    })),
+    initialValues: PropTypes.shape({ fieldsNames: PropTypes.string }),
+    validationSchema: PropTypes.object.isRequired
 }

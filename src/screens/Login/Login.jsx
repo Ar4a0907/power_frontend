@@ -5,6 +5,7 @@ import config from '../../config';
 import { FormattedMessage } from 'react-intl';
 import { Form } from '../../components/';
 import * as Yup from "yup";
+import { postRequest } from '../../_library/request';
 
 
 const Login = props => {
@@ -28,8 +29,8 @@ const Login = props => {
     return(
         <div>
             <div>
-                {config.supportedLangs.map(lang =>
-                                  <div>
+                {config.supportedLangs.map((lang,idx) =>
+                                  <div key={idx}>
                                       {renderLangItem(lang, true, () => props.changeLanguage(lang))}
                                   </div>
                               )
@@ -38,7 +39,7 @@ const Login = props => {
             <FormattedMessage id="pba.login.title" /> 
             <Form initialValues={{email: '', password: ''}}
                   inputFields={[ {name:'email', type:'email', label: 'E-mail'},{name:'password', type:'password', label: 'password'}]} 
-                  onSubmit={(value) => console.log(value)}
+                  onSubmit={(value) => console.log(postRequest('/login', value))}
                   validationSchema={validationSchema}/>
         </div>
 
