@@ -3,9 +3,10 @@ import { authActions, i18nActions } from '../../_actions'
 import { connect } from 'react-redux';
 import config from '../../config';
 import { FormattedMessage } from 'react-intl';
-import { Form } from '../../components/';
+import { Form, Block, Text } from '../../components/';
 import * as Yup from "yup";
 import { postRequest } from '../../_library/request';
+import loginPageStyle from './LoginPageStyle.module.scss';
 
 
 const Login = props => {
@@ -26,9 +27,10 @@ const Login = props => {
           .required('Required'),
       });
 
+
     return(
-        <div>
-            <div>
+        <div className={loginPageStyle.container}>
+            <div className={loginPageStyle.languageChoose}>
                 {config.supportedLangs.map((lang,idx) =>
                                   <div key={idx}>
                                       {renderLangItem(lang, true, () => props.changeLanguage(lang))}
@@ -36,14 +38,17 @@ const Login = props => {
                               )
                 }
             </div>
-            <FormattedMessage id="pba.login.title" /> 
-            <Form initialValues={{email: '', password: ''}}
-                  inputFields={[ {name:'email', type:'email', label: 'E-mail'},{name:'password', type:'password', label: 'password'}]} 
-                  onSubmit={(value) => console.log(postRequest('/login', value))}
-                  validationSchema={validationSchema}/>
+            <Block big className={loginPageStyle.loginFormContainer}>
+                <Text h3 className={loginPageStyle.title} justify>
+                    <FormattedMessage id="pba.login.title"/>
+                </Text>
+                <Form initialValues={{email: '', password: ''}}
+                      inputFields={[ {name:'email', type:'email', label: 'E-mail'},{name:'password', type:'password', label: 'password'}]}
+                      onSubmit={(value) => console.log(postRequest('/login', value))}
+                      validationSchema={validationSchema}
+                />
+            </Block>
         </div>
-
-       
     );
 };
 
