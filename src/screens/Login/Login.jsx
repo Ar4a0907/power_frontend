@@ -6,6 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import { Form } from '../../components/';
 import * as Yup from "yup";
 import { postRequest } from '../../_library/request';
+import { store } from '../../_library/store';
 
 
 const Login = props => {
@@ -39,11 +40,10 @@ const Login = props => {
             <FormattedMessage id="pba.login.title" /> 
             <Form initialValues={{email: '', password: ''}}
                   inputFields={[ {name:'email', type:'email', label: 'E-mail'},{name:'password', type:'password', label: 'password'}]} 
-                  onSubmit={(value) => console.log(postRequest('/login', value))}
+                  onSubmit={(value) => postRequest('/login', value).then((response) => {localStorage.setItem(config.accessTokenName, response.accessToken); store.dispatch(authActions.login(response)) }  
+                  )}
                   validationSchema={validationSchema}/>
         </div>
-
-       
     );
 };
 
