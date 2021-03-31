@@ -34,9 +34,9 @@ export const InputDesktop = ({className,placeholder,label,onChange,successful,va
     }
 
     return (
-        <div className={`${InputStyles['container']} ${successful && InputStyles['successful']} ${divDisplay ? InputStyles['show'] : InputStyles['hide']}`} >
+        <div className={`${InputStyles['container']} ${inputClass} ${successful && InputStyles['successful']} ${divDisplay ? InputStyles['show'] : InputStyles['hide']}`} >
             <label className={`${InputStyles['label']} ${successful && InputStyles['successful']}`}  >{ label } </label>
-            <input className={ `${inputClass} ${InputStyles['input']}` }
+            <input className={ `${InputStyles['input']}` }
                 placeholder={placeholder}
                 value={text}
                 onChange={handleChange}

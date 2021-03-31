@@ -1,6 +1,6 @@
 import React , { useState } from 'react';
 import {
-    Button,Block, ProgressBar, CheckBox, Text, RadioButton, InputDesktop, InputSearch, Icon, SideNav, Badge,
+    Button, Block, ProgressBar, CheckBox, Text, RadioButton, InputDesktop, InputSearch, Icon, SideNav, Badge,
     Datepicker, Tab, Dropdown, Paginator, Collapse, Modal, Table
 } from '../../components';
 import testStyle from './testScreenStyle.module.scss';

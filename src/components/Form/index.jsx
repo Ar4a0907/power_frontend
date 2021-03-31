@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useFormik, ErrorMessage } from 'formik';
-import { Button,InputDesktop} from '../';
+import { Button, InputDesktop} from '../../components';
+import formStyle from './FormStyles.module.scss';
 
 export const Form = (props) => {
 
@@ -10,18 +11,20 @@ export const Form = (props) => {
     });
 
     return (
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} className={formStyle.form}>
             {props.inputFields.map((key,idx) => (<> <InputDesktop 
             key={idx} 
             label={key.label} 
             onChange={(value) => {formik.setFieldValue(key.name,value)}} 
             value={formik.values.email} 
             name={key.name} 
-            type={key.type} /> 
+            type={key.type}
+            className={formStyle.input}
+            />
            { formik.touched[key.name] && formik.errors[key.name] && <div>{formik.errors[key.name]}</div>}
             </>))
     }
-            <Button small blue type='submit' ><div>Submit</div></Button>
+            <Button small blue type='submit' className={formStyle.button}><div>Submit</div></Button>
         </form>
     );
 }
