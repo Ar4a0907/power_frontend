@@ -2,7 +2,7 @@ import React from 'react';
 import { authActions, i18nActions } from '../../_actions'
 import { connect } from 'react-redux';
 import config from '../../config';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { Form, Block, Text } from '../../components/';
 import * as Yup from "yup";
 import { postRequest } from '../../_library/request';
@@ -17,7 +17,7 @@ const Login = props => {
             {lang === props.lang ? <h4>{lang}</h4> : <>{lang}</>}
         </span>
     );
-    
+
     const validationSchema = Yup.object().shape({
         password: Yup.string()
           .min(2, 'Too Short!')
@@ -28,6 +28,7 @@ const Login = props => {
           .required('Required'),
       });
 
+    const intl = useIntl();
 
     return(
         <div className={loginPageStyle.container}>
@@ -44,11 +45,12 @@ const Login = props => {
                     <FormattedMessage id="pba.login.title"/>
                 </Text>
                 <Form initialValues={{email: '', password: ''}}
-                      inputFields={[ {name:'email', type:'email', label: 'E-mail'},{name:'password', type:'password', label: 'password'}]}
+                      inputFields={[ {name:'email', type:'email', label:intl.formatMessage({id:'pba.login.email'})},{name:'password', type:'password', label:intl.formatMessage({id:'pba.login.password'})}]}
                       onSubmit={(value) => postRequest('/login', value).then((response) => {localStorage.setItem(config.accessTokenName, response.accessToken);
                      store.dispatch(authActions.login(response)) }  
                   )}
                       validationSchema={validationSchema}
+                      buttonText={<FormattedMessage id="pba.login.title"/>}
                 />
             </Block>
         </div>

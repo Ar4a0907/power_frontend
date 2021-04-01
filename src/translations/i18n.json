@@ -1,11 +1,17 @@
 {
   "en": {
-    "pba.login.title": "Login"
+    "pba.login.title": "Login",
+    "pba.login.email": "E-mail",
+    "pba.login.password": "Password"
   },
   "lv": {
-    "pba.login.title": "Pieslēgties"
+    "pba.login.title": "Pieslēgties",
+    "pba.login.email": "E-pasts",
+    "pba.login.password": "Parole"
   },
   "ru": {
-    "pba.login.title": "Войти"
+    "pba.login.title": "Войти",
+    "pba.login.email": "Почта",
+    "pba.login.password": "Пароль"
   }
 }

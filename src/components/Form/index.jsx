@@ -24,7 +24,7 @@ export const Form = (props) => {
            { formik.touched[key.name] && formik.errors[key.name] && <div>{formik.errors[key.name]}</div>}
             </>))
     }
-            <Button small blue type='submit' className={formStyle.button}><div>Submit</div></Button>
+            <Button small blue type='submit' className={formStyle.button}><div>{props.buttonText}</div></Button>
         </form>
     );
 }
