@@ -3,27 +3,42 @@
     "pba.login.title": "Login",
     "pba.login.email": "E-mail",
     "pba.login.password": "Password",
-    "pba.login.validation.email_min" : "Too Short!",
-    "pba.login.validation.email_max" : "Too Long",
-    "pba.login.validation.email_required" : "Required",
-    "pba.login.validation.email_invalid" : "Invalid E-mail"
+    "pba.login.validation.password_min" : "Too Short!",
+    "pba.login.validation.password_max" : "Too Long",
+    "pba.login.validation.required" : "Required",
+    "pba.login.validation.email_invalid" : "Invalid E-mail",
+    "pba.login.error.something" : "something went wrong. Please try again later",
+    "pba.login.error.wrong_data_supplied" : "wrong data supplied",
+    "pba.login.error.server_error" : "something went wrong. Please try again later",
+    "pba.login.error.maximum_login_attempts_reached" : "You have exceeded the maximum login",
+    "pba.login.error.email_already_in_use" : "Email already in use"
   },
   "lv": {
     "pba.login.title": "Pieslēgties",
     "pba.login.email": "E-pasts",
     "pba.login.password": "Parole",
-    "pba.login.validation.email_min" : "Pārāk Īsa!",
-    "pba.login.validation.email_max" : "Pārāk garš",
-    "pba.login.validation.email_required" : "Obligāts",
-    "pba.login.validation.email_invalid" : "Nederīgs E-pasts"
+    "pba.login.validation.password_min" : "Pārāk Īsa!",
+    "pba.login.validation.password_max" : "Pārāk garš",
+    "pba.login.validation.required" : "Šis ir obligāts lauks",
+    "pba.login.validation.email_invalid" : "Nederīgs E-pasts",
+    "pba.login.error.something" : "Kaut kas gāja nepareizi. Lūdzu, mēģiniet vēlreiz vēlāk",
+    "pba.login.error.wrong_data_supplied" : "norādīti nepareizi dati",
+    "pba.login.error.server_error" : "Kaut kas gāja nepareizi. Lūdzu, mēģiniet vēlreiz vēlāk",
+    "pba.login.error.maximum_login_attempts_reached" : "Jūs Esat sasniedzis maksimālo mēģinājumu skaitu",
+    "pba.login.error.email_already_in_use" : "E-pasts jau lietots"
   },
   "ru": {
     "pba.login.title": "Войти",
     "pba.login.email": "Электронная почта",
     "pba.login.password": "Пароль",
-    "pba.login.validation.email_min" : "Слишком Короткий!",
-    "pba.login.validation.email_max" : "Слишком Длинный",
-    "pba.login.validation.email_required" : "Это обязательное поле",
-    "pba.login.validation.email_invalid" : "Неверная электронная почта"
+    "pba.login.validation.password_min" : "Слишком Короткий!",
+    "pba.login.validation.password_max" : "Слишком Длинный",
+    "pba.login.validation.required" : "Это обязательное поле",
+    "pba.login.validation.email_invalid" : "Неверная электронная почта",
+    "pba.login.error.something" : "Что-то пошло не так. Пожалуйста, попробуйте позже",
+    "pba.login.error.wrong_data_supplied" : "Указаны неверные данные",
+    "pba.login.error.server_error" : "Что-то пошло не так. Пожалуйста, попробуйте позже",
+    "pba.login.error.maximum_login_attempts_reached" : "Вы превысили максимальное количество попыток",
+    "pba.login.error.email_already_in_use" : "Пользователь с такой почтой уже существует"
   }
 }
