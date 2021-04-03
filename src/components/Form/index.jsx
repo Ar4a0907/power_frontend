@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useFormik, ErrorMessage } from 'formik';
-import { Button, InputDesktop} from '../../components';
+import { Button, InputDesktop } from '../../components';
 import formStyle from './FormStyles.module.scss';
 
-export const Form = (props) => {
+export const Form = props => {
 
-    const formik = useFormik({ initialValues: props.initialValues,
-    onSubmit: props.onSubmit, validationSchema: props.validationSchema
+    const formik = useFormik({ 
+        initialValues: props.initialValues,
+        onSubmit: props.onSubmit,
+        validationSchema: props.validationSchema
     });
 
     return (
@@ -16,12 +18,12 @@ export const Form = (props) => {
             key={idx} 
             label={key.label} 
             onChange={(value) => {formik.setFieldValue(key.name,value)}} 
-            value={formik.values.email} 
+            value={formik.values[key.name]} 
             name={key.name} 
             type={key.type}
             className={formStyle.input}
             />
-           { formik.touched[key.name] && formik.errors[key.name] && <div>{formik.errors[key.name]}</div>}
+           {formik.touched[key.name] && formik.errors[key.name] && <div>{formik.errors[key.name]}</div>}
             </>))
     }
             <Button small blue type='submit' className={formStyle.button}><div>{props.buttonText}</div></Button>
@@ -31,7 +33,7 @@ export const Form = (props) => {
 
 Form.propTypes = {
     onSubmit: PropTypes.func,
-    inputFields: PropTypes.arrayOf( PropTypes.exact({
+    inputFields: PropTypes.arrayOf(PropTypes.exact({
         name: PropTypes.string.isRequired,
         type: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,

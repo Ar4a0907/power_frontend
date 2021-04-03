@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import config from '../../config';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Form, Block, Text } from '../../components/';
-import * as Yup from "yup";
+import * as Yup from 'yup';
 import { postRequest } from '../../_library/request';
 import { store } from '../../_library/store';
 import loginPageStyle from './LoginPageStyle.module.scss';
@@ -18,22 +18,22 @@ const Login = props => {
         </span>
     );
 
+    const intl = useIntl();
+
     const validationSchema = Yup.object().shape({
         password: Yup.string()
-          .min(2, 'Too Short!')
-          .max(70, 'Too Long!')
-          .required('Required'),
+          .min(2, intl.formatMessage({id:'pba.login.validation.email_min'}))
+          .max(70, intl.formatMessage({id:'pba.login.validation.email_max'}))
+          .required(intl.formatMessage({id:'pba.login.validation.email_required'})),
         email: Yup.string()
-          .email('Invalid email')
-          .required('Required'),
+          .email(intl.formatMessage({id:'pba.login.validation.email_invalid'}))
+          .required(intl.formatMessage({id:'pba.login.validation.email_required'})),
       });
-
-    const intl = useIntl();
 
     return(
         <div className={loginPageStyle.container}>
             <div className={loginPageStyle.languageChoose}>
-                {config.supportedLangs.map((lang,idx) =>
+                {config.supportedLangs.map((lang, idx) =>
                                   <div key={idx}>
                                       {renderLangItem(lang, true, () => props.changeLanguage(lang))}
                                   </div>
@@ -45,8 +45,8 @@ const Login = props => {
                     <FormattedMessage id="pba.login.title"/>
                 </Text>
                 <Form initialValues={{email: '', password: ''}}
-                      inputFields={[ {name:'email', type:'email', label:intl.formatMessage({id:'pba.login.email'})},{name:'password', type:'password', label:intl.formatMessage({id:'pba.login.password'})}]}
-                      onSubmit={(value) => postRequest('/login', value).then((response) => {localStorage.setItem(config.accessTokenName, response.accessToken);
+                      inputFields={[{name:'email', type:'email', label:intl.formatMessage({id:'pba.login.email'})},{name:'password', type:'password', label:intl.formatMessage({id:'pba.login.password'})}]}
+                      onSubmit={value => postRequest('/login', value).then(response => {localStorage.setItem(config.accessTokenName, response.accessToken);
                      store.dispatch(authActions.login(response)) }  
                   )}
                       validationSchema={validationSchema}

@@ -2,16 +2,28 @@
   "en": {
     "pba.login.title": "Login",
     "pba.login.email": "E-mail",
-    "pba.login.password": "Password"
+    "pba.login.password": "Password",
+    "pba.login.validation.email_min" : "Too Short!",
+    "pba.login.validation.email_max" : "Too Long",
+    "pba.login.validation.email_required" : "Required",
+    "pba.login.validation.email_invalid" : "Invalid E-mail"
   },
   "lv": {
     "pba.login.title": "Pieslēgties",
     "pba.login.email": "E-pasts",
-    "pba.login.password": "Parole"
+    "pba.login.password": "Parole",
+    "pba.login.validation.email_min" : "Pārāk Īsa!",
+    "pba.login.validation.email_max" : "Pārāk garš",
+    "pba.login.validation.email_required" : "Obligāts",
+    "pba.login.validation.email_invalid" : "Nederīgs E-pasts"
   },
   "ru": {
     "pba.login.title": "Войти",
-    "pba.login.email": "Почта",
-    "pba.login.password": "Пароль"
+    "pba.login.email": "Электронная почта",
+    "pba.login.password": "Пароль",
+    "pba.login.validation.email_min" : "Слишком Короткий!",
+    "pba.login.validation.email_max" : "Слишком Длинный",
+    "pba.login.validation.email_required" : "Это обязательное поле",
+    "pba.login.validation.email_invalid" : "Неверная электронная почта"
   }
 }
