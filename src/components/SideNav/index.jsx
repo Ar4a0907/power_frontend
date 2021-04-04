@@ -1,5 +1,5 @@
 import React from 'react';
-import sideNavStyle from './sideNavStyles.module.scss';
+import sideNavStyle from './SideNavStyles.module.scss';
 import cashImage from './cashImage.svg';
 import cloudImage from './cloudImage.svg';
 import cloudCashImage from './cloudCashImage.svg';

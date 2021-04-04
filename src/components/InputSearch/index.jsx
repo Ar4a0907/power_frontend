@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import inputSearchStyle from './inputSearchStyle.module.scss'
+import inputSearchStyle from './InputSearchStyle.module.scss'
 
 
 export const InputSearch = ({type,className,onChange,placeholder,...classes}) => {

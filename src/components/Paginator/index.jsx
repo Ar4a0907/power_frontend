@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import paginatorStyle from './paginatorStyle.module.scss';
+import paginatorStyle from './PaginatorStyle.module.scss';
 
 export const Paginator = ({total,selected,onChange}) => {
 

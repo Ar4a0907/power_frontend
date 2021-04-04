@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import dropdownStyle from './dropdownStyles.module.scss';
+import dropdownStyle from './DropdownStyles.module.scss';
 import { useHistory } from 'react-router-dom';
 import { Icon } from '../';
 

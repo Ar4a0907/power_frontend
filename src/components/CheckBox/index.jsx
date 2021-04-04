@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import checkBoxStyle from './checkBoxStyle.module.scss';
+import checkBoxStyle from './CheckBoxStyle.module.scss';
 
 
 export const CheckBox = (props) => {

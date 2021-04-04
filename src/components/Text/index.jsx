@@ -1,5 +1,5 @@
 import React from 'react';
-import textModuleStyle from './text.module.scss';
+import textModuleStyle from './Text.module.scss';
 
 export const Text = ({children, className,type, ...classes}) => {
 

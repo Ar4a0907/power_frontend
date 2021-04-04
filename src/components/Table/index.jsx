@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import tableStyles from './tableStyle.module.scss';
+import tableStyles from './TableStyle.module.scss';
 import { InputSearch, Button, CheckBox, Badge, RadioButton, Icon } from '../';
 import { ReactComponent as Options } from './options.svg';
 

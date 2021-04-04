@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import modalStyle from './modalStyles.module.scss';
-import { Button } from '../';
+import modalStyle from './ModalStyles.module.scss';
+import { Button } from './../Button';
 
 
 export const Modal = ({ children, className, modalIsOpen, buttons, toggleModal, buttonsInColumn, ...classes }) => {

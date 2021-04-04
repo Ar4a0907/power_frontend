@@ -1,5 +1,5 @@
 import React from 'react';
-import badgeStyles from './badgeStyle.module.scss';
+import badgeStyles from './BadgeStyle.module.scss';
 import { ReactComponent as DotIcon } from '../../assets/icons/dot.svg';
 
 
