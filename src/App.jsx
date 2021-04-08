@@ -31,6 +31,8 @@ class App extends Component {
                     <Route exact path="/404" render={(props) => LoadingWithSuspense(PageNotFound, props)} />
                     <PrivateRoute exact path="/" render={(props) => LoadingWithSuspense(Dashboard, props)}
                                   exactRole={config.userRoles['admin']} />
+                    <PrivateRoute exact path="/dashboard" render={(props) => LoadingWithSuspense(Dashboard, props)}
+                                  exactRole={config.userRoles['admin']} />
                     <Route render={(props) => LoadingWithSuspense(PageNotFound, props)} />
                 </Switch>
             </Router>

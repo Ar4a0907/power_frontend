@@ -8,7 +8,6 @@ import * as Yup from 'yup';
 import { postRequest } from '../../_library/request';
 import { store } from '../../_library/store';
 import loginPageStyle from './LoginPageStyle.module.scss';
-import { getByDisplayValue } from '@testing-library/dom';
 
 
 const Login = props => {
