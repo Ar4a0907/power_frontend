@@ -12,6 +12,7 @@ const Login = React.lazy(() => import(/* webpackChunkName: "login" */ './screens
 const Test = React.lazy(() => import(/* webpackChunkName: "test" */ './screens/Test/Test').then(module => ({default: module.TestScreen})));
 const Dashboard = React.lazy(() => import(/* webpackChunkName: "dashboard" */ './screens/Dashboard/Dashboard').then(module => ({default: module.Dashboard})));
 const PageNotFound = React.lazy(() => import(/* webpackChunkName: "page_not_found" */ './screens/PageNotFound/PageNotFound').then(module => ({default: module.PageNotFound})));
+const Devices = React.lazy(() => import(/* webpackChunkName: "devices" */ './screens/Devices/Devices').then(module => ({default: module.Devices})));
 
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
                     <Route exact path="/test" render={(props) => LoadingWithSuspense(Test, props)} />
                     <Route exact path="/login/:token?" render={(props) => LoadingWithSuspense(Login, props)} />
                     <Route exact path="/404" render={(props) => LoadingWithSuspense(PageNotFound, props)} />
+                    <Route exact path='/devices' render={(props) => LoadingWithSuspense(Devices, props)} />
                     <PrivateRoute exact path="/" render={(props) => LoadingWithSuspense(Dashboard, props)}
                                   exactRole={config.userRoles['admin']} />
                     <PrivateRoute exact path="/dashboard" render={(props) => LoadingWithSuspense(Dashboard, props)}

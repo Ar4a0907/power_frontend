@@ -53,41 +53,34 @@ export const TestScreen = () => {
 
     const fetchData =  {'Dues': [
             {
-                dataFields: {
                     name: 'Ilya Tsvetkov',
                     userStatus: 'active',
                     paymentStatus: 'Overdue',
-                    amount: '$50'
-                },
-                expand: [
-                    {date: '12/APR/2021',
+                    amount: '$50',
+                    date: '12/APR/2021',
                     userActivity: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
                     detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
-                    email: 'sabaka@sabaka.com'},
-                    {date: '08/APR/2022',
+                    email: 'sabaka@sabaka.com',
+                    date: '08/APR/2022',
                     userActivity: 'and it`s Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
                     detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
-                    email: '123#11daw.cvetkov@gmail.com'}
-            ]},
-            {
-                dataFields: {
+                    email: '123#11daw.cvetkov@gmail.com'
+            },
+                {
+                
                     name: 'Artem Skurjat',
                     userStatus: 'active',
                     paymentStatus: 'Overdue',
-                    amount: '$50'
-                },
-                expand: [
-                    {date: '12/APR/2020',
+                    amount: '$50',
+                    date: '12/APR/2020',
                     userActivity: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
                     detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
-                    email: 'artem.srutckovskij12351@inox.lv'},
-                    {date: '08/APR/2020',
+                    email: 'artem.srutckovskij12351@inox.lv',
+                    date: '08/APR/2020',
                     userActivity: 'and it`s Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
                     detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
-                    email: ' email:@gmail.mail'}
-                ]
-            }
-          ]}
+                    email: ' email:@gmail.mail'
+                }]}
 
 
 

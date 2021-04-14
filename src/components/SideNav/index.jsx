@@ -5,6 +5,7 @@ import cloudImage from './cloudImage.svg';
 import cloudCashImage from './cloudCashImage.svg';
 import { Icon } from '../';
 import { NavLink }  from 'react-router-dom';
+import { history } from '../../_library/history';
 
 
 export const SideNav = ({ menuComponents }) => {
@@ -27,7 +28,7 @@ export const SideNav = ({ menuComponents }) => {
             </div>
             <div className={sideNavStyle.sideNavMenu}>
                 {menuComponents.map( (element, idx) => (
-                    <NavLink key={idx} className={sideNavStyle.sideNavLink} to={element.link} activeClassName={sideNavStyle.sideNavLinkActive}>
+                    <NavLink key={idx} className={sideNavStyle.sideNavLink} to={element.link} onClick={() => history.push(element.link)} activeClassName={sideNavStyle.sideNavLinkActive}>
                         <Icon type={element.iconType} className={sideNavStyle.icon} />
                         <span>{element.label}</span>
                     </NavLink>

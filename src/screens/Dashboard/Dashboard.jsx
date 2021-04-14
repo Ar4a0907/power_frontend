@@ -17,17 +17,17 @@ const Dashboard = props => {
     );
 
     const intl = useIntl();
-    console.log(store.getState())
 
     return (
         <BrowserRouter>
             <SideNav menuComponents={[
                 {label: intl.formatMessage({id:'pba.loggedIn.overview'}), link: '/overview', iconType: 'overview'},
+                {label: 'Devices', link: '/devices', iconType: 'transactions'},
                 {label: 'Transactions', link: '/transactions', iconType: 'transactions'},
                 {label: 'Cards', link: '/cards', iconType: 'cards'},
                 {label: 'Inovices', link: '/inovices', iconType: 'inovices'},
                 {label: 'Goals', link: '/goals', iconType: 'goals'},
-                {label: 'Settings', link: '/settings', iconType: 'settings'}
+                {label: 'Settings', link: '/settings', iconType: 'settings'},
             ]}/>
             <div className={dashboardPageStyle.content}>
                 <div className={dashboardPageStyle.languageChoose}>

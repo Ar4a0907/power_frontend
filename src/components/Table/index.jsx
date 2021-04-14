@@ -5,7 +5,6 @@ import { ReactComponent as Options } from './options.svg';
 
 
 export const Table = ({ search, filter, headerButton, options, placeholder, data, fields, expand }) => {
-
     const [filterOpen, setFilterOpen] = useState(false);
     const [optionsOpen, setOptionsOpen] = useState(null);
     const [collapseOpen, setCollaspeOpen] = useState(null);
@@ -32,6 +31,7 @@ export const Table = ({ search, filter, headerButton, options, placeholder, data
 
     const expandRow = (fields, expanded) => {
         return (
+        <div className={expanded ? tableStyles.expandContainer : ''}>
         <table className={tableStyles.tableCollapse + ' ' + (expanded ? tableStyles.collapseOpened : tableStyles.collapseClosed)}>
             <thead>
                 <tr>
@@ -53,6 +53,7 @@ export const Table = ({ search, filter, headerButton, options, placeholder, data
               )}
             </tbody>
         </table>
+        </div>
         );
     }
 
@@ -70,7 +71,7 @@ export const Table = ({ search, filter, headerButton, options, placeholder, data
         </div>);
         
         for (let fieldsIndex = 0; fieldsIndex < fields.length; fieldsIndex++) {
-            let currentField = data[dataIndex].dataFields[fields[fieldsIndex].name];
+            let currentField = data[dataIndex][fields[fieldsIndex].name];
             fieldrRow.push(<div className={tableStyles.tableFirstBlock} key={fieldsIndex} >
                 {fields[fieldsIndex].type === 'badge' ?
                     <Badge label={currentField}
@@ -91,7 +92,7 @@ export const Table = ({ search, filter, headerButton, options, placeholder, data
             </span> </div> : '');
 
         rows.push(<div key={dataIndex} className={tableStyles.row + ' ' + (collapseOpen === dataIndex ? tableStyles.expandedRow : '') } >{fieldrRow}</div>);
-        rows.push(expandRow(data[dataIndex].expand, collapseOpen === dataIndex));
+        rows.push(expandRow(data, collapseOpen === dataIndex));
     }
 
     return (
