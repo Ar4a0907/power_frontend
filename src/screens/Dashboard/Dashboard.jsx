@@ -64,4 +64,5 @@ function mapDispatchToProps(dispatch) {
 
 }
 const connectedLogin = connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+
 export { connectedLogin as Dashboard };

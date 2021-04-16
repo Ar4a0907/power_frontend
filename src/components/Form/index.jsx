@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useFormik, ErrorMessage } from 'formik';
+import { useFormik } from 'formik';
 import { Button, InputDesktop } from '../../components';
 import formStyle from './FormStyles.module.scss';
 

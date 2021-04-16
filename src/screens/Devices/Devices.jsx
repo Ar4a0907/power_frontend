@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { i18nActions } from '../../_actions'
 import { connect } from 'react-redux';
-import { getRequest } from '../../_library/request';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { SideNav, Text } from '../../components/';
 import { Table } from '../../components';
@@ -18,19 +17,9 @@ const Devices = (props) => {
             {lang === props.lang ? <h4>{lang}</h4> : <>{lang}</>}
         </span>
     );
-    const [devices,setDevices] = useState([]);
-    const [synchronized, setSynchronized] = useState(false);
+
     const intl = useIntl();
 
-    useEffect(() => {
-        getRequest('/devices').then(response => {
-            setDevices(response.devices)
-            setSynchronized(true);
-        })
-        .catch(() => {
-            setSynchronized(false);
-        });
-        }, []);
 
         const langChanger =  <div className={devicePageStyle.content}>
         <div className={devicePageStyle.languageChoose}>
@@ -57,50 +46,45 @@ const Devices = (props) => {
         ]}/>
 
     return (
-        <>
+    <>
         {sideNav}
         <div className={devicePageStyle.content}>
-        {langChanger}
-        {!synchronized ? 
-        <><div>Fail</div></> :
-        <>
-         <div>
-             Your Devices
-         </div>
-        { <Table data={devices} 
-        fields={[
-            {label: 'id', name: 'id'},
-            {label: 'device number', name: 'deviceNo'},
-            {label: 'device name', name: 'deviceName'},
-            {label: 'machine number', name: 'machineNu'},
-            {label: 'device uuid', name: 'deviceUuid'}
-        ]}
-        expand={[
-            {label: 'created time', name: 'createdTime'},
-            {label: 'sn', name: 'sn'},
-            {label: 'url', name: 'url'},
-            {label: 'cloud id', name: 'cloudId'},
-            {label: 'device key', name: 'deviceKey'},
-            {label: 'ic id', name: 'icId'},
-            {label: 'device State', name: 'deviceState'},
-            {label: 'trace', name: 'trace'},
-            {label: 'space number', name: 'spaceNu'},
-            {label: 'soft version', name: 'softVersion'},
-            {label: 'hard version', name: 'hardVersion'},
-            {label: 'agreement Version', name: 'agreementVersion'},
-            {label: 'device model', name: 'deviceModel'},
-            {label: 'device signal', name: 'deviceSignal'},
-            {label: 'network type', name: 'networkType'},
-            {label: 'network operator', name: 'networkOperator'},
-            {label: 'device ip', name: 'deviceIp'},
-            {label: 'sole uid', name: 'soleUid'},
-            {label: 'place uid', name: 'placeUid'},
-            {label: 'agent uid', name: 'agentUid'}
-        ]} />
-        }
-        </>} 
+            {langChanger}
+            <>
+            {<Table url='/devices'
+                fields={[
+                    {label: 'id', name: 'id'},
+                    {label: 'device number', name: 'deviceNo'},
+                    {label: 'device name', name: 'deviceName'},
+                    {label: 'machine number', name: 'machineNu'},
+                    {label: 'device uuid', name: 'deviceUuid'}
+                ]}
+                expand={[
+                    {label: 'created time', name: 'createdTime'},
+                    {label: 'sn', name: 'sn'},
+                    {label: 'url', name: 'url'},
+                    {label: 'cloud id', name: 'cloudId'},
+                    {label: 'device key', name: 'deviceKey'},
+                    {label: 'ic id', name: 'icId'},
+                    {label: 'device State', name: 'deviceState'},
+                    {label: 'trace', name: 'trace'},
+                    {label: 'space number', name: 'spaceNu'},
+                    {label: 'soft version', name: 'softVersion'},
+                    {label: 'hard version', name: 'hardVersion'},
+                    {label: 'agreement Version', name: 'agreementVersion'},
+                    {label: 'device model', name: 'deviceModel'},
+                    {label: 'device signal', name: 'deviceSignal'},
+                    {label: 'network type', name: 'networkType'},
+                    {label: 'network operator', name: 'networkOperator'},
+                    {label: 'device ip', name: 'deviceIp'},
+                    {label: 'sole uid', name: 'soleUid'},
+                    {label: 'place uid', name: 'placeUid'},
+                    {label: 'agent uid', name: 'agentUid'}
+                ]} />
+            }
+            </>
         </div>
-        </>
+    </>
     )
 }
 
@@ -122,6 +106,5 @@ function mapDispatchToProps(dispatch) {
 
 }
 const connectedLogin = connect(mapStateToProps, mapDispatchToProps)(Devices);
-
 
 export { connectedLogin as Devices };

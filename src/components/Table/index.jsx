@@ -1,17 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import tableStyles from './TableStyle.module.scss';
 import { InputSearch, Button, CheckBox, Badge, RadioButton, Icon } from '../';
 import { ReactComponent as Options } from './options.svg';
+import { Paginator } from '../Paginator';
+import { getRequest } from '../../_library';
 
 
-export const Table = ({ search, filter, headerButton, options, placeholder, data, fields, expand }) => {
+export const Table = ({ search, filter, headerButton, options, placeholder, url, fields, expand }) => {
+    
     const [filterOpen, setFilterOpen] = useState(false);
     const [optionsOpen, setOptionsOpen] = useState(null);
     const [collapseOpen, setCollaspeOpen] = useState(null);
+    const [page,setPage] = useState(1);
+    const [data,setData] = useState([]);
+    const [total,setTotal] = useState(0);
 
     const handleFilterClick = () => {
         setFilterOpen(!filterOpen);
     };
+
+    const loadData = () => {
+        getRequest(url + `?page=${page}`).then(response => {setTotal(response.total);setData(response.data)})
+        }
+
+    useEffect(() => {loadData()}, [page])
+
+    const pageChange = (value) => {
+        setPage(value)
+    }
 
     const handleOptionsClick = (index) => {
         if (index === optionsOpen) {
@@ -130,6 +146,7 @@ export const Table = ({ search, filter, headerButton, options, placeholder, data
             <div className={tableStyles.rows}>
                 {rows}
             </div>
+            <Paginator onChange={(value) => pageChange(value)} total={total} />
         </div>
     )
 }
