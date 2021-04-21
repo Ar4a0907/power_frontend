@@ -6,6 +6,8 @@ import {
 import testStyle from './testScreenStyle.module.scss';
 import { BrowserRouter } from 'react-router-dom';
 import moment from 'moment';
+import { LanguageChanger } from '../../components/LanguageChanger';
+
 
 
 export const TestScreen = () => {
@@ -100,6 +102,7 @@ export const TestScreen = () => {
                         ]}/>
                     <div className={testStyle.content}>
                         <div className={testStyle.test}>
+                            <LanguageChanger />
                             <div className={testStyle.testRow}>
                                 <Button onClick={handleClick} medium gray className={testStyle['sampleClass']}><div>Button M</div></Button>
                                 <Button medium blue><div>Button M</div></Button>

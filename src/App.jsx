@@ -30,7 +30,8 @@ class App extends Component {
                     <Route exact path="/test" render={(props) => LoadingWithSuspense(Test, props)} />
                     <Route exact path="/login/:token?" render={(props) => LoadingWithSuspense(Login, props)} />
                     <Route exact path="/404" render={(props) => LoadingWithSuspense(PageNotFound, props)} />
-                    <Route exact path='/devices' render={(props) => LoadingWithSuspense(Devices, props)} />
+                    <PrivateRoute exact path='/devices' render={(props) => LoadingWithSuspense(Devices, props)}
+                                  exactRole={config.userRoles['admin']} />
                     <PrivateRoute exact path="/" render={(props) => LoadingWithSuspense(Dashboard, props)}
                                   exactRole={config.userRoles['admin']} />
                     <PrivateRoute exact path="/dashboard" render={(props) => LoadingWithSuspense(Dashboard, props)}

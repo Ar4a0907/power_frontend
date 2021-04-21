@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import paginatorStyle from './PaginatorStyle.module.scss';
 
-export const Paginator = ({total,selected = 1,onChange}) => {
+export const Paginator = ({total,selected = 1, onChange}) => {
 
     const itemsPerPage = 20;
     const lastPage = Math.ceil(total/itemsPerPage);

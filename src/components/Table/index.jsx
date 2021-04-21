@@ -4,6 +4,8 @@ import { InputSearch, Button, CheckBox, Badge, RadioButton, Icon } from '../';
 import { ReactComponent as Options } from './options.svg';
 import { Paginator } from '../Paginator';
 import { getRequest } from '../../_library';
+import { FormattedMessage } from 'react-intl';
+import { Text } from '../Text';
 
 
 export const Table = ({ search, filter, headerButton, options, placeholder, url, fields, expand }) => {
@@ -14,20 +16,27 @@ export const Table = ({ search, filter, headerButton, options, placeholder, url,
     const [page,setPage] = useState(1);
     const [data,setData] = useState([]);
     const [total,setTotal] = useState(0);
+    const [error,setError] = useState(<Text h5><FormattedMessage id='pba.login.error.something' /></Text>);
+    const [synchronized,setSynchronized] = useState(false);
 
     const handleFilterClick = () => {
         setFilterOpen(!filterOpen);
     };
 
     const loadData = () => {
-        getRequest(url + `?page=${page}`).then(response => {setTotal(response.total);setData(response.data)})
+        getRequest(url + `?page=${page}`).then(response => { 
+            setTotal(response.total); setData(response.data); setSynchronized(true)}).catch(error => {  
+            setSynchronized(true);
+            if(error.error){ 
+                setError(error.error)
+            }})
         }
 
-    useEffect(() => {loadData()}, [page])
+    useEffect(loadData, [page]);
 
     const pageChange = (value) => {
         setPage(value)
-    }
+    };
 
     const handleOptionsClick = (index) => {
         if (index === optionsOpen) {
@@ -112,6 +121,7 @@ export const Table = ({ search, filter, headerButton, options, placeholder, url,
     }
 
     return (
+        !synchronized ? <div><Text h5>Loading. Please wait</Text></div> : data.length == 0 ? error :
         <div className={tableStyles.tableContainer}>
             <div className={tableStyles.tableHeader}>
                 {filter ? <Button className={tableStyles.filter + ' ' + (filterOpen ? tableStyles.filterButtonClicked : null)} onClick={handleFilterClick}>
@@ -146,7 +156,7 @@ export const Table = ({ search, filter, headerButton, options, placeholder, url,
             <div className={tableStyles.rows}>
                 {rows}
             </div>
-            <Paginator onChange={(value) => pageChange(value)} total={total} />
+            <Paginator onChange={pageChange} total={total} />
         </div>
     )
 }
