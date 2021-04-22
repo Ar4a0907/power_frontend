@@ -11,7 +11,10 @@
     "pba.login.error.wrong_data_supplied" : "wrong data supplied",
     "pba.login.error.server_error" : "something went wrong. Please try again later",
     "pba.login.error.maximum_login_attempts_reached" : "You have exceeded the maximum login",
-    "pba.login.error.email_already_in_use" : "Email already in use"
+    "pba.login.error.email_already_in_use" : "Email already in use",
+
+    "pba.loggedIn.title" : "Hello",
+    "pba.loggedIn.overview": "Overview"
   },
   "lv": {
     "pba.login.title": "Pieslēgties",
@@ -25,7 +28,10 @@
     "pba.login.error.wrong_data_supplied" : "norādīti nepareizi dati",
     "pba.login.error.server_error" : "Kaut kas gāja nepareizi. Lūdzu, mēģiniet vēlreiz vēlāk",
     "pba.login.error.maximum_login_attempts_reached" : "Jūs Esat sasniedzis maksimālo mēģinājumu skaitu",
-    "pba.login.error.email_already_in_use" : "E-pasts jau lietots"
+    "pba.login.error.email_already_in_use" : "E-pasts jau lietots",
+
+    "pba.loggedIn.title" : "Sveiki",
+    "pba.loggedIn.overview": "Apskats"
   },
   "ru": {
     "pba.login.title": "Войти",
@@ -39,6 +45,9 @@
     "pba.login.error.wrong_data_supplied" : "Указаны неверные данные",
     "pba.login.error.server_error" : "Что-то пошло не так. Пожалуйста, попробуйте позже",
     "pba.login.error.maximum_login_attempts_reached" : "Вы превысили максимальное количество попыток",
-    "pba.login.error.email_already_in_use" : "Пользователь с такой почтой уже существует"
+    "pba.login.error.email_already_in_use" : "Пользователь с такой почтой уже существует",
+
+    "pba.loggedIn.title" : "Привет",
+    "pba.loggedIn.overview": "Обзор"
   }
 }

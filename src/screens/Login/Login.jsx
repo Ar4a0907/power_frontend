@@ -8,16 +8,10 @@ import * as Yup from 'yup';
 import { postRequest } from '../../_library/request';
 import { store } from '../../_library/store';
 import loginPageStyle from './LoginPageStyle.module.scss';
-import { getByDisplayValue } from '@testing-library/dom';
+import { LanguageChanger } from '../../components/LanguageChanger';
 
 
-const Login = props => {
-
-    const renderLangItem = (lang, reverse = false, onClick = false) => (
-        <span {...(onClick ? {onClick} : undefined)}>
-            {lang === props.lang ? <h4>{lang}</h4> : <>{lang}</>}
-        </span>
-    );
+const Login = () => {
 
     const [errorMessage,setErrorMessage] = useState('');
 
@@ -42,15 +36,7 @@ const Login = props => {
 
     return(
         <div className={loginPageStyle.container}>
-            <div className={loginPageStyle.languageChoose}>
-                {config.supportedLangs.map((lang, idx) =>
-                                  <div key={idx}>
-                                      {renderLangItem(lang, true, () => props.changeLanguage(lang))}
-                                  </div>
-                              )
-                }
-            </div>
-            
+            <LanguageChanger />
             <Block big className={loginPageStyle.loginFormContainer}>
                 <Text h3 className={loginPageStyle.title} justify>
                     <FormattedMessage id="pba.login.title"/>
@@ -71,10 +57,7 @@ const Login = props => {
 
 function mapStateToProps(state) {
 
-    const { lang } = state.i18n;
-
     return {
-        lang
     };
 }
 
@@ -82,12 +65,10 @@ function mapDispatchToProps(dispatch) {
     return({
         login: (email) => {
             dispatch(authActions.login(email))
-        },
-        changeLanguage: lang => {
-            dispatch(i18nActions.changeLanguage(lang))
         }
     })
 }
 
 const connectedLogin = connect(mapStateToProps, mapDispatchToProps)(Login);
+
 export { connectedLogin as Login };
