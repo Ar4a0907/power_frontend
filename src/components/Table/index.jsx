@@ -61,7 +61,7 @@ export const Table = ({ search, filter, headerButton, options, placeholder, url,
             <thead>
                 <tr>
                     {expand.map((field, idx) => (
-                    <th className={tableStyles.expandLabel} scope="col" key={idx}>{field.label}</th> ))}
+                    <th className={tableStyles.expandLabel} key={idx}>{field.label}</th> ))}
                 </tr>
             </thead>
             <tbody>
