@@ -13,6 +13,7 @@ const Test = React.lazy(() => import(/* webpackChunkName: "test" */ './screens/T
 const Dashboard = React.lazy(() => import(/* webpackChunkName: "dashboard" */ './screens/Dashboard/Dashboard').then(module => ({default: module.Dashboard})));
 const PageNotFound = React.lazy(() => import(/* webpackChunkName: "page_not_found" */ './screens/PageNotFound/PageNotFound').then(module => ({default: module.PageNotFound})));
 const Devices = React.lazy(() => import(/* webpackChunkName: "devices" */ './screens/Devices/Devices').then(module => ({default: module.Devices})));
+const Powerbanks = React.lazy(() => import(/* webpackChunkName: "powerbanks" */ './screens/Powerbanks/Powerbanks').then(module => ({default: module.Powerbanks})));
 
 
 class App extends Component {
@@ -35,6 +36,8 @@ class App extends Component {
                     <PrivateRoute exact path="/" render={(props) => LoadingWithSuspense(Dashboard, props)}
                                   exactRole={config.userRoles['admin']} />
                     <PrivateRoute exact path="/dashboard" render={(props) => LoadingWithSuspense(Dashboard, props)}
+                                  exactRole={config.userRoles['admin']} />
+                    <PrivateRoute exact path='/powerbanks' render={(props) => LoadingWithSuspense(Powerbanks, props)}
                                   exactRole={config.userRoles['admin']} />
                     <Route render={(props) => LoadingWithSuspense(PageNotFound, props)} />
                 </Switch>
