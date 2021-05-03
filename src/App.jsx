@@ -15,6 +15,7 @@ const PageNotFound = React.lazy(() => import(/* webpackChunkName: "page_not_foun
 const Devices = React.lazy(() => import(/* webpackChunkName: "devices" */ './screens/Devices/Devices').then(module => ({default: module.Devices})));
 const Powerbanks = React.lazy(() => import(/* webpackChunkName: "powerbanks" */ './screens/Powerbanks/Powerbanks').then(module => ({default: module.Powerbanks})));
 const PowerbanksPositionLog = React.lazy(() => import(/* webpackChunkName: "powerbanks" */ './screens/PowerbanksPositionLog/PowerbanksPositionLog').then(module => ({default: module.PowerbanksPositionLog})));
+const Users = React.lazy(() => import(/* webpackChunkName: "users" */ './screens/Users/Users').then(module => ({default: module.Users})));
 
 
 class App extends Component {
@@ -33,6 +34,8 @@ class App extends Component {
                     <Route exact path="/login/:token?" render={(props) => LoadingWithSuspense(Login, props)} />
                     <Route exact path="/404" render={(props) => LoadingWithSuspense(PageNotFound, props)} />
                     <PrivateRoute exact path='/devices' render={(props) => LoadingWithSuspense(Devices, props)}
+                                  exactRole={config.userRoles['admin']} />
+                    <PrivateRoute exact path='/users' render={(props) => LoadingWithSuspense(Users, props)}
                                   exactRole={config.userRoles['admin']} />
                     <PrivateRoute exact path='/powerbanks/:powerNo?' render={(props) => LoadingWithSuspense(PowerbanksPositionLog, props)}
                                   exactRole={config.userRoles['admin']} />

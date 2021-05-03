@@ -23,6 +23,7 @@ const Dashboard = props => {
             <SideNav menuComponents={[
                 {label: intl.formatMessage({id:'pba.loggedIn.overview'}), link: '/overview', iconType: 'overview'},
                 {label: 'Devices', link: '/devices', iconType: 'transactions'},
+                {label: 'Users', link: '/users', iconType: 'transactions'},
                 {label: 'Powerbanks', link: '/powerbanks', iconType: 'transactions'},
                 {label: 'Transactions', link: '/transactions', iconType: 'transactions'},
                 {label: 'Cards', link: '/cards', iconType: 'cards'},
